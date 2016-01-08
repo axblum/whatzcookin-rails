@@ -7,7 +7,8 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'fdd548625a26d5fa4b24dbfb046efe6558453bff84f7c8ca6eb39327574eb8091f4152a844c6ce2b90962a907fc48b90265348f9ba482295f4e2263fb5f96676'
-
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, "GOOGLE_APP_ID", "GOOGLE_APP_SECRET", { access_type: "offline", approval_prompt: "" }
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
