@@ -8,4 +8,10 @@ class RecipesController < ApplicationController
     id = recipes.sample['id']
     redirect_to recipe_path(id)
   end
+  def random_recipe
+    recipe = Recipe.get_random
+    id = recipe['id']
+    redirect_to recipe_path(id)
+  end
+
 end
