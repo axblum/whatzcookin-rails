@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_or_create_by(api_id: params[:id])
     @recipe_info = Recipe.get_recipe(params[:id])
     @comments = @recipe.comments
-    p @comments
     @comment = @recipe.comments.new
   end
 

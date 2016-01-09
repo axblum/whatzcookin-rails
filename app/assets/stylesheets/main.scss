@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two|Berkshire+Swash|Merienda+One|Arimo|Josefin+Sans);
+
+/*Fonts*/
+$logo-font: 'Lobster Two', cursive;
+$font-stack: 'Josefin Sans', Tahoma, sans-serif;
+
+/*Colors*/
+$primary-color: #b5ca7e;
+$primary-tint: #bccf8a;
+$primary-shade: #a2b571;
+
+
+$secondary-color: #f26a6c;
+$secondary-tint: #f48789;
+$secondary-shade: #f26a6c;
+
+$tertiary-color: #ffdd2f;
+$tertiary-tint: #ffe358;
+$tertiary-shade: #fbd721;
+
+$off-white: #fdfffa;
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	background-color: $off-white;
+	margin: 0 0 1em;
+	font: 1.2em $font-stack;
+}
+
+nav {
+	background-color: $primary-color;
+	color: $off-white;
+	display: block;
+	text-align: right;
+	padding-right: 1.5em;
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		display: inline-block;
+		padding: 1em 0.45em;
+		
+		&:hover {
+    	background-color: $primary-tint;
+  	}
+	}
+
+	a { text-decoration: none; 
+			color: $off-white;
+	}
+
+}
+
+.logo-text {
+	font: 5em $logo-font;
+	color: $primary-color;
+}
+
+.center-content {
+	text-align: center;
+}
+
+form {
+	input[type='text'] {
+		font: 1.25em $font-stack;
+		padding: 0.2em;
+		text-align: center;
+
+		&:focus {
+			outline: none !important;
+		}
+	}
+	input[type='submit'] {
+		color: $off-white;
+		border-style: none;
+		padding: 1em;
+		margin: 4px;
+		border-radius: 10px;
+	}
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 1em;
+	font-size: 0.75em;
+	padding: 0.5em 0;
+	background-color: $primary-color;
+	color: $off-white;
+}
