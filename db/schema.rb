@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160109172115) do
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.integer  "api_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
