@@ -10,11 +10,20 @@ class Recipe < ActiveRecord::Base
 
   def self.get_recipe(id)
     response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/#{id}/information
-",
+    ",
     headers:{
       "X-Mashape-Key" => ENV['SPOONACULAR_API'],
       "Accept" => "application/json"
     }
+    return response
+  end
+  def self.get_random
+    id = rand(1..100000)
+    response = self.get_recipe(id)
+    while response.code !=200
+      id = rand(1..100000)
+      response = self.get_recipe(id)
+    end
     return response
   end
 end
