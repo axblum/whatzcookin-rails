@@ -5,7 +5,8 @@
 end
 
 
-20.times do
+200.times do
   Comment.create!(text: Faker::Lorem.paragraph,
-                  user_id: rand(1..10))
+                  user_id: rand(1..10),
+                  recipe_id: rand(640000...640100))
 end
