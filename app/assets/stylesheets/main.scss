@@ -1,14 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two|Berkshire+Swash|Merienda+One|Arimo|Josefin+Sans);
 
+/*Fonts*/
 $logo-font: 'Lobster Two', cursive;
 $font-stack: 'Josefin Sans', Tahoma, sans-serif;
+
+/*Colors*/
 $primary-color: #b5ca7e;
-$primary-tint: #cbd9a4;
+$primary-tint: #bccf8a;
+$primary-shade: #a2b571;
+
+
+$secondary-color: #f26a6c;
+$secondary-tint: #f48789;
+$secondary-shade: #f26a6c;
+
+$tertiary-color: #ffe76b;
+$tertiary-tint: #ffeb88;
+$tertiary-shade: #ffe76b;
+
 $off-white: #fdfffa;
 
 
 body {
 	background-color: $off-white;
+	color: $off-white;
 	margin: 0;
 	font: 1.2em $font-stack;
 }
@@ -48,4 +63,33 @@ nav {
 
 .center-content {
 	text-align: center;
+}
+
+form {
+	input[type='text'] {
+		font: 1.25em $font-stack;
+		padding: 0.2em;
+		text-align: center;
+
+		&:focus {
+			outline: none !important;
+		}
+	}
+	input[type='submit'] {
+		color: $off-white;
+		border-style: none;
+		padding: 1em;
+		margin: 2px;
+		border-radius: 10px;
+	}
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 0.75em;
+	padding: 0.5em 0;
+	background-color: $primary-color;
+
 }
