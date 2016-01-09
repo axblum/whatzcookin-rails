@@ -1,6 +1,7 @@
 @import 'main';
 
 form {
+	display: inline-block;
 	input.find-a-recipe {
 		background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
 		  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
