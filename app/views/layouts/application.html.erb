@@ -10,6 +10,7 @@
   <header>
     <nav class='navbar navbar-default'>
       <ul>
+      <li><%= link_to "Home", root_path %></li>|
       <% if user_signed_in? %>
       <li>Signed in as <%= current_user.name %>. Not you?</li>
       <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
@@ -21,7 +22,7 @@
       </ul>
     </nav>
   </header>
-  <div class='container center-content page-wrap'>
+  <div class='container center-content'>
     <h1 class='logo-text'>WhatzCookin</h1>
     <%= yield %>
   </div>

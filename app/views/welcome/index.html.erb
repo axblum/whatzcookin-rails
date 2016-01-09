@@ -2,7 +2,7 @@
 	<%= flash[:error] %>
 	<%= form_tag('/retrieve_recipes')  do %>
 		<div>
-			<%= text_field_tag('ingredient', "", size: 40) %>
+			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off) %>
 		</div>
 		<div class='row'>
 			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-md-5' %>
