@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two|Berkshire+Swash|Merienda+One|Arimo|Josefin+Sans);
+
+$logo-font: 'Lobster Two', cursive;
+$font-stack: 'Josefin Sans', Tahoma, sans-serif;
+$primary-color: #b5ca7e;
+$primary-tint: #cbd9a4;
+$off-white: #fdfffa;
+
+
+body {
+	background-color: $off-white;
+	margin: 0;
+	font: 1.2em $font-stack;
+}
+
+nav {
+	background-color: $primary-color;
+	color: $off-white;
+	display: block;
+	text-align: right;
+	padding-right: 1.5em;
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		display: inline-block;
+		padding: 1em 0.45em;
+		
+		&:hover {
+    	background-color: $primary-tint;
+  	}
+	}
+
+	a { text-decoration: none; 
+			color: $off-white;
+	}
+
+}
+
+.logo-text {
+	font: 5em $logo-font;
+	color: $primary-color;
+}
+
+.center-content {
+	text-align: center;
+}
