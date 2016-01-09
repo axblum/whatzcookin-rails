@@ -5,9 +5,8 @@ $(document).ready(function(){
 var createComment = function(){
   $('.new_comment').on('submit', function(e){
     e.preventDefault();
-    console.log('IN THE BEGINNING')
-    var formData = $('.new_comment').serialize();
-    console.log(formData)
+    var formData = $(this).serialize();
+    debugger
     var request = $.ajax({
       method: 'POST',
       url: '/recipes/5/comments',

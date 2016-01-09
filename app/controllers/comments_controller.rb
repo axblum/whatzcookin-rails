@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p "$" * 100
-    p params
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
