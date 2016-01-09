@@ -74,6 +74,12 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+<<<<<<< HEAD
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+=======
+>>>>>>> aeb998cb717295295e60c43ea800ffb7df5cbed7
     i18n (0.7.0)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -182,6 +188,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+<<<<<<< HEAD
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
+=======
+>>>>>>> aeb998cb717295295e60c43ea800ffb7df5cbed7
     slop (3.6.0)
     spring (1.6.2)
     sprockets (3.5.2)
@@ -218,6 +230,10 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+<<<<<<< HEAD
+  httparty
+=======
+>>>>>>> aeb998cb717295295e60c43ea800ffb7df5cbed7
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
@@ -228,6 +244,10 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+<<<<<<< HEAD
+  simple_form
+=======
+>>>>>>> aeb998cb717295295e60c43ea800ffb7df5cbed7
   spring
   turbolinks
   uglifier (>= 1.3.0)
