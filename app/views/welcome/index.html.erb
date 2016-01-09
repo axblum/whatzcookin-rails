@@ -1,4 +1,5 @@
 <div class='row'>
+	<%= flash[:error] %>
 	<%= form_tag('/retrieve_recipes')  do %>
 		<div>
 			<%= text_field_tag('ingredient', "", size: 40) %>
