@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
