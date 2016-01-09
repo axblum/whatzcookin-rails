@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   def show
     @recipe = Recipe.get_recipe(params[:id])
+    require 'pp'
+    pp @recipe
   end
 
   def retrieve_recipes

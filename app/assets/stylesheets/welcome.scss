@@ -8,8 +8,10 @@ form {
 		  background: linear-gradient(top, $secondary-color, $secondary-tint);
 		font-size: 0.75em;
 
+
 		&:hover {
 			background: $secondary-shade;
+			cursor: pointer;
 		}
 	}
 
@@ -22,6 +24,7 @@ form {
 
 		&:hover {
 			background: $tertiary-shade;
+			cursor: pointer;
 		}
 	}
 }

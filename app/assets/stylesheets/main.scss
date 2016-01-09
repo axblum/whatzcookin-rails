@@ -14,17 +14,20 @@ $secondary-color: #f26a6c;
 $secondary-tint: #f48789;
 $secondary-shade: #f26a6c;
 
-$tertiary-color: #ffe76b;
-$tertiary-tint: #ffeb88;
-$tertiary-shade: #ffe76b;
+$tertiary-color: #ffdd2f;
+$tertiary-tint: #ffe358;
+$tertiary-shade: #fbd721;
 
 $off-white: #fdfffa;
 
+html {
+	position: relative;
+	min-height: 100%;
+}
 
 body {
 	background-color: $off-white;
-	color: $off-white;
-	margin: 0;
+	margin: 0 0 1em;
 	font: 1.2em $font-stack;
 }
 
@@ -79,7 +82,7 @@ form {
 		color: $off-white;
 		border-style: none;
 		padding: 1em;
-		margin: 2px;
+		margin: 4px;
 		border-radius: 10px;
 	}
 }
@@ -88,8 +91,9 @@ footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	height: 1em;
 	font-size: 0.75em;
 	padding: 0.5em 0;
 	background-color: $primary-color;
-
+	color: $off-white;
 }

@@ -1,9 +1,11 @@
 <div class='row'>
 	<%= form_tag('/retrieve_recipes')  do %>
-		<div><%= text_field_tag('ingredient', "", size: 40) %></div>
-		<%= submit_tag 'Find a recipe', class: 'find-a-recipe' %>
+		<div>
+			<%= text_field_tag('ingredient', "", size: 40) %>
+		</div>
+		<div><%= submit_tag 'Find a recipe', class: 'find-a-recipe' %>
 	<% end %>
-	<%= form_tag('/random_recipe') do %>
+	<%= form_tag('/random_recipe', class: 'random-recipe-form') do %>
 		<%= submit_tag "I'm feeling hungry", class: 'im-feeling-hungry' %>
 	<% end %>
 </div>
