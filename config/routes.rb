@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/edit'
+
+  get 'comments/new'
+
+  get 'comments/show'
+
   resources :recipes
   resources :welcome, only: [:index]
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'

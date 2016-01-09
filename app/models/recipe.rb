@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  has_many :comments
   def self.get_recipes_by_ingredient(ingredient, limit)
     response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients=#{ingredient}&number=#{limit}",
     headers:{
