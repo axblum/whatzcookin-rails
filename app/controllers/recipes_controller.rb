@@ -10,7 +10,6 @@ class RecipesController < ApplicationController
   end
   def random_recipe
     recipe = Recipe.get_random
-    p recipe
     id = recipe['id']
     redirect_to recipe_path(id)
   end
