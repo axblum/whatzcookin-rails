@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/recipes/:recipe_id/comments' => 'comments#index'
+  # get '/recipes/:recipe_id/comments' => 'comments#index'
 
   get '/recipes/:recipe_id/comments/new' => 'comments#new'
   post '/recipes/:recipe_id/comments' => 'comments#create'

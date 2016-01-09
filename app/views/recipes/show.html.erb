@@ -18,3 +18,15 @@
     <%= @recipe['sourceUrl'] %>
   </div>
 </div>
+
+
+<p>Comments:</p>
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <%= comment.text %>
+    by
+    <%= comment.user.name %>
+  </li>
+<% end %>
+</ul>

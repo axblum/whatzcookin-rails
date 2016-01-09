@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def show
     @recipe = Recipe.get_recipe(params[:id])
+    @comments = Comment.where(recipe_id: params[:id])
   end
 
   def retrieve_recipes

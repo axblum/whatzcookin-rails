@@ -1,2 +1,12 @@
 <h1>Comments#index</h1>
 <p>Find me in app/views/comments/index.html.erb</p>
+<%= @recipe %>
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <%= comment.text %>
+    by
+    <%= comment.user.name %>
+  </li>
+<% end %>
+</ul>

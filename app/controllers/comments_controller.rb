@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-  def index
-    @recipe = Recipe.get_recipe(params[:recipe_id])
-    @comments = Comment.where(recipe_id: params[:recipe_id])
-  end
-
   def edit
   end
 
