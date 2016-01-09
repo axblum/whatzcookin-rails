@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :recipes
+  resources :welcome, only: [:index]
+  post '/retrieve_recipes' => 'recipes#retrieve_recipes'
+  root 'welcome#index'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  # resources 'users'
+  devise_scope :user do
+    get '/register' => 'devise/registrations#new'
+    post '/register' => 'devise/registrations#create'
+
+    get '/login' => 'devise/sessions#new'
+    post '/login' => 'devise/sessions#create'
+    delete "/logout" => "devise/sessions#destroy"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
