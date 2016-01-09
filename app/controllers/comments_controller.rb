@@ -5,12 +5,15 @@ class CommentsController < ApplicationController
   def update
   end
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    @comment = Comment.new
+    @recipe = Recipe.find(params[:recipe_id])
+    @comment = @post.comments.build(comment_params)
+    if @comment.save
+      flash[:success] = 'Comment posted.'
+      redirect_to @recipe
+    else
+      render @recipe
+    end
   end
 
   def show

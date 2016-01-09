@@ -2,8 +2,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_or_create_by(api_id: params[:id])
     @recipe_info = Recipe.get_recipe(params[:id])
-    @comments = Comment.where(recipe_id: params[:id])
-    @comment = Comment.new
+    @comments = @recipe.comments
+    @comment = @recipe.comments.new
   end
 
   def retrieve_recipes

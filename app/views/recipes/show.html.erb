@@ -26,7 +26,7 @@
     <% @comments.each do |comment| %>
       <li>
         <p><%= comment.text %><p>
-        <p>by <%= comment.user.name %></p>
+        <p>by <%= comment.user %></p>
       </li>
     <% end %>
   </ul>
@@ -36,5 +36,9 @@
 </div>
 
 
-
-
+<div>
+  <%= form_for [@post, @comment], :url => 'new_comment_path' do |f| %>
+    <%= f.text_area :text %>
+    <%= f.submit "Comment" %>
+  <% end %>
+</div>
