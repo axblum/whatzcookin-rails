@@ -1,3 +1,7 @@
-<%= form_tag('/retrieve_recipes') %>
+<%= form_tag('/retrieve_recipes')  do %>
 <%= text_field_tag('ingredient') %>
 <%= submit_tag 'Submit' %>
+<% end %>
+<%= form_tag('/random_recipe') do %>
+<%= submit_tag "I'm feeling hungry" %>
+<% end %>

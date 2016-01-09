@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :welcome, only: [:index]
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
+  post '/random_recipe' => 'recipes#random_recipe'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   # resources 'users'
