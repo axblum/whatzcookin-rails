@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    p "$$$$$$$$$$$$$$$"*50
+    p params
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = @post.comments.build(comment_params)
+    @comment = @recipe.comments.build(comment_params)
     if @comment.save
       flash[:success] = 'Comment posted.'
       redirect_to @recipe
@@ -20,5 +22,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
