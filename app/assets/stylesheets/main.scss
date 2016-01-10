@@ -56,6 +56,12 @@ nav {
 	a { text-decoration: none; 
 			color: $off-white;
 	}
+
+	.logo-text {
+		font: 1.25em $logo-font;
+		float: left;
+		padding: 0.45em;
+	}
 }
 
 .center-content {
@@ -64,11 +70,6 @@ nav {
 
 .container {
 	margin-bottom: 2em;
-}
-
-.logo-text {
-	font: 1.25em $logo-font;
-	float: left;
 }
 
 form {
