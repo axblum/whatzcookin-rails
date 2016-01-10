@@ -5,18 +5,19 @@ $(document).ready(function(){
 var createComment = function(){
   $('.new_comment').on('submit', function(e){
     e.preventDefault();
-    var formData = $(this).serialize();
-    debugger
+    var formData = $('.new_comment').serialize();
+    var formArray = $('.new_comment').serializeArray();
     var request = $.ajax({
       method: 'POST',
-      url: '/recipes/5/comments',
+      url: '/recipes/' + formArray[1]['value'] + '/comments',
       data: formData,
       dataType: 'JSON',
     });
     console.log('BETWEEN')
     request.done(function(response){
       console.log('DONE')
-      $('.comments ul').append('<li>' + response.body + '</li>');
+      console.log(response)
+      $('.comments ul').append('<li>' + response.text + '</li>');
     });
   });
 }
