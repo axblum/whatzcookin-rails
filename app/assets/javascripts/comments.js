@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('body').submit('.new_comment', createComment);
+  $('.new_comment').submit(createComment);
 });
 
 var createComment = function(e){
