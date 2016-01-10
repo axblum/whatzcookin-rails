@@ -1,20 +1,49 @@
 <div class='row'>
   <div>
-    <%= image_tag("http://webknox.com/recipeImages/#{@recipe['id']}-556x370.jpg", class: "img-responsive col-md-5") %>
+    <%= image_tag("http://webknox.com/recipeImages/#{@recipe_info['id']}-556x370.jpg", class: "img-responsive col-md-5") %>
   </div>
   <div class='col-md-6'>
-    <h2><%= @recipe['title'] %></h2>
+    <h2><%= @recipe_info['title'] %></h2>
   </div>
 </div>
 <div class='row'>
   <div class='col-md-4'>
     <h1>Ingredients</h1>
-    <% @recipe['extendedIngredients'].each do |ingredient| %>
+    <% @recipe_info['extendedIngredients'].each do |ingredient| %>
       <div><%= ingredient['name'] %> <%= ingredient['amount'] %> <%= ingredient['unit'] %></div>
     <% end %>
   </div>
   <div class='col-md-11'>
     <h2>Instructions</h2>
-    <%= @recipe['sourceUrl'] %>
+
+    <%= link_to("Click Here for instructions", @recipe['sourceUrl']) %>
+
   </div>
+</div>
+
+<div class="comments">
+  <h3>Comments:</h3>
+  <% if @comments  %>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <p><%= comment.text %><p>
+        <p>by <%= comment.user.name %></p>
+        <p>at <%= comment.created_at %></p>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There don't seem to be any comments! Login and leave yours!</p>
+  <% end %>
+</div>
+
+
+<div>
+  <%= form_for [@post, @new_comment], :url => "/recipes/#{@recipe.id}/comments" do |f| %>
+    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+    <%= f.text_area :text %>
+    <%= f.submit "Comment" %>
+  <% end %>
 </div>

@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
-  resources :recipes
+  # get '/recipes/:recipe_id' => 'comments#index'
+
+  get '/recipes/:recipe_id/comments/new' => 'comments#new'
+  post '/recipes/:recipe_id/comments' => 'comments#create'
+
+  get '/comments/:id/edit' => 'comments#edit'
+  patch '/comments/:id' => 'comments#update'
+
+  get '/comments/:id' => 'comments#show'
+
+  delete '/comments/:id' => 'comments#destroy'
+
+  resources :recipes do
+    resources :comments, only: [:index, :new, :create]
+  end
+  resources :comments, only: [:show, :edit, :update, :destory]
+
   resources :welcome, only: [:index]
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
