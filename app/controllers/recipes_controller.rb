@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
       redirect_to root_path
     end
   end
+
   def random_recipe
     recipe = Recipe.get_random
     id = recipe['id']

@@ -13,9 +13,7 @@ var createComment = function(){
       data: formData,
       dataType: 'JSON',
     });
-    console.log('BETWEEN')
     request.done(function(response){
-      console.log('DONE')
       console.log(response)
       $('.comments ul').append('<li>' + response.text + '</li>');
     });

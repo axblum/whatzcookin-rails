@@ -56,16 +56,19 @@ nav {
 	a { text-decoration: none; 
 			color: $off-white;
 	}
-
-}
-
-.logo-text {
-	font: 5em $logo-font;
-	color: $primary-color;
 }
 
 .center-content {
 	text-align: center;
+}
+
+.container {
+	margin-bottom: 2em;
+}
+
+.logo-text {
+	font: 1.25em $logo-font;
+	float: left;
 }
 
 form {
