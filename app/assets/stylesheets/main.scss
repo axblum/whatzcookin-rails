@@ -57,11 +57,19 @@ nav {
 			color: $off-white;
 	}
 
+	.logo-text {
+		font: 1.25em $logo-font;
+		float: left;
+		padding: 0.45em;
+	}
 }
-
 
 .center-content {
 	text-align: center;
+}
+
+.container {
+	margin-bottom: 2em;
 }
 
 form {

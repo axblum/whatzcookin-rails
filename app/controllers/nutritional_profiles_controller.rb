@@ -3,7 +3,6 @@ class NutritionalProfilesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render 'show'
   end
 
   def show
@@ -15,8 +14,6 @@ class NutritionalProfilesController < ApplicationController
   end
 
   def new
-    p "*********************"
-    p @restrictions
      @restrictions = Restriction.all
      @cuisine_styles = CuisineStyle.all
      @excluded_ingredients = ExcludedIngredient.all
@@ -26,4 +23,7 @@ class NutritionalProfilesController < ApplicationController
     @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
     redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
    end
+
+  def edit
+  end
 end
