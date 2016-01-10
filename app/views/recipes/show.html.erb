@@ -26,12 +26,12 @@
   <% if @comments  %>
   <ul>
     <% @comments.each do |comment| %>
-      <li>
+      <li id="<%= dom_id(comment) %>">
         <p><%= comment.text %><p>
         <p>by <%= comment.user.name %></p>
         <p>at <%= comment.created_at %></p>
         <% if current_user.id == comment.user.id %>
-          <%= button_to 'Edit Comment', method: :put   %>
+          <%= button_to 'Edit Comment', recipe_comment_path(@recipe.id, comment.id), method: :put %>
         <% end %>
       </li>
     <% end %>
