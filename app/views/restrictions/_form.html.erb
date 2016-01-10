@@ -1,0 +1,17 @@
+<%= form_for @restrictions do |f| %>
+<% if @restrictions && @restrictions.errors.any? %>
+  <div id="error_explanation">
+      <%= pluralize(@restrictions@errors.count, "error") %>
+      prohibited this restriction from being saved:
+  </div>
+      <% end %>
+
+      <p>
+        <%= f.label :name %><br>
+          <div id="errors">
+            <% if @restrictions.errors[:name].any? %>
+            name <%= @restrictions.errors[:name].first %>
+            <% end %>
+          <div id= "<%= "errors" if @restrictions.errors[:name].any? %>"> <%= f.text_field :name %>
+          </div>
+      </p>

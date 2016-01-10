@@ -1,0 +1,19 @@
+Dietary restrictions:
+
+  <%= form_tag(controller: "nutritional_profiles", action: "create", method: "get") do %>
+  <% @restrictions.each do |restriction| %>
+    <%= label_tag(:restriction, restriction.name) %>
+    <%= check_box_tag(:restriction) %>
+  <% end %>
+    <%= submit_tag %>
+  <% end %>
+<br>
+Preferred cuisine styles:<br>
+<% @cuisine_styles.each do |cuisine| %>
+  <p><%= cuisine.name %></p>
+<% end %>
+<br>
+Excluded ingredients:<br>
+<% @excluded_ingredients.each do |ingredient| %>
+  <p><%= ingredient.name %></p>
+<% end %>

@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20160109222104) do
 
   create_table "excluded_ingredients", force: :cascade do |t|
     t.string   "name"
+    t.integer  "nutritional_profile_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "restrictions", force: :cascade do |t|
