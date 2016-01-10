@@ -27,6 +27,7 @@
   <ul>
     <% @comments.each do |comment| %>
       <li>
+        <%= button_to 'Edit Comment',  %>
         <p><%= comment.text %><p>
         <p>by <%= comment.user.name %></p>
         <p>at <%= comment.created_at %></p>
