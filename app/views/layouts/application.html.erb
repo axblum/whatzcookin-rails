@@ -13,6 +13,11 @@
       <li><%= link_to "Home", root_path %></li>|
       <% if user_signed_in? %>
       <li>Signed in as <%= current_user.name %>. Not you?</li>
+      <li><% if current_user.nutritional_profile %>
+      <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user,current_user.nutritional_profile.id) %>
+        <% else %>
+        <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user), :method => :post %>
+        <% end %></li>
       <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
       <% else %>
       <li><%= link_to "Sign up", new_user_registration_path %></li>|
@@ -28,7 +33,7 @@
   </div>
 
   <footer class='center-content'>
-    &copy; The Dream Team    
+    &copy; The Dream Team
   </footer>
 </body>
 </html>

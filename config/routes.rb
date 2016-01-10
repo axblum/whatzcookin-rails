@@ -21,9 +21,14 @@ Rails.application.routes.draw do
   root 'welcome#index'
   post '/random_recipe' => 'recipes#random_recipe'
 
+  # Nested nutritional profile under Devise scope
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  # resources 'users'
+
   devise_scope :user do
+   resources :users do
+    resources :nutritional_profiles
+  end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'
 

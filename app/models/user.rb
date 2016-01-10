@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+
+  has_many :cuisine_styles, through: :nutritional_profile
+  has_many :excluded_ingredients, through: :nutritional_profile
+  has_many :restrictions, through: :nutritional_profile
+  has_one :nutritional_profile
+
   devise :omniauthable
   validates_presence_of :email, :encrypted_password
   has_many :comments
