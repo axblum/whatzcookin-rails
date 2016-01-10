@@ -2,6 +2,7 @@ class Recipe < ActiveRecord::Base
   has_many :comments
   validates_presence_of :api_id
   def self.get_recipes_by_ingredient(ingredient, limit)
+    
     response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients=#{ingredient}&number=#{limit}",
     headers:{
       "X-Mashape-Key" => ENV['SPOONACULAR_API'],
