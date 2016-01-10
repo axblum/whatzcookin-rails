@@ -1,0 +1,2 @@
+class ExcludedIngredientsController < ApplicationController
+end
