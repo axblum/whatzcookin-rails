@@ -16,7 +16,7 @@
   <div class='col-md-11'>
     <h2>Instructions</h2>
 
-    <%= link_to("Click Here for instructions", @recipe['sourceUrl']) %>
+    <%= link_to("Click Here for instructions", @recipe_info['sourceUrl']) %>
 
   </div>
 </div>
@@ -41,7 +41,7 @@
 
 <div>
   <% if current_user %>
-    <%= form_for [@recipe, @new_comment], :url => "/recipes/#{@recipe.id}/comments", :remote => true do |f| %>
+    <%= form_for [@recipe, @new_comment], :url => "/recipes/#{@recipe.id}/comments" do |f| %>
       <%= f.hidden_field :recipe_id, :value => @recipe.id %>
       <%= f.hidden_field :user_id, :value => current_user.try(:id) %>
       <%= f.text_area :text %>
