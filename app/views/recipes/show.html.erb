@@ -27,10 +27,12 @@
   <ul>
     <% @comments.each do |comment| %>
       <li>
-        <%= button_to 'Edit Comment',  %>
         <p><%= comment.text %><p>
         <p>by <%= comment.user.name %></p>
         <p>at <%= comment.created_at %></p>
+        <% if current_user.id == comment.user.id %>
+          <%= button_to 'Edit Comment', method: :put   %>
+        <% end %>
       </li>
     <% end %>
   </ul>
@@ -42,11 +44,6 @@
 
 <div>
   <% if current_user %>
-    <%= form_for [@recipe, @new_comment], :url => "/recipes/#{@recipe.id}/comments" do |f| %>
-      <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-      <%= f.hidden_field :user_id, :value => current_user.try(:id) %>
-      <%= f.text_area :text %>
-      <%= f.submit "Comment" %>
-    <% end %>
+    <%= render 'comment_form' %>
   <% end %>
 </div>
