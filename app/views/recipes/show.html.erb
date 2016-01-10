@@ -23,7 +23,7 @@
 
 <div class="comments">
   <h3>Comments:</h3>
-  <% if @comments %>
+  <% if @comments  %>
   <ul>
     <% @comments.each do |comment| %>
       <li>
@@ -40,10 +40,9 @@
 
 
 <div>
-
-  <%= form_for [@post, @new_comment], :url => "/recipes/#{@recipe.id}/comments", :remote => true do |f| %>
+  <%= form_for [@post, @new_comment], :url => "/recipes/#{@recipe.id}/comments" do |f| %>
     <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
     <%= f.text_area :text %>
     <%= f.submit "Comment" %>
   <% end %>

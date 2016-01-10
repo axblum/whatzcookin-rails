@@ -6,16 +6,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.update_attributes(user_id: current_user.id)
+    @new_comment = Comment.new(comment_params)
+    @new_comment.update_attributes(user_id: current_user.id)
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+      if @new_comment.save
+        format.html { redirect_to @new_comment, notice: 'new_comment was successfully created.' }
+        format.json { render json: @new_comment, status: :created, location: @new_comment }
         format.js
       else
         format.html { render action: "new" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.json { render json: @new_comment.errors, status: :unprocessable_entity }
         format.js
       end
     end
