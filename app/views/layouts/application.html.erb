@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>WhatzcookinRails</title>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,26 +10,28 @@
 <body>
   <header>
     <nav class='navbar navbar-default'>
+      <%= link_to "WhatzCookin", root_path, class: 'logo-text' %>
       <ul>
-      <li><%= link_to "Home", root_path %></li>|
-      <% if user_signed_in? %>
-      <li>Signed in as <%= current_user.name %>. Not you?</li>
-      <li><% if current_user.nutritional_profile %>
-      <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user,current_user.nutritional_profile.id) %>
+        <li><%= link_to "Home", root_path %></li>|
+        <% if user_signed_in? %>
+        <li>Signed in as <%= current_user.name %>. Not you?</li>
+        <li>
+          <% if current_user.nutritional_profile %>
+            <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user,current_user.nutritional_profile.id) %>
+          <% else %>
+            <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user), :method => :post %>
+          <% end %>
+        </li>
+        <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
         <% else %>
-        <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user), :method => :post %>
-        <% end %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
-      <% else %>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>|
-      <li><%= link_to "Sign in", new_user_session_path %> </li>|
-      <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
-      <% end %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>|
+        <li><%= link_to "Sign in", new_user_session_path %> </li>|
+        <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+        <% end %>
       </ul>
     </nav>
   </header>
-  <div class='container center-content'>
-    <h1 class='logo-text'>WhatzCookin</h1>
+  <div class='container'>
     <%= yield %>
   </div>
 

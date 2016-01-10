@@ -1,5 +1,9 @@
-<div class='row'>
-	<%= flash[:error] %>
+<div class='row center-content'>
+  <h1>WhatzCookin</h1>
+
+	<div>
+		<%= flash[:error] %>
+	</div>
 	<%= form_tag('/retrieve_recipes')  do %>
 		<div>
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off) %>
