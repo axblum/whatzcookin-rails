@@ -13,11 +13,16 @@
       <% if user_signed_in? %>
       Signed in as <%= current_user.name %>. Not you?
       <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+        <% if current_user.nutritional_profile %>
+      <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user,current_user.nutritional_profile.id) %>
+        <% else %>
+        <%= link_to "View Your Profile Page", user_nutritional_profiles_path(current_user), :method => :post %>
+        <% end %>
       <% else %>
       <%= link_to "Sign up", new_user_registration_path %> or
       <%= link_to "Sign in", new_user_session_path %>
       <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-      <%= link_to "View Your Profile Page", user_nutritional_profile_path(:nutritional_profiles) %>
+
       <% end %>
     </nav>
   </header>

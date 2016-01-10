@@ -6,27 +6,25 @@ class NutritionalProfilesController < ApplicationController
     # @user = User.new (user_params)
     # @user = User.all
     render 'show'
-end
+  end
 
-def show
-  @user = User.find(params[:id])
-  @profile = @user.profile
-  render 'show'
-end
+  def show
+   # @user = User.find(params[:id])
+    @nutritional_profile = current_user.nutritional_profile
+    render 'show'
+  end
 
-def new
-  @nutritional_profile = NutritionalProfile.new
-  @restrictions = Restriction.all
-end
+  def new
+     @restrictions = Restriction.all
+  end
 
   def create
-    @user = User.new(user_params)
-      if @user.save
-      @profile = NutritionalProfile.create
-      @profile.user_id = @user.user_id
-      @profile.save
-      redirect_to root_url, :notice => "You have successfully signed up!"
-    end
+    @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
+    redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
+   end
+
+
+   # @excluded_ingredient = ExcludedIngredient.all
   end
 
 def edit
@@ -41,4 +39,3 @@ end
   # def user_params
   #   params.require(:user).permit(:name)
   # end
-end

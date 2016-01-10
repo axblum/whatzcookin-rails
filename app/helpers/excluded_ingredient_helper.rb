@@ -1,0 +1,2 @@
+module ExcludedIngredientHelper
+end
