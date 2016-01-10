@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p "$" * 100
-    p params
     @new_comment = Comment.new(comment_params)
     @new_comment.update_attributes(user_id: current_user.id)
     respond_to do |format|
