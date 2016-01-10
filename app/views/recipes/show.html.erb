@@ -40,10 +40,12 @@
 
 
 <div>
-  <%= form_for [@post, @new_comment], :url => "/recipes/#{@recipe.id}/comments" do |f| %>
-    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-    <%= f.hidden_field :user_id, :value => current_user.try(:id)%>
-    <%= f.text_area :text %>
-    <%= f.submit "Comment" %>
+  <% if current_user %>
+    <%= form_for [@recipe, @new_comment], :url => "/recipes/#{@recipe.id}/comments", :remote => true do |f| %>
+      <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+      <%= f.hidden_field :user_id, :value => current_user.try(:id) %>
+      <%= f.text_area :text %>
+      <%= f.submit "Comment" %>
+    <% end %>
   <% end %>
 </div>
