@@ -5,11 +5,13 @@ class NutritionalProfilesController < ApplicationController
   def index
     # @user = User.new (user_params)
     # @user = User.all
+    p "*" * 50
     render 'show'
   end
 
   def show
    # @user = User.find(params[:id])
+   p "-" * 50
     @nutritional_profile = current_user.nutritional_profile
     render 'show'
   end
@@ -19,16 +21,17 @@ class NutritionalProfilesController < ApplicationController
   end
 
   def create
+    p "+" * 50
     @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
     redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
-   end
-
-
-   # @excluded_ingredient = ExcludedIngredient.all
   end
 
-def edit
+
+  def edit
+  end
+   # @excluded_ingredient = ExcludedIngredient.all
 end
+
 
 # private
 
