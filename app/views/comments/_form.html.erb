@@ -1,4 +1,4 @@
 <%= form_for [@recipe, @comment] do |f| %>
   <%= f.text_area :text %>
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: 'button btn-green' %>
 <% end %>

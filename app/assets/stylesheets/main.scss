@@ -19,6 +19,8 @@ $tertiary-tint: #ffc061;
 $tertiary-shade: #FFA61E;
 
 $off-white: #fdfffa;
+$white-shade: #F0F0F0;
+$dark-grey: #4b4b4b;
 
 html {
 	position: relative;
@@ -72,24 +74,61 @@ nav {
 	margin: 2em;
 }
 
-form {
-	input[type='text'].search-box {
-		font: 1.25em $font-stack;
-		padding: 0.2em;
-		text-align: center;
+input[type='submit'], button, .button {
+	margin: 4px;
+	border-radius: 10px;
+	font-family: $font-stack;
 
-		&:focus {
-			outline: none !important;
-		}
-	}
+	&:hover { cursor: pointer; }
 }
 
-input[type='submit'], button, .button {
+.btn-reg {
+	background: $off-white;
+	border: 2px solid $dark-grey;
+	color: $dark-grey;
+	font-size: 0.75em;
+	padding: 0.3em 0.5em;
+
+	&:hover { background: $white-shade; }
+}
+
+.btn-green {
+	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: linear-gradient(top, $primary-shade, $primary-tint);
+	font-size: 0.75em;
 	color: $off-white;
 	border-style: none;
 	padding: 1em;
-	margin: 4px;
-	border-radius: 10px;
+
+	&:hover { background: $primary-color; }
+}
+
+.btn-red {
+	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: linear-gradient(top, $secondary-color, $secondary-tint);
+	font-size: 0.75em;
+	color: $off-white;
+	border-style: none;
+	padding: 1em;
+
+	&:hover { background: $secondary-shade; }
+}
+
+.btn-orange {
+	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
+	font-size: 0.75em;
+	color: $off-white;
+	border-style: none;
+	padding: 1em;
+
+	&:hover { background: $tertiary-shade; }
 }
 
 footer {

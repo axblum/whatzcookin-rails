@@ -1,37 +1,18 @@
 @import 'main';
 
-form {
-	display: inline-block;
-	input.find-a-recipe {
-		background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
-		  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
-		  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
-		  background: linear-gradient(top, $secondary-color, $secondary-tint);
-		font-size: 0.75em;
-
-
-		&:hover {
-			background: $secondary-shade;
-			cursor: pointer;
-		}
-	}
-
-	input.im-feeling-hungry {
-		background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
-		  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
-		  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
-		  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
-		font-size: 0.75em;
-
-		&:hover {
-			background: $tertiary-shade;
-			cursor: pointer;
-		}
-	}
-}
-
+form { display: inline-block; }
 
 .title-text {
 	font: 5em $logo-font;
 	color: $primary-color;
+}
+
+.search-box {
+	font: 1.25em $font-stack;
+	padding: 0.2em;
+	text-align: center;
+
+	&:focus {
+		outline: none !important;
+	}
 }

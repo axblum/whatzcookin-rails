@@ -3,6 +3,7 @@
   <p>by <%= comment.user.name %></p>
   <p>at <%= comment.created_at %></p>
   <% if current_user.id == comment.user.id %>
-    <%= link_to 'Edit Comment', edit_recipe_comment_path(recipe.id, comment.id), class: 'edit-comment-button' %>
+    <%= link_to 'Edit', edit_recipe_comment_path(recipe.id, comment.id), class: 'edit-comment-button button btn-reg' %>
+    <%= link_to 'Delete', [recipe, comment], method: :delete, class: 'delete-comment-button button btn-reg' %>
   <% end %>
 </li>
