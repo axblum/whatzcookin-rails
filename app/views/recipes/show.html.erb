@@ -21,6 +21,10 @@
   </div>
 </div>
 
+<div class="average-rating">
+  <%= display_rating(@recipe.ratings.average(:stars).to_i, 'Average') %>
+</div>
+
 <div>
   <h3>Comments:</h3>
   <% if @comments %>
@@ -34,7 +38,9 @@
   <% end %>
 </div>
 
-
+<div id="new-user-rating <%= dom_id(@recipe) %>">
+  <%= display_user_rating(@recipe) %>
+</div>
 <div class='new-comment-form'>
   <% if current_user %>
     <%= render partial: 'comments/form' %>
