@@ -23,17 +23,10 @@
 
 <div class="comments">
   <h3>Comments:</h3>
-  <% if @comments  %>
+  <% if @comments %>
   <ul>
     <% @comments.each do |comment| %>
-      <li id="<%= dom_id(comment) %>">
-        <p><%= comment.text %><p>
-        <p>by <%= comment.user.name %></p>
-        <p>at <%= comment.created_at %></p>
-        <% if current_user.id == comment.user.id %>
-          <%= button_to 'Edit Comment', recipe_comment_path(@recipe.id, comment.id), method: :put %>
-        <% end %>
-      </li>
+      <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
     <% end %>
   </ul>
   <% else %>
@@ -42,8 +35,8 @@
 </div>
 
 
-<div>
+<div class='new-comment-form'>
   <% if current_user %>
-    <%= render 'comment_form' %>
+    <%= render partial: 'comments/form' %>
   <% end %>
 </div>

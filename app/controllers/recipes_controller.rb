@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
     @recipe_info = Recipe.get_recipe(params[:id])
     @comments = @recipe.comments
     @comment = Comment.new
-    @new_comment = Comment.new
   end
 
   def retrieve_recipes

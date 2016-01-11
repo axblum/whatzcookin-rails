@@ -11,12 +11,12 @@ Rails.application.routes.draw do
 
   # Nested nutritional profile under Devise scope
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
 
   devise_scope :user do
-   resources :users do
-    resources :nutritional_profiles
-  end
+    resources :users do
+      resources :nutritional_profiles
+    end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'
 

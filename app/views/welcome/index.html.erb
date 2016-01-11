@@ -5,7 +5,7 @@
 		<%= flash[:error] %>
 	</div>
 	<%= form_tag('/retrieve_recipes')  do %>
-		<div>
+		<div class='search-box'>
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off) %>
 		</div>
 		<div class='row'>

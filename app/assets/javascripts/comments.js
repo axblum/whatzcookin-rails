@@ -1,32 +1,38 @@
 $(document).ready(function(){
-  $('.new_comment').submit(createComment);
-  // showEditForm();
+  bindListeners();
 });
 
-var createComment = function(e){
-  e.preventDefault();
-  var formData = $('.new_comment').serialize();
-  var url = $(this).attr("action")
-  var request = $.ajax({
-    method: 'POST',
-    url: url,
-    data: formData,
-  }).done(function(response){
-    console.log(response)
-     $('.comments ul').append(response)
-     $('.new_comment textarea').val("")
+function bindListeners() {
+  $(".new-comment-form").on("submit", "#new_comment", function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    var action = $(this).attr("action")
+    createComment(data, action);
+  });
+  $("li").on("click", ".edit-comment-form", function(e) {
+  debugger
+    e.preventDefault();
+    var action = $(this).attr("action")
+    editComment(actions);
   });
 };
 
-var showEditForm = function(e){
-  $('.comments').on('submit', '', function(e){
-    e.preventDefault()
-    $(this).toggle()
-    console.log(this)
-    console.log($(this).attr('action'))
-    var request = $.ajax({
-      method: 'GET',
-      url: $(this).attr('action') + '/edit'
-    })
+function createComment(data, action) {
+  $.ajax({
+    method: 'POST',
+    url: action,
+    data: data,
   })
-}
+  .done(function(response){
+    $('.comments ul').append(response)
+    $('.new_comment textarea').val("")
+  });
+};
+
+function editComment(action) {
+  $.ajax({
+    method: 'GET',
+    url: action + '/edit'
+  })
+};
+
