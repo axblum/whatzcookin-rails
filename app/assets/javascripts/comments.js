@@ -1,21 +1,60 @@
 $(document).ready(function(){
-  $('.new_comment').submit(createComment);
+  bindListeners();
 });
 
-var createComment = function(e){
-  e.preventDefault();
-  var formData = $('.new_comment').serialize();
-  var formArray = $('.new_comment').serializeArray();
-  console.log(formData)
-  console.log(formArray)
-  var request = $.ajax({
-    method: 'POST',
-    url: '/recipes/' + formArray[2]["value"] +'/comments',
-    data: formData,
-    dataType: 'JSON',
-  }).done(function(response){
-    console.log(response)
-     $('.comments ul').append('<li>' + response.text + '</li>');
-     $('.new_comment textarea').val("")
+function bindListeners() {
+  $(".new-comment-form").on("submit", "#new_comment", function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    var url = $(this).attr("action")
+    createComment(data, url);
   });
-}
+  $("li").on("click", ".edit-comment-button", function(e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+    $(this).toggle();
+    editComment(url);
+  });
+  $("li").on("submit", ".edit_comment", function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    var url = $(this).attr("action");
+    updateComment(data, url);
+  })
+};
+
+function createComment(data, url) {
+  $.ajax({
+    method: 'POST',
+    url: url,
+    data: data
+  })
+  .done(function(response) {
+    $('.comments ul').append(response)
+    $('.new_comment textarea').val("")
+  });
+};
+
+function editComment(url) {
+  $.ajax({
+    method: 'GET',
+    url: url
+  })
+  .done(function(response) {
+    var id = this.url.split("/")[4]
+    $("li#" + id).append(response);
+  });
+};
+
+function updateComment(data, url) {
+  $.ajax({
+    method: 'PATCH',
+    url: url,
+    data: data
+  })
+  .done(function(response) {
+    $("li#" + response.id).children().first().text(response.text);
+    $("li#" + response.id + " form").hide();
+    $("li#" + response.id + " .edit-comment-button").toggle();
+  });
+};

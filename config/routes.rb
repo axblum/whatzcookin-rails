@@ -1,20 +1,8 @@
 Rails.application.routes.draw do
-  # get '/recipes/:recipe_id' => 'comments#index'
-
-  get '/recipes/:recipe_id/comments/new' => 'comments#new'
-  post '/recipes/:recipe_id/comments' => 'comments#create'
-
-  get '/comments/:id/edit' => 'comments#edit'
-  patch '/comments/:id' => 'comments#update'
-
-  get '/comments/:id' => 'comments#show'
-
-  delete '/comments/:id' => 'comments#destroy'
 
   resources :recipes do
-    resources :comments, only: [:index, :new, :create]
+    resources :comments
   end
-  resources :comments, only: [:show, :edit, :update, :destory]
 
   resources :welcome, only: [:index]
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
@@ -23,12 +11,12 @@ Rails.application.routes.draw do
 
   # Nested nutritional profile under Devise scope
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
 
   devise_scope :user do
-   resources :users do
-    resources :nutritional_profiles
-  end
+    resources :users do
+      resources :nutritional_profiles
+    end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'
 
