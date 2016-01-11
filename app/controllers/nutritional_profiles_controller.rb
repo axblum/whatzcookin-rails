@@ -33,9 +33,16 @@ before_action :authenticate_user!
       current_user.nutritional_profile.restrictions << Restriction.find(restriction)
     end
     current_user.nutritional_profile.save
-
+    redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
   end
 
-  def edit
+    def edit
+    #   p "*********************************"
+    #   @nutritional_profile = NutritionalProfile.find(user_id: )
+    #   restrictions = params["restriction"]
+    #   restrictions.each do |restriction|
+    #   current_user.nutritional_profile.restrictions << Restriction.find(restriction)
+    # end
+    # current_user.nutritional_profile.save
   end
 end
