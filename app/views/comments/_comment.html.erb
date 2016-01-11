@@ -1,0 +1,8 @@
+<li id="<%= comment.id %>">
+  <p><%= comment.text %><p>
+  <p>by <%= comment.user.name %></p>
+  <p>at <%= comment.created_at %></p>
+  <% if current_user.id == comment.user.id %>
+    <%= link_to 'Edit Comment', edit_recipe_comment_path(recipe.id, comment.id), class: 'edit-comment-button' %>
+  <% end %>
+</li>

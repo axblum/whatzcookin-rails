@@ -1,22 +1,33 @@
 class CommentsController < ApplicationController
+
   def edit
+    @comment = Comment.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    if request.xhr?
+      render partial: "/comments/form"
+    else
+      render partial: "/comments/form"
+    end
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @comment.update_attributes(comment_params)
+    if @comment.save
+      if request.xhr?
+        render json: @comment
+      end
+    end
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.update_attributes(user_id: current_user.id)
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
-        format.js
-      else
-        format.html { render action: "new" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-        format.js
+    @recipe = Recipe.find(params[:recipe_id])
+    @comment.update_attributes(user_id: current_user.id, recipe_id: params[:recipe_id])
+    if @comment.save
+      if request.xhr?
+        render partial: "/comments/comment"
       end
     end
   end
@@ -30,6 +41,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :recipe_id)
+    params.require(:comment).permit(:text)
   end
 end
