@@ -29,9 +29,9 @@ before_action :authenticate_user!
     
     @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
 
-    restrictions = params["restriction"]
+    restrictions = params["dietary_restrictions"]
     restrictions.each do |restriction|
-      current_user.nutritional_profile.restrictions << Restriction.find(restriction)
+      current_user.nutritional_profile.restrictions << Restriction.find(restriction) unless current_user.nutritional_profile.restrictions.include? Restriction.find(restriction)
     end
     current_user.nutritional_profile.save
     redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
