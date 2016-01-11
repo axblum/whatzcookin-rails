@@ -1,19 +1,36 @@
-Dietary restrictions:
+<h2>Restrictions</h2>
+<div>
+	<h3>Dietary Restrictions</h3>
+	<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :put) do %>
+		<% @dietary_restrictions.each do |dietary_restriction| %>
+			<%= label_tag(:dietary_restriction, dietary_restriction.name) %>
+			<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id) %>
+		<% end %>
+		<%= submit_tag %>
+	<% end %>
+</div>
+<div>
+	<h3>Excluded Ingredients</h3>
+		<ul>
+			<% @user_excluded_ingredients.each do |excluded_ingredient| %>
+				<li>
+					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete) do %>
+					<%= hidden_field_tag("ingredient_id", excluded_ingredient.id) %>
+						<%= label_tag(:excluded_ingredient, excluded_ingredient.name) %>
+						<%= submit_tag "X" %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	<%= form_tag(restrictions_path(current_user,current_user.nutritional_profile)) do %>
+		<%= text_field_tag("name") %>
+		<%= submit_tag %>
+	<% end %>
+</div>
+<h2>Preferences</h2>
 
-  <%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile),  method: "put") do %>
-  <% @restrictions.each do |restriction| %>
-    <%= label_tag(:restriction, restriction.name) %>
-    <%= check_box_tag("[restriction][]", restriction.id) %>
-  <% end %>
-    <%= submit_tag %>
-  <% end %>
-<br>
-Preferred cuisine styles:<br>
-<% @cuisine_styles.each do |cuisine| %>
-  <p><%= cuisine.name %></p>
-<% end %>
-<br>
-Excluded ingredients:<br>
-<% @excluded_ingredients.each do |ingredient| %>
-  <p><%= ingredient.name %></p>
-<% end %>
+
+
+
+
+

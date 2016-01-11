@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   resources :welcome, only: [:index]
+  resources :restrictions, only: [:create]
+
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
   post '/random_recipe' => 'recipes#random_recipe'
