@@ -47,11 +47,21 @@ module RecipesHelper
     end
   end
 
+  def user_rating(recipe_object)
+    User.find(current_user.id).ratings.find_by(recipe_id: recipe_object.id).stars
+  end
+
+  def rated_by?(recipe_object)
+    if User.find(current_user.id).ratings.find_by(recipe_id: recipe_object.id)
+      return true
+    else
+      return false
+    end
+  end
+
   def display_user_rating(recipe_object)
-    if current_user && current_user.ratings.find_by(recipe_id: recipe_object.id)
-      user_rating = User.find(current_user.id).ratings.find_by(recipe_id: recipe_object.id).stars
-      p user_rating
-      display_rating(user_rating, 'User')
+    if current_user && rated_by?(recipe_object)
+      display_rating(user_rating(recipe_object), 'User')
     else
       render '/ratings/new'
     end
