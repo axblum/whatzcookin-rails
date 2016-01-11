@@ -26,15 +26,20 @@ before_action :authenticate_user!
   end
 
   def update
-    
-    @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
+    nutritional_profile = current_user.nutritional_profile
+    user_restrictions = []
+    nutritional_profile.restrictions.delete_all
 
-    restrictions = params["dietary_restrictions"]
-    restrictions.each do |restriction|
-      current_user.nutritional_profile.restrictions << Restriction.find(restriction) unless current_user.nutritional_profile.restrictions.include? Restriction.find(restriction)
+    if params["dietary_restrictions"]
+      params["dietary_restrictions"].each do |id|
+        user_restrictions << DietaryRestriction.find(id)
+      end
+      user_restrictions.each do |restriction|
+        nutritional_profile.restrictions << restriction
+      end
     end
-    current_user.nutritional_profile.save
-    redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
+
+    redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
   end
 
   def edit
