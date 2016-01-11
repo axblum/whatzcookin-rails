@@ -11,8 +11,4 @@ form { display: inline-block; }
 	font: 1.25em $font-stack;
 	padding: 0.2em;
 	text-align: center;
-
-	&:focus {
-		outline: none !important;
-	}
 }
