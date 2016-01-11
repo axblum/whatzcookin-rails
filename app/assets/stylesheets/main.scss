@@ -14,9 +14,9 @@ $secondary-color: #f26a6c;
 $secondary-tint: #f48789;
 $secondary-shade: #f26a6c;
 
-$tertiary-color: #ffdd2f;
-$tertiary-tint: #ffe358;
-$tertiary-shade: #fbd721;
+$tertiary-color: #FFB13A;
+$tertiary-tint: #ffc061;
+$tertiary-shade: #FFA61E;
 
 $off-white: #fdfffa;
 
@@ -30,6 +30,8 @@ body {
 	margin: 0 0 1em;
 	font: 1.2em $font-stack;
 }
+
+a { text-decoration: none; }
 
 nav {
 	background-color: $primary-color;
@@ -53,9 +55,7 @@ nav {
   	}
 	}
 
-	a { text-decoration: none; 
-			color: $off-white;
-	}
+	a { color: $off-white; }
 
 	.logo-text {
 		font: 1.25em $logo-font;
@@ -69,7 +69,7 @@ nav {
 }
 
 .container {
-	margin-bottom: 2em;
+	margin: 2em;
 }
 
 form {
@@ -82,13 +82,14 @@ form {
 			outline: none !important;
 		}
 	}
-	input[type='submit'] {
-		color: $off-white;
-		border-style: none;
-		padding: 1em;
-		margin: 4px;
-		border-radius: 10px;
-	}
+}
+
+input[type='submit'], button, .button {
+	color: $off-white;
+	border-style: none;
+	padding: 1em;
+	margin: 4px;
+	border-radius: 10px;
 }
 
 footer {

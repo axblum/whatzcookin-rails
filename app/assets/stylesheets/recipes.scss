@@ -1,3 +1,14 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'main';
+
+.button-to-instructions {
+	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+	  background: linear-gradient(top, $primary-shade, $primary-tint);
+	font-size: 0.75em;
+
+	&:hover {
+			background: $primary-color;
+			cursor: pointer;
+		}
+}
