@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     @comment.update_attributes(user_id: current_user.id, recipe_id: params[:recipe_id])
     if @comment.save
       if request.xhr?
-        render partial: "/comments/comment"
+        render partial: "/comments/comment", locals: {comment: @comment, recipe: @recipe}
       end
     end
   end

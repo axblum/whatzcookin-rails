@@ -18,7 +18,7 @@
 <div>
   <h3>Comments:</h3>
   <% if @comments %>
-  <ul>
+  <ul class='comments'>
     <% @comments.each do |comment| %>
       <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
     <% end %>

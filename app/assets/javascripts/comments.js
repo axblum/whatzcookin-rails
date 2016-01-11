@@ -20,7 +20,7 @@ function bindListeners() {
     var data = $(this).serialize();
     var url = $(this).attr("action");
     updateComment(data, url);
-  })
+  });
 };
 
 function createComment(data, url) {
@@ -30,7 +30,8 @@ function createComment(data, url) {
     data: data
   })
   .done(function(response) {
-    $('.comments ul').append(response)
+    debugger
+    $('ul.comments').append(response)
     $('.new_comment textarea').val("")
   });
 };
