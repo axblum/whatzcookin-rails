@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_or_create_by(api_id: params[:id])
     @recipe_info = Recipe.get_recipe(params[:id])
-    @comments = @recipe.comments
+    @comments = @recipe.comments.order(:created_at)
     @comment = Comment.new
   end
 

@@ -3,22 +3,28 @@
   <%= image_tag("http://webknox.com/recipeImages/#{@recipe_info['id']}-556x370.jpg", class: "img-responsive") %>
 </div>
 <div class='center-content'>
+  <h2>Ingredients</h2>
   <div class='ingredients'>
-    <h2>Ingredients</h2>
     <% @recipe_info['extendedIngredients'].each do |ingredient| %>
-      <div><%= ingredient['name'] %> <%= ingredient['amount'] %> <%= ingredient['unit'] %></div>
+      <div>
+        <% if ingredient['originalString'] %>
+          <%= ingredient['originalString'] %>
+        <% else %>
+          <%= "#{ingredient['amount']} #{ingredient['unit']} #{ingredient['name']}" %>
+        <% end %>
+      </div>
     <% end %>
   </div>
   <div>
     <h2>Instructions</h2>
-    <%= link_to("Click Here for instructions", @recipe_info['sourceUrl'], class: 'button button-to-instructions') %>
+    <%= link_to("Click Here for instructions", @recipe_info['sourceUrl'], class: 'button btn-green') %>
   </div>
 </div>
 
 <div>
   <h3>Comments:</h3>
   <% if @comments %>
-  <ul>
+  <ul class='comments'>
     <% @comments.each do |comment| %>
       <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
     <% end %>

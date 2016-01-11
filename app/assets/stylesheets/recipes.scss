@@ -1,14 +1,5 @@
-@import 'main';
-
-.button-to-instructions {
-	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: linear-gradient(top, $primary-shade, $primary-tint);
-	font-size: 0.75em;
-
-	&:hover {
-			background: $primary-color;
-			cursor: pointer;
-		}
+.ingredients {
+	text-align: left;
+	width: 18em;
+	margin: 0 auto;
 }
