@@ -21,6 +21,9 @@
   </div>
 </div>
 
+<div class="average-rating">
+  <%= display_rating(@recipe.ratings.average(:stars).to_i, 'Average') %>
+</div>
 
 <div>
   <h3>Comments:</h3>
@@ -35,6 +38,9 @@
   <% end %>
 </div>
 
+<div class="new-user-rating">
+  <%= display_user_rating(@recipe) %>
+</div>
 
 <div class='new-comment-form'>
   <% if current_user %>
