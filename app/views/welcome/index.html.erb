@@ -5,14 +5,14 @@
 		<%= flash[:error] %>
 	</div>
 	<%= form_tag('/retrieve_recipes')  do %>
-		<div class='search-box'>
-			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off) %>
+		<div>
+			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box') %>
 		</div>
 		<div class='row'>
-			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-md-5' %>
+			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-md-5 btn-red' %>
 	<% end %>
 			<%= form_tag('/random_recipe', class: 'random-recipe-form col-md-5') do %>
-				<%= submit_tag "I'm feeling hungry", class: 'im-feeling-hungry' %>
+				<%= submit_tag "I'm feeling hungry", class: 'im-feeling-hungry btn-orange' %>
 			<% end %>
 		</div>
 </div>

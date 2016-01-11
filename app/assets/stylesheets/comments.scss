@@ -1,3 +1,29 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'main';
+
+form {
+	position: relative;
+
+	textarea {
+		height: 4em;
+		width: 27em;
+		resize: none;
+		padding: 0.5em;
+		font: 1em $font-stack;
+	}
+
+	.submit-comment-button {
+		position: relative;
+		bottom: 1em;
+	}
+}
+
+.comment {
+	background: $white-shade;
+	padding: 0.75em;
+	margin: 0.5em;
+
+	.comment-info {
+		display: inline-block;
+		font-size: 0.75em;
+	}
+}
