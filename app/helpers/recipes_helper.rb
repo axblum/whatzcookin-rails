@@ -12,6 +12,11 @@ module RecipesHelper
     return html_element_array
   end
 
+  def average_rating(recipe_object)
+    p params
+    recipe_object
+  end
+
   def display_rating(rating, option)
     @option = option
     case rating
