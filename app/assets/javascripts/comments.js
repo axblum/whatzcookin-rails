@@ -12,8 +12,7 @@ function bindListeners() {
   $("ul").on("click", ".edit-comment-button", function(e) {
     e.preventDefault();
     var url = $(this).attr("href");
-    $(this).toggle();
-    $(this).next().toggle();
+    $(this).parent().children().toggle();
     editComment(url);
   });
   $("ul").on("submit", ".edit_comment", function(e) {
@@ -63,8 +62,7 @@ function updateComment(data, url) {
     var li = "li#" + response.id;
     $(li).children().first().text(response.text);
     $(li + " .edit_comment").remove();
-    $(li + " .edit-comment-button").toggle();
-    $(li + " .delete-comment-button").toggle();
+    $(li).children().toggle();
   });
 };
 

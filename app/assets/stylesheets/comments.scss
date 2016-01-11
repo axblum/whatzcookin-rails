@@ -4,7 +4,7 @@ form {
 	position: relative;
 
 	textarea {
-		height: 6em;
+		height: 4em;
 		width: 27em;
 		resize: none;
 		padding: 0.5em;
@@ -14,5 +14,16 @@ form {
 	.submit-comment-button {
 		position: relative;
 		bottom: 1em;
+	}
+}
+
+.comment {
+	background: $white-shade;
+	padding: 0.75em;
+	margin: 0.5em;
+
+	.comment-info {
+		display: inline-block;
+		font-size: 0.75em;
 	}
 }

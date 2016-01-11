@@ -3,10 +3,16 @@
   <%= image_tag("http://webknox.com/recipeImages/#{@recipe_info['id']}-556x370.jpg", class: "img-responsive") %>
 </div>
 <div class='center-content'>
+  <h2>Ingredients</h2>
   <div class='ingredients'>
-    <h2>Ingredients</h2>
     <% @recipe_info['extendedIngredients'].each do |ingredient| %>
-      <div><%= ingredient['name'] %> <%= ingredient['amount'] %> <%= ingredient['unit'] %></div>
+      <div>
+        <% if ingredient['originalString'] %>
+          <%= ingredient['originalString'] %>
+        <% else %>
+          <%= "#{ingredient['amount']} #{ingredient['unit']} #{ingredient['name']}" %>
+        <% end %>
+      </div>
     <% end %>
   </div>
   <div>

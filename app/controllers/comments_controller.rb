@@ -36,7 +36,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    p "=" * 50
     comment = Comment.find(params[:id])
     if comment.destroy
       if request.xhr?
