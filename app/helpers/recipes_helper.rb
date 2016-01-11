@@ -12,23 +12,6 @@ module RecipesHelper
     return html_element_array
   end
 
-  def display_average_rating(averageRating)
-    case averageRating
-    when 0
-      render '/ratings/no_star'
-    when 1
-      render '/ratings/one_star'
-    when 2
-      render '/ratings/two_star'
-    when 3
-      render '/ratings/three_star'
-    when 4
-      render '/ratings/four_star'
-    when 5
-      render '/ratings/five_star'
-    end
-  end
-
   def display_rating(rating, option)
     @option = option
     case rating

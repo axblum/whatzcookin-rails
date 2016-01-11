@@ -38,10 +38,9 @@
   <% end %>
 </div>
 
-<div class="new-user-rating">
+<div id="new-user-rating <%= dom_id(@recipe) %>">
   <%= display_user_rating(@recipe) %>
 </div>
-
 <div class='new-comment-form'>
   <% if current_user %>
     <%= render partial: 'comments/form' %>
