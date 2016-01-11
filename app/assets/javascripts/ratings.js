@@ -8,13 +8,13 @@ var bindListeners = function(){
     var formData = {"stars": String($('.star-rating-on').length)}
     var recipe_id = $(this).parent().parent().attr('id').split("_")[1];
     var url = '/recipes/' + recipe_id + '/ratings'
-    console.log('recipe id');
-    console.log(recipe_id);
-    console.log('form data');
-    console.log(formData);
-    console.log('url');
-    console.log(url);
     createRating(formData, url);
+  });
+  $('.rating-cancel').on('click', function(e){
+    e.preventDefault();
+    var recipe_id = $(this).parent().parent().attr('id').split("_")[1];
+    var url = '/recipes/' + recipe_id + '/ratings/0';
+    deleteRating(url);
   })
 };
 
@@ -31,3 +31,10 @@ var createRating = function(formData, url) {
     console.log(response)
   })
 };
+
+var deleteRating = function(url) {
+  $.ajax({
+    method: 'DELETE',
+    url: url
+  })
+}

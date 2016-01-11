@@ -1,7 +1,5 @@
 class RatingsController < ApplicationController
   def create
-    p " ^ &" * 100
-    p params
     @rating = Rating.find_or_create_by(user_id: current_user.id,
                                        recipe_id: params[:recipe_id])
     @recipe = Recipe.find(params[:recipe_id])
@@ -12,4 +10,18 @@ class RatingsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    p '% @ ' * 100
+    rating = Rating.find_by(user_id: current_user.id,
+                            recipe_id: params[:recipe_id])
+    p rating
+    if rating.destroy
+      if request.xhr?
+        p 'rendering new'
+        render partial: '/ratings/new'
+      end
+    end
+  end
+
 end
