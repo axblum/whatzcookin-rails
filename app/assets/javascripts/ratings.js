@@ -37,4 +37,7 @@ var deleteRating = function(url) {
     method: 'DELETE',
     url: url
   })
+  .done(function(response) {
+    console.log('deleted')
+  })
 }

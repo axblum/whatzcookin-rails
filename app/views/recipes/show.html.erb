@@ -22,7 +22,7 @@
 </div>
 
 <div class="average-rating">
-  <%= display_rating(@recipe.ratings.average(:stars).to_i, 'Average') %>
+  <%= render partial: 'ratings/average_ratings' %>
 </div>
 
 <div>
