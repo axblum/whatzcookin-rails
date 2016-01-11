@@ -1,28 +1,33 @@
 $(document).ready(function(){
-  console.log('here')
   bindListeners()
 });
 
 var bindListeners = function(){
-  console.log('bound listeners')
   $('.star-rating').on('click', function(e){
     e.preventDefault();
-    console.log('in the suck');
-    console.log($(this));
-    console.log($('.star-rating-on').length); // includes the average rating stars too
-    console.log('granddaddy')
-    console.log($(this).parent().parent())
-    var stars = $('.star-rating').length
-    var url = $(this).parent().parent()
-    createRating(stars, url);
+    var formData = {"stars": String($('.star-rating-on').length)}
+    var recipe_id = $(this).parent().parent().attr('id').split("_")[1];
+    var url = '/recipes/' + recipe_id + '/ratings'
+    console.log('recipe id');
+    console.log(recipe_id);
+    console.log('form data');
+    console.log(formData);
+    console.log('url');
+    console.log(url);
+    createRating(formData, url);
   })
 };
 
 
-var createRating = function(stars, url) {
+var createRating = function(formData, url) {
   $.ajax({
     method: 'POST',
     url: url,
-    data: stars
+    data: formData,
+    dataType: "JSON"
+  })
+  .done(function(response) {
+    console.log('we\'re done')
+    console.log(response)
   })
 };

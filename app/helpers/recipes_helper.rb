@@ -45,8 +45,10 @@ module RecipesHelper
   def display_user_rating(recipe_object)
     if current_user && rated_by?(recipe_object)
       display_rating(user_rating(recipe_object), 'User')
-    else
+    elsif current_user
       render '/ratings/new'
+    else
+      render '/ratings/log_in'
     end
   end
 end
