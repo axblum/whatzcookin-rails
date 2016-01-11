@@ -1,9 +1,9 @@
 Dietary restrictions:
 
-  <%= form_tag(controller: "nutritional_profiles", action: "create", method: "get") do %>
+  <%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile),  method: "put") do %>
   <% @restrictions.each do |restriction| %>
     <%= label_tag(:restriction, restriction.name) %>
-    <%= check_box_tag(:restriction) %>
+    <%= check_box_tag("[restriction][]", restriction.id) %>
   <% end %>
     <%= submit_tag %>
   <% end %>
