@@ -1,6 +1,5 @@
 class NutritionalProfile < ActiveRecord::Base
-  has_many :restrictions
-  has_many :cuisine_styles
-  has_many :excluded_ingredients
+  has_and_belongs_to_many :restrictions
+  has_and_belongs_to_many :preferences
   belongs_to :users
 end

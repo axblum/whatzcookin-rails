@@ -1,4 +1,3 @@
 class Restriction < ActiveRecord::Base
-  has_many :users, :through => :nutritional_profile
-  belongs_to :nutritional_profile
+  has_and_belongs_to_many :nutritional_profiles
 end
