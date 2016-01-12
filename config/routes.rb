@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
-  post '/random_recipe' => 'recipes#random_recipe'
+  get '/random_recipe' => 'recipes#random_recipe'
 
   # Nested nutritional profile under Devise scope
 
