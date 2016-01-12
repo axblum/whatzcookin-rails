@@ -1,17 +1,19 @@
 $(document).ready(function(){
-  swipeLeft()
+  swipeLeft();
 });
 
 var swipeLeft = function(){
   // Bind the swipeleftHandler callback function to the swipe event on div.box
   $( "body" ).on( "swipeleft", function (e){
-  	alert("Fuck this shit")
   	$.ajax({
       method: "GET",
       url: "/random_recipe",
   	})
   	.done(function(response) {
-  		console.log(response)
+  		$("#content").html(response);
+  		var id = $("#content").children().first().attr("id");
+  		var url = "/recipes/" + id;
+  		history.pushState(null, null,url);
   	})
   });
 };
