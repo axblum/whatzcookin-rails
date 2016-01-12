@@ -7,10 +7,11 @@ var swipeLeft = function(){
   $( "body" ).on( "swipeleft", function (e){
   	alert("Fuck this shit")
   	$.ajax({
-      method: 'POST',
+      method: "GET",
       url: "/random_recipe",
   	})
   	.done(function(response) {
+  		console.log(response)
   	})
   });
 };

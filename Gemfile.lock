@@ -106,13 +106,10 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-<<<<<<< HEAD
-    jquery_mobile_rails (1.4.5)
-      railties (>= 3.1.0)
-=======
     jquery-star-rating-rails (4.0.4)
       rails (>= 3.1.0)
->>>>>>> origin/fix-feeling-hungry
+    jquery_mobile_rails (1.4.5)
+      railties (>= 3.1.0)
     json (1.8.3)
     jwt (1.5.2)
     loofah (2.0.3)
@@ -267,7 +264,6 @@ DEPENDENCIES
   byebug
   capybara
   chromedriver-helper
-  coffee-rails (~> 4.1.0)
   database_cleaner
   devise
   dotenv-rails
@@ -276,8 +272,8 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
-  jquery_mobile_rails
   jquery-star-rating-rails
+  jquery_mobile_rails
   omniauth
   omniauth-google-oauth2
   pg

@@ -4,6 +4,12 @@ class RecipesController < ApplicationController
     @recipe_info = Recipe.get_recipe(params[:id])
     @comments = @recipe.comments.order(:created_at)
     @comment = Comment.new
+    if request.xhr?
+      p "I am here"
+      render :show,layout:false
+    else
+      render :show
+    end
   end
 
   def retrieve_recipes
