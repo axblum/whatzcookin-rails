@@ -32,14 +32,40 @@ $dark-grey: #4b4b4b;
 // ====================
 body {
 	font-family: $font-stack;
+	color: $dark-grey;
+	text-align: center;
 }
 
 li { list-style: none; }
 
+.footer {
+	text-align: center;
+}
+
+#user_email {
+	color: $dark-grey;
+}
+
+#user_password {
+	color: $dark-grey;
+}
+
+.search-box {
+  margin: 0 auto;
+  float: none;
+  color: $dark-grey;
+}
+
+span {
+	text-align: center;
+}
+// .search-box {
+// 		margin: 0 auto;
+// 	}
 // ====================
 // Media Queries
 // ====================
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media (min-width : 320px) {
 	.nav-menu {
 		color: $off-white;
@@ -59,7 +85,7 @@ li { list-style: none; }
 
 	.ui-page {
 		color: $off-white;
-		background: $primary-color; 
+		background: $primary-color;
 		font-size: 2em;
 	}
 
@@ -69,12 +95,16 @@ li { list-style: none; }
 	}
 }
 
-/* Extra Small Devices, Phones */ 
+/* Extra Small Devices, Phones */
 @media (min-width : 480px) {
 }
 
 /* Small Devices, Tablets */
 @media (min-width : 768px) {
+
+	.navbar  {
+		color: $off-white;
+	}
 }
 
 /* Medium Devices, Desktops */
@@ -122,7 +152,7 @@ li { list-style: none; }
 // 	li {
 // 		display: inline-block;
 // 		padding: 1em 0.45em;
-		
+
 // 		&:hover {
 //     	background-color: $primary-tint;
 //   	}
