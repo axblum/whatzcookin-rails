@@ -1,12 +1,16 @@
 $(document).ready(function(){
-  swipe()
+  swipeLeft()
 });
 
-var swipe = function(){
+var swipeLeft = function(){
   // Bind the swipeleftHandler callback function to the swipe event on div.box
   $( "body" ).on( "swipeleft", function (e){
-  	alert("Fuck this shiit")
-    $( event.target ).append("Hi")
+  	alert("Fuck this shit")
+  	$.ajax({
+      method: 'POST',
+      url: "/random_recipe",
+  	})
+  	.done(function(response) {
+  	})
   });
-  // Callback function references the event target and adds the 'swipeleft' class to it
 };

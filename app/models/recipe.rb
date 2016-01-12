@@ -20,7 +20,7 @@ class Recipe < ActiveRecord::Base
     }
     return response
   end
-  
+
   def self.get_random
     id = rand(1..100000)
     response = self.get_recipe(id)
