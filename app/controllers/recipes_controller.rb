@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
     @recipe_info = Recipe.get_recipe(params[:id])
     @comments = @recipe.comments.order(:created_at)
     @comment = Comment.new
+    @user_rating = Rating.find_by(user_id: current_user.id, recipe_id: @recipe.id)
     if request.xhr?
       render :show,layout:false
     else
