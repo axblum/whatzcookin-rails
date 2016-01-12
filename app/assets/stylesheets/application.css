@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-star-rating
  */
 @import "bootstrap";
