@@ -32,4 +32,3 @@ class Recipe < ActiveRecord::Base
     return response
   end
 end
-
