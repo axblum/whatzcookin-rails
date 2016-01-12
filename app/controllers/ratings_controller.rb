@@ -2,8 +2,8 @@ include RecipesHelper
 class RatingsController < ApplicationController
   def create
     @rating = Rating.find_or_create_by(user_id: current_user.id,
-                                       recipe_id: params[:recipe_id])
-    @recipe = Recipe.find(params[:recipe_id])
+                                       recipe_id: params[:recipe_id].to_i)
+    @recipe = Recipe.find(params[:recipe_id].to_i)
     @rating.update_attributes(stars: clean_stars(params[:stars].to_i, @rating.stars))
     if @rating.save
       if request.xhr?
@@ -14,12 +14,19 @@ class RatingsController < ApplicationController
     end
   end
 
+  def update
+    @rating = Rating.find_or_create_by(user_id: current_user.id,
+                                       recipe_id: params[:recipe_id].to_i)
+    @recipe = Recipe.find(params[:recipe_id].to_i)
+  end
+
   def destroy
     rating = Rating.find_by(user_id: current_user.id,
-                            recipe_id: params[:recipe_id])
+                            recipe_id: params[:recipe_id].to_i)
+    @recipe = Recipe.find(params[:recipe_id].to_i)
     if rating.destroy
       if request.xhr?
-        render partial: '/ratings/new'
+        render partial: "ratings/user_rating", locals: {user_rating: user_rating(@recipe)}
       else
         render partial: '/ratings/no_stars'
       end
