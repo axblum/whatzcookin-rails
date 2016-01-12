@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     resources :users do
       resources :nutritional_profiles
-      resources :favorites, only: [:index]
+      resources :favorites , only: [:index, :create, :destroy]
     end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'

@@ -1,0 +1,5 @@
+<% if favorited?(@recipe)  %>
+  <%= button_to 'Unfavorite', user_favorites(user_id: current_user.id, id: find_favorite(@recipe).id) %>
+<% else %>
+  <%= button_to 'Favorite!', user_favorites(user_id: current_user.id) %>
+<% end %>
