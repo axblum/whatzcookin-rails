@@ -274,9 +274,9 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
-  launchy
   jquery-star-rating-rails
   jquery_mobile_rails
+  launchy
   omniauth
   omniauth-google-oauth2
   pg
@@ -294,4 +294,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
