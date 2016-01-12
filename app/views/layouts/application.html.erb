@@ -26,7 +26,7 @@
         <% else %>
         <li><%= link_to "Sign up", new_user_registration_path %></li>|
         <li><%= link_to "Sign in", new_user_session_path %> </li>|
-        <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+        <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), "data-ajax" => "false" %></li>
         <% end %>
       </ul>
     </nav>
