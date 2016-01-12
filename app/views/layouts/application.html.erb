@@ -15,7 +15,7 @@
         <nav class='navbar'>
           <div class='visible-xs visible-sm col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
           <%= link_to "WhatzCookin", root_path, class: 'visible-md visible-lg' %>
-          <ul class='text-right nav-list'>
+          <ul class='col-xs-offset-4 text-right nav-list'>
             <% if user_signed_in? %>
             <li>
               <% if current_user.nutritional_profile %>

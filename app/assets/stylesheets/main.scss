@@ -41,9 +41,6 @@ li { list-style: none; }
 // ====================
 /* Custom, iPhone Retina */ 
 @media (min-width : 320px) {
-	body {
-	}
-
 	.nav-menu {
 		color: $off-white;
 		padding: 3px;
@@ -52,12 +49,23 @@ li { list-style: none; }
 
 	.nav-list {
 		li {
+			background-color: $primary-shade;
+			border-top: 1px solid $primary-color;
+			border-bottom: 1px solid $primary-color;
+			color: $off-white;
 			padding: 4px 15px;
 		}
 	}
-	.ui-page { 
+
+	.ui-page {
+		color: $off-white;
 		background: $primary-color; 
 		font-size: 2em;
+	}
+
+	.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited, .ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
+		color: $off-white;
+		text-shadow: none;
 	}
 }
 
