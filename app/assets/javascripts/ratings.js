@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 var bindListeners = function(){
-  $('#new-user-rating > .star-rating').on('click', function(e){
+  $('.star-rating').on('click', function(e){
     e.preventDefault();
     var formData = {"stars": String($('.star-rating-on').length)}
     var recipe_id = $(this).parent().parent().attr('id').split("_")[1];
