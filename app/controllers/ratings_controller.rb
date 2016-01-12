@@ -14,12 +14,6 @@ class RatingsController < ApplicationController
     end
   end
 
-  def update
-    @rating = Rating.find_or_create_by(user_id: current_user.id,
-                                       recipe_id: params[:recipe_id].to_i)
-    @recipe = Recipe.find(params[:recipe_id].to_i)
-  end
-
   def destroy
     rating = Rating.find_by(user_id: current_user.id,
                             recipe_id: params[:recipe_id].to_i)
