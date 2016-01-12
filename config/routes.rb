@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
-  resources :recipes
+
+  resources :recipes do
+    resources :comments
+  end
+
   resources :welcome, only: [:index]
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
   post '/random_recipe' => 'recipes#random_recipe'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  # resources 'users'
+  # Nested nutritional profile under Devise scope
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
+
   devise_scope :user do
+    resources :users do
+      resources :nutritional_profiles
+    end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'
 

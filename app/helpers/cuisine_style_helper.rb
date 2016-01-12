@@ -1,0 +1,2 @@
+module CuisineStyleHelper
+end

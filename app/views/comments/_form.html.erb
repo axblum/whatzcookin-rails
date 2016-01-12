@@ -1,0 +1,6 @@
+<div class="container center-content">
+	<%= form_for [@recipe, @comment] do |f| %>
+	  <%= f.text_area :text, placeholder: 'Your comment' %>
+	  <%= f.submit "Save", class: 'button btn-green submit-comment-button' %>
+	<% end %>
+</div>

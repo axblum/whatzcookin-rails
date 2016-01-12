@@ -1,0 +1,10 @@
+<li id="<%= comment.id %>" class='comment'>
+  <p><%= comment.text %></p>
+  <div class='comment-info'>
+  	<%= comment.user.name %> | <%= comment.created_at %>
+  </div>
+  <% if current_user && current_user.id == comment.user.id %>
+    <%= link_to 'Edit', edit_recipe_comment_path(recipe.id, comment.id), class: 'edit-comment-button button btn-reg' %>
+    <%= link_to 'Delete', [recipe, comment], method: :delete, class: 'delete-comment-button button btn-reg' %>
+  <% end %>
+</li>

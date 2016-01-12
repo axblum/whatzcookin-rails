@@ -1,3 +1,14 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'main';
+
+form { display: inline-block; }
+
+.title-text {
+	font: 5em $logo-font;
+	color: $primary-color;
+}
+
+.search-box {
+	font: 1.25em $font-stack;
+	padding: 0.2em;
+	text-align: center;
+}
