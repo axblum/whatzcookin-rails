@@ -15,7 +15,6 @@ class RatingsController < ApplicationController
   end
 
   def destroy
-    p '% @ ' * 100
     rating = Rating.find_by(user_id: current_user.id,
                             recipe_id: params[:recipe_id])
     if rating.destroy
@@ -31,7 +30,7 @@ class RatingsController < ApplicationController
 
   def clean_stars(stars, old_stars)
     if old_stars
-      return stars - old_stars
+      return (stars - old_stars)
     else
       return stars
     end
