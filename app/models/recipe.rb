@@ -31,5 +31,21 @@ class Recipe < ActiveRecord::Base
     end
     return response
   end
+
+def self.get_personalized_recipe(query,options={})
+  unless options.empty?
+    opts =""
+    options.each do |key, val|
+      opts << "#{key}=#{val}&"
+    end
+  end
+  "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}"
+  response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}",
+   headers:{
+       "X-Mashape-Key" => ENV['SPOONACULAR_API'],
+       "Accept" => "application/json"
+     }
+     return response
+  end
 end
 
