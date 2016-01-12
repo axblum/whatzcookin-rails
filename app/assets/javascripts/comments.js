@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  bindListeners();
+  bindCommentListeners();
 });
 
-function bindListeners() {
+function bindCommentListeners() {
   $(".new-comment-form").on("submit", "#new_comment", function(e) {
     e.preventDefault();
     var data = $(this).serialize();

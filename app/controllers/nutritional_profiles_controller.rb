@@ -7,9 +7,10 @@ before_action :authenticate_user!
 
   def show
     @nutritional_profile = current_user.nutritional_profile
-    @restrictions = Restriction.all
-    @cuisine_styles = CuisineStyle.all
-    @excluded_ingredients = ExcludedIngredient.all
+    @dietary_restrictions = DietaryRestriction.all
+    @user_dietary_restrictions = @nutritional_profile.restrictions.dietary_restrictions
+    @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
+    @user_cuisine_styles = @nutritional_profile.preferences(type: "CuisineStyle")
   end
 
   def new
@@ -19,24 +20,29 @@ before_action :authenticate_user!
   end
 
   def create
-    p "**************"
+    p "-" * 50
     @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
     redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
   end
 
   def update
-    p "**********************"
-    @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
+    nutritional_profile = current_user.nutritional_profile
+    user_restrictions = []
+    nutritional_profile.restrictions.delete_all
 
-    restrictions = params["restriction"]
-    restrictions.each do |restriction|
-      current_user.nutritional_profile.restrictions << Restriction.find(restriction)
+    if params["dietary_restrictions"]
+      params["dietary_restrictions"].each do |id|
+        user_restrictions << DietaryRestriction.find(id)
+      end
+      user_restrictions.each do |restriction|
+        nutritional_profile.restrictions << restriction
+      end
     end
-    current_user.nutritional_profile.save
-    redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
+
+    redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
   end
 
-    def edit
+  def edit
     #   p "*********************************"
     #   @nutritional_profile = NutritionalProfile.find(user_id: )
     #   restrictions = params["restriction"]
@@ -44,5 +50,11 @@ before_action :authenticate_user!
     #   current_user.nutritional_profile.restrictions << Restriction.find(restriction)
     # end
     # current_user.nutritional_profile.save
+  end
+
+  def destroy
+    ingredient = ExcludedIngredient.find(params[:ingredient_id])
+    current_user.nutritional_profile.restrictions.delete(ingredient)
+    redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
   end
 end
