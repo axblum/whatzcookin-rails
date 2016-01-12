@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'favorites/index'
-
-  get 'favorites/show'
-
-  get 'favorites/edit'
-
-  get 'favorites/new'
-
   resources :recipes do
     resources :comments
   end
@@ -36,6 +28,9 @@ Rails.application.routes.draw do
     post '/login' => 'devise/sessions#create'
     delete "/logout" => "devise/sessions#destroy"
   end
+
+  # post '/users/:user_id/:recipe_id/favorites' => 'favorites#create'
+  # delete '/users/:user_id/favorites/:id' => 'favorites#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,9 +11,7 @@ class FavoritesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id].to_i)
     if @favorite.save
       if request.xhr?
-        render partial: 'favorites/favorite_button', locals: {recipe: @recipe}
-      else
-        render partial: 'favorites/favorite_button', locals: {recipe: @recipe}
+        render partial: 'favorites/favorite_button', locals: { recipe: @recipe }
       end
     end
   end

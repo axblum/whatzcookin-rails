@@ -15,13 +15,15 @@ var bindFavoriteListeners = function(){
 };
 
 var createFavorite = function(data, url) {
+  console.log('DATA');
+  console.log(data);
   $.ajax({
     method: 'POST',
     url: url,
     data: data,
     dataType: 'JSON'
   })
-  .done(function(response){
-    console.log(response);
-  });
+  .done(function(response) {
+    console.log('here')
+  })
 };
