@@ -9,17 +9,18 @@
 </head>
 <body>
   <header>
-    <nav class='navbar navbar-default'>
+    <nav class='navbar'>
       <%= link_to "WhatzCookin", root_path, class: 'logo-text' %>
       <ul>
         <% if user_signed_in? %>
         <li>
           <% if current_user.nutritional_profile %>
-            <%= link_to "Profile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
+            <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
           <% else %>
-            <%= link_to "Profile", user_nutritional_profiles_path(current_user), :method => :post %>
+            <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
           <% end %>
         </li>|
+        <li><%= link_to "Profile", user_path(current_user) %></li>
         <li>Signed in as <%= current_user.name %>. Not you?</li>
         <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
         <% else %>
@@ -35,7 +36,9 @@
   </div>
 
   <footer class='center-content'>
-    &copy; The Dream Team
+    <div>
+      &copy; The Dream Team
+    </div>
   </footer>
 </body>
 </html>

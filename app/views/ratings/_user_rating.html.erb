@@ -1,0 +1,43 @@
+<% if user_rating == nil %>
+  <h3>Rate This Recipe!</h3>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+<% elsif user_rating.stars == 1 %>
+  <h3>Your Rating:</h3>
+  <input name="starUser" type="radio" class="star" checked="checked"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+<% elsif user_rating.stars == 2 %>
+  <h3>Your Rating:</h3>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star" checked="checked"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+<% elsif user_rating.stars == 3 %>
+  <h3>Your Rating:</h3>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star" checked="checked"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+<% elsif user_rating.stars == 4 %>
+  <h3>Your Rating:</h3>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star" checked="checked"/>
+  <input name="starUser" type="radio" class="star"/>
+<% elsif user_rating.stars == 5 %>
+  <h3>Your Rating:</h3>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star"/>
+  <input name="starUser" type="radio" class="star" checked="checked"/>
+<% end %>

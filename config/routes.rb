@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :comments
   end
+  resources :recipes do
+    resources :ratings
+  end
 
   resources :welcome, only: [:index]
   resources :restrictions, only: [:create]
