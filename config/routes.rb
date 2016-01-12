@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'favorites/index'
+
+  get 'favorites/show'
+
+  get 'favorites/edit'
+
+  get 'favorites/new'
+
   resources :recipes do
     resources :comments
   end
@@ -19,6 +27,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     resources :users do
       resources :nutritional_profiles
+      resources :favorites, only: [:index]
     end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'

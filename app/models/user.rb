@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :encrypted_password
   has_many :comments
   has_many :ratings
+  has_many :favorites
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
