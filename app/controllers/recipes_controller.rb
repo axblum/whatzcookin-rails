@@ -5,7 +5,6 @@ class RecipesController < ApplicationController
     @comments = @recipe.comments.order(:created_at)
     @comment = Comment.new
     if request.xhr?
-      p "hi"
       render :show,layout:false
     else
       render :show
