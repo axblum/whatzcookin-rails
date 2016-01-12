@@ -31,4 +31,26 @@ class User < ActiveRecord::Base
       end
    end
   end
+
+  def build_personalize_hash
+    result = {}
+    self.restrictions = restrictions
+    restrictions.each do |restriction|
+      if !result.has_key?(restriction.type)
+        result[restriction.type] = [restriction.name]
+      else
+        result[restriction.type] << restriction.name
+      end
+
+    end
+    if result.has_key?("ExcludedIngredient")
+      result["ExcludeIngredients"] = result.delete("ExcludedIngredient")
+    end
+    if result.has_key?("DietaryRestriction")
+      result["diet"] = result.delete("DietaryRestriction")
+    end
+    return result
+  end
+
+
 end

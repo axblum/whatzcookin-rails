@@ -36,10 +36,12 @@ def self.get_personalized_recipe(query,options={})
   unless options.empty?
     opts =""
     options.each do |key, val|
+      if val.kind_of?(Array)
+        val = val.join("%2C")
+      end
       opts << "#{key}=#{val}&"
     end
   end
-  "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}"
   response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}",
    headers:{
        "X-Mashape-Key" => ENV['SPOONACULAR_API'],
