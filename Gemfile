@@ -61,6 +61,7 @@ group :test do
   gem 'simplecov', :require => false, :group => :test
   gem 'factory_girl_rails', :require => false
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'

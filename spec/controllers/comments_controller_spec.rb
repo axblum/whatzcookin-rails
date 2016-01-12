@@ -67,7 +67,7 @@ let!(:comment) { FactoryGirl.create(:comment) }
 
   describe "GET #show" do
     it "returns success if ajax request goes through" do
-      get :show
+      get :show, {:format => :xhr}
       expect(response).to have_http_status(200)
     end
   end

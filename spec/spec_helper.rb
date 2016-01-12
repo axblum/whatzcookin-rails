@@ -42,6 +42,10 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+Capybara.add_selector(:name) do
+  xpath { |name| XPath.descendant[XPath.attr(:name).contains(name)] }
+end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
