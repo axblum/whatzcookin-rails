@@ -11,6 +11,7 @@ class CreateTasteProfiles < ActiveRecord::Migration
       t.float    :spicy
       t.float    :sweet
       t.float    :woody
+      t.references :user, :recipe, index: true
       t.timestamps null: false
     end
   end
