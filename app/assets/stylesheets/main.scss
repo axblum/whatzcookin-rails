@@ -1,10 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two|Berkshire+Swash|Merienda+One|Arimo|Josefin+Sans);
+@import "bootstrap";
 
-/*Fonts*/
+// ====================
+// Fonts
+// ====================
 $logo-font: 'Lobster Two', cursive;
 $font-stack: 'Josefin Sans', Tahoma, sans-serif;
 
-/*Colors*/
+// ====================
+// Colors
+// ====================
 $primary-color: #b5ca7e;
 $primary-tint: #bccf8a;
 $primary-shade: #a2b571;
@@ -22,125 +27,187 @@ $off-white: #fdfffa;
 $white-shade: #F0F0F0;
 $dark-grey: #4b4b4b;
 
-html {
-	position: relative;
-	min-height: 100%;
-}
-
+// ====================
+// General Styles
+// ====================
 body {
-	background-color: $off-white;
-	margin: 0 0 1em;
-	font: 1.2em $font-stack;
+	font-family: $font-stack;
 }
-
-a { text-decoration: none; }
-
-*:focus { outline: none !important; }
 
 li { list-style: none; }
 
-nav {
-
-	background-color: $primary-color;
-	color: $off-white;
-	display: block;
-	text-align: right;
-	padding-right: 1.5em;
-
-	ul {
-		margin: 0;
-		padding: 0;
+// ====================
+// Media Queries
+// ====================
+/* Custom, iPhone Retina */ 
+@media (min-width : 320px) {
+	.nav-menu {
+		color: $off-white;
+		padding: 3px;
+		padding-left: 14px;
 	}
 
-	li {
-		display: inline-block;
-		padding: 1em 0.45em;
+	.nav-list {
+		li {
+			background-color: $primary-shade;
+			border-top: 1px solid $primary-color;
+			border-bottom: 1px solid $primary-color;
+			color: $off-white;
+			padding: 4px 15px;
+		}
+	}
+
+	.ui-page {
+		color: $off-white;
+		background: $primary-color; 
+		font-size: 2em;
+	}
+
+	.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited, .ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
+		color: $off-white;
+		text-shadow: none;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media (min-width : 1200px) {
+}
+
+.debugger {
+	border: 1px solid red;
+}
+
+// html {
+// 	position: relative;
+// 	min-height: 100%;
+// }
+
+// body {
+// 	background-color: $off-white;
+// 	margin: 0 0 1em;
+// 	font: 1.2em $font-stack;
+// }
+
+// a { text-decoration: none; }
+
+// *:focus { outline: none !important; }
+
+// li { list-style: none; }
+
+// nav {
+
+// 	background-color: $primary-color;
+// 	color: $off-white;
+// 	display: block;
+// 	text-align: right;
+// 	padding-right: 1.5em;
+
+// 	ul {
+// 		margin: 0;
+// 		padding: 0;
+// 	}
+
+// 	li {
+// 		display: inline-block;
+// 		padding: 1em 0.45em;
 		
-		&:hover {
-    	background-color: $primary-tint;
-  	}
-	}
+// 		&:hover {
+//     	background-color: $primary-tint;
+//   	}
+// 	}
 
-	a { color: $off-white; }
+// 	a { color: $off-white; }
 
-	.logo-text {
-		font: 1.25em $logo-font;
-		float: left;
-		padding: 0.45em;
-	}
-}
+// 	.logo-text {
+// 		font: 1.25em $logo-font;
+// 		float: left;
+// 		padding: 0.45em;
+// 	}
+// }
 
-.center-content {
-	text-align: center;
-}
+// .center-content {
+// 	text-align: center;
+// }
 
-.container {
-	margin: 2em;
-}
+// .container {
+// 	margin: 2em;
+// }
 
-input[type='submit'], button, .button {
-	margin: 4px;
-	border-radius: 10px;
-	font-family: $font-stack;
+// input[type='submit'], button, .button {
+// 	margin: 4px;
+// 	border-radius: 10px;
+// 	font-family: $font-stack;
 
-	&:hover { cursor: pointer; }
-}
+// 	&:hover { cursor: pointer; }
+// }
 
-.btn-reg {
-	background: $off-white;
-	border: 2px solid $dark-grey;
-	color: $dark-grey;
-	font-size: 0.75em;
-	padding: 0.3em 0.5em;
+// .btn-reg {
+// 	background: $off-white;
+// 	border: 2px solid $dark-grey;
+// 	color: $dark-grey;
+// 	font-size: 0.75em;
+// 	padding: 0.3em 0.5em;
 
-	&:hover { background: $white-shade; }
-}
+// 	&:hover { background: $white-shade; }
+// }
 
-.btn-green {
-	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
-	  background: linear-gradient(top, $primary-shade, $primary-tint);
-	font-size: 0.75em;
-	color: $off-white;
-	border-style: none;
-	padding: 1em;
+// .btn-green {
+// 	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+// 	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+// 	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+// 	  background: linear-gradient(top, $primary-shade, $primary-tint);
+// 	font-size: 0.75em;
+// 	color: $off-white;
+// 	border-style: none;
+// 	padding: 1em;
 
-	&:hover { background: $primary-color; }
-}
+// 	&:hover { background: $primary-color; }
+// }
 
-.btn-red {
-	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: linear-gradient(top, $secondary-color, $secondary-tint);
-	font-size: 0.75em;
-	color: $off-white;
-	border-style: none;
-	padding: 1em;
+// .btn-red {
+// 	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
+// 	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
+// 	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
+// 	  background: linear-gradient(top, $secondary-color, $secondary-tint);
+// 	font-size: 0.75em;
+// 	color: $off-white;
+// 	border-style: none;
+// 	padding: 1em;
 
-	&:hover { background: $secondary-shade; }
-}
+// 	&:hover { background: $secondary-shade; }
+// }
 
-.btn-orange {
-	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
-	font-size: 0.75em;
-	color: $off-white;
-	border-style: none;
-	padding: 1em;
+// .btn-orange {
+// 	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
+// 	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
+// 	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
+// 	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
+// 	font-size: 0.75em;
+// 	color: $off-white;
+// 	border-style: none;
+// 	padding: 1em;
 
-	&:hover { background: $tertiary-shade; }
-}
+// 	&:hover { background: $tertiary-shade; }
+// }
 
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	font-size: 0.75em;
-	padding: 0.5em 0;
-	background-color: $primary-color;
-	color: $off-white;
-}
+// footer {
+// 	position: absolute;
+// 	bottom: 0;
+// 	width: 100%;
+// 	font-size: 0.75em;
+// 	padding: 0.5em 0;
+// 	background-color: $primary-color;
+// 	color: $off-white;
+// }

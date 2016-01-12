@@ -3,39 +3,50 @@
 <head>
   <title>WhatzcookinRails</title>
   <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width" />
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <header>
-    <nav class='navbar'>
-      <%= link_to "WhatzCookin", root_path, class: 'logo-text' %>
-      <ul>
-        <% if user_signed_in? %>
-        <li>
-          <% if current_user.nutritional_profile %>
-            <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
-          <% else %>
-            <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
-          <% end %>
-        </li>|
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li>Signed in as <%= current_user.name %>. Not you?</li>
-        <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
-        <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>|
-        <li><%= link_to "Sign in", new_user_session_path %> </li>|
-        <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
+<body data-enhance='false'>
+  <div class="container">
+    <header>
+      <div class="row">
+        <nav class='navbar'>
+          <div class='visible-xs visible-sm col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
+          <%= link_to "WhatzCookin", root_path, class: 'visible-md visible-lg' %>
+          <ul class='col-xs-offset-4 text-right nav-list'>
+            <% if user_signed_in? %>
+            <li>
+              <% if current_user.nutritional_profile %>
+                <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
+              <% else %>
+                <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
+              <% end %>
+            </li>
+            <span class='visible-md visible-lg'>|</span>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li class='visible-md visible-lg'>Signed in as <%= current_user.name %>. Not you?</li>
+            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
+            <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <span class='visible-md visible-lg'>|</span>
+            <li><%= link_to "Sign in", new_user_session_path %> </li>
+            <span class='visible-md visible-lg'>|</span>
+            <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
   <div class='container'>
     <%= yield %>
   </div>
 
-  <footer class='center-content'>
+  <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
+
+  <footer>
     <div>
       &copy; The Dream Team
     </div>
