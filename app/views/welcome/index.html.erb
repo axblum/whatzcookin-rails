@@ -11,8 +11,6 @@
 		<div class='row'>
 			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-md-5 btn-red' %>
 	<% end %>
-			<%= form_tag('/random_recipe', class: 'random-recipe-form col-md-5') do %>
-				<%= submit_tag "I'm feeling hungry", class: 'im-feeling-hungry btn-orange' %>
-			<% end %>
+		<%= link_to("I'm still feeling hungry", '/random_recipe', class: 'im-feeling-hungry button btn-orange') %>
 		</div>
 </div>

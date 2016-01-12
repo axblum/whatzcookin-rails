@@ -5,6 +5,15 @@
 end
 
 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each do |num|
+  Rating.create!(stars: rand(1..5),
+                 user_id: num,
+                 recipe_id: 1)
+end
+
+Recipe.create!(api_id: 640010)
+
+
 200.times do
   Comment.create!(text: Faker::Lorem.paragraph,
                   user_id: rand(1..10),
@@ -13,11 +22,11 @@ end
 
 NutritionalProfile.create!(user_id: 10)
 # Populate restrictions
-Restriction.create!(name: "pescetarian")
-Restriction.create!(name: "lacto vegetarian")
-Restriction.create!(name: "ovo vegetarian")
-Restriction.create!(name: "vegan")
-Restriction.create!(name: "vegetarian")
+DietaryRestriction.create!(name: "pescetarian")
+DietaryRestriction.create!(name: "lacto vegetarian")
+DietaryRestriction.create!(name: "ovo vegetarian")
+DietaryRestriction.create!(name: "vegan")
+DietaryRestriction.create!(name: "vegetarian")
 
 # Populate excluded ingredients
 
@@ -48,7 +57,7 @@ CuisineStyle.create!(name: "french")
 CuisineStyle.create!(name: "italian")
 CuisineStyle.create!(name: "mexican")
 CuisineStyle.create!(name: "spanish")
-# CuisineStyle.create!(name: "middle eastern")
-# CuisineStyle.create!(name: "spanish")
+CuisineStyle.create!(name: "middle eastern")
+CuisineStyle.create!(name: "spanish")
 # CuisineStyles.create!(name: "spanish")
 # CuisineStyles.create!(name: "spanish")

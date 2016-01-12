@@ -22,13 +22,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
+<<<<<<< HEAD
 gem 'jquery_mobile_rails'
+=======
+gem 'jquery-star-rating-rails'
+>>>>>>> origin/fix-feeling-hungry
 
 # Auth related gems
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,3 +60,13 @@ group :development do
   gem 'spring'
 end
 
+# Create RSPEC tests
+group :test do
+  gem 'simplecov', :require => false, :group => :test
+  gem 'factory_girl_rails', :require => false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+end

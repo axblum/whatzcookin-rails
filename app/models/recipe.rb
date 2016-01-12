@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :comments
+  has_many :ratings
   validates_presence_of :api_id
   def self.get_recipes_by_ingredient(ingredients, limit)
     search_params = ingredients.gsub(/,\s?/, "%2C").gsub(" ", "+")
