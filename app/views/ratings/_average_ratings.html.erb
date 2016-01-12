@@ -1,6 +1,38 @@
 <h3>Average User Ratings!</h3>
+<% if @recipe.ratings.empty? %>
   <input name="averageStars" type="radio" class="star" disabled="disabled"/>
   <input name="averageStars" type="radio" class="star" disabled="disabled"/>
   <input name="averageStars" type="radio" class="star" disabled="disabled"/>
   <input name="averageStars" type="radio" class="star" disabled="disabled"/>
   <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+<% elsif average_rating(@recipe) == 1 %>
+  <input name="averageStars" type="radio" class="star" disabled="disabled" checked/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+<% elsif average_rating(@recipe) == 2 %>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled" checked/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+<% elsif average_rating(@recipe) == 3 %>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled" checked/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+<% elsif average_rating(@recipe) == 4 %>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled" checked/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+<% elsif average_rating(@recipe) == 5 %>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled"/>
+  <input name="averageStars" type="radio" class="star" disabled="disabled" checked/>
+<% end %>

@@ -13,8 +13,7 @@ module RecipesHelper
   end
 
   def average_rating(recipe_object)
-    p params
-    recipe_object
+    return recipe_object.ratings.average(:stars).to_i
   end
 
   def display_rating(rating, option)
