@@ -1,6 +1,8 @@
 include RecipesHelper
 class RatingsController < ApplicationController
   def create
+    p "-" * 50
+    p params
     @recipe = Recipe.find(params[:recipe_id])
     @rating = Rating.find_by(user_id: current_user.id, recipe_id: @recipe.id)
     if @rating

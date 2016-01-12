@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-star-rating
 //= require jquery.mobile
 //= require_tree .
-//= require jquery-star-rating
  $(document).on('pagebeforecreate', function( e ) {
     $( "input, textarea, select", e.target ).attr( "data-role", "none" );
 });
