@@ -28,6 +28,8 @@ class CommentsController < ApplicationController
     if @comment.save
       if request.xhr?
         render partial: "/comments/comment", locals: {comment: @comment, recipe: @recipe}
+      else
+        redirect_to recipe_path(@recipe)
       end
     end
   end
