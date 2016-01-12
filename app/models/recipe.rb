@@ -42,7 +42,6 @@ def self.get_personalized_recipe(query,options={})
       opts << "#{key}=#{val}&"
     end
   end
-  # p "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}"
   response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?#{opts}query=#{query}",
    headers:{
        "X-Mashape-Key" => ENV['SPOONACULAR_API'],
