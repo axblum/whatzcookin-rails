@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  swipeLeft()
+  swipeLeft();
 });
 
 var swipeLeft = function(){
@@ -10,7 +10,10 @@ var swipeLeft = function(){
       url: "/random_recipe",
   	})
   	.done(function(response) {
-  		console.log(response)
+  		$("#content").html(response);
+  		var id = $("#content").children().first().attr("id");
+  		var url = "/recipes/" + id;
+  		history.pushState(null, null,url);
   	})
   });
 };
