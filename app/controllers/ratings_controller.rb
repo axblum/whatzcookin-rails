@@ -5,14 +5,9 @@ class RatingsController < ApplicationController
                                        recipe_id: params[:recipe_id])
     @recipe = Recipe.find(params[:recipe_id])
     @rating.update_attributes(stars: clean_stars(params[:stars].to_i, @rating.stars))
-    # @rating.update_attributes(stars: clean_stars(params[:stars].to_i))
     if @rating.save
       if request.xhr?
-        p "Barf $ " * 100
-        p @rating.stars
-        p 'User'
-        render partial: '/ratings/four_star'
-        # p display_rating(@rating.stars, 'User')
+        render partial: "ratings/user_rating", locals: {user_rating: user_rating(@recipe)}
       else
         render partial: '/ratings/five_star'
       end
