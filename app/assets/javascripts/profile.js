@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  display_taste_profile();
+  if ($('#highcharts').length){
+    display_taste_profile();
+  }
   bindProfileListeners();
 });
 
@@ -10,8 +12,7 @@ function bindProfileListeners() {
 }
 
 var display_taste_profile = function(){
-    var chartdiv = $('#highcharts').find()
-    chartdiv.highcharts({
+    $('#highcharts').highcharts({
         chart: {
             polar: true,
             type: 'line'
