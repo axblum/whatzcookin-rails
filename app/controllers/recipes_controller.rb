@@ -1,6 +1,5 @@
-include TasteProfilesHelper
 class RecipesController < ApplicationController
-
+  include TasteProfilesHelper
 
   def show
     @recipe = Recipe.find_or_create_by(api_id: params[:id])

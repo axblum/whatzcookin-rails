@@ -1,9 +1,11 @@
+/* Extra Small Devices, Phones */
 
 @media only screen and (min-width : 320px) and (max-width : 768px) {
-	.field {
-	  display: inline-block;
-	  margin: 0 auto;
-	}
+
+// .container-fluid {
+// 	text-align: center;
+// }
+
 	.row {
 	  padding: 0.2em;
 	}
@@ -13,8 +15,16 @@
 	}
 }
 
-@media only screen and (min-width : 768px) {
+.nav-bar {
+	float: clear;
 }
+
+@media only screen and (min-width : 768px) {
+	.row {
+	  padding: 0.2em;
+	}
+}
+
 // .field {
 //   display: inline-block;
 //   margin: 0 auto;
