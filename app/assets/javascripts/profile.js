@@ -48,7 +48,7 @@ var display_taste_profile = function(data){
         },
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
         },
         legend: {
             align: 'right',
