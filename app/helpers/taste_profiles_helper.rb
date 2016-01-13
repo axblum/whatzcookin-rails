@@ -141,6 +141,10 @@ module TasteProfilesHelper
   end
 
   # using the user taste profile to find appropriate recipes
+  # calculate the differences between the user and the country
+  def taste_array(user)
+
+  end
 
 end
 

@@ -2,11 +2,10 @@ include TasteProfilesHelper
 class UsersController < ApplicationController
 	def show
     @user = current_user
-    calculate_profile
+    # calculate_profile
     @cuisine_array = ["African","Chinese","Japanese","Korean","Vietnamese","Thai","Indian","British","Irish","French","Italian","Mexican","Spanish","Middle Eastern","Jewish","American","Cajun","Southern","Greek","German","Nordic","Eastern European","Caribbean","Latin American"]
 	end
 
-  private
   def calculate_profile
     @user = current_user
     unless @user.favorites.empty?
@@ -14,5 +13,6 @@ class UsersController < ApplicationController
       @new_taste_profile.update_attributes(weigh_tastes(current_user))
       @new_taste_profile.save
     end
+    render partial: 'taste_profiles/taste_profile_show'
   end
 end
