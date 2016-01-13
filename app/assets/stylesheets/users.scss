@@ -1,3 +1,19 @@
-.tab {
-	display: inline-block;
+.field {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.2em;
+}
+
+#user_email {
+  color: #4b4b4b;
+}
+
+#user_password {
+  color: #4b4b4b;
+}
+
+label {
+  display: inline-block;
+  margin: 0 auto;
+  float: left;
 }
