@@ -5,3 +5,23 @@
 		<div id='tab3' class='col-md-2 tab'>Tab3</div>
 	</div>
 </div>
+
+<%= form_for @user do |f| %>
+  <%= f.hidden_field :bitter, value: @new_taste_profile.bitter %></p>
+  <%= f.hidden_field :earthy, value: @new_taste_profile.earthy %></p>
+  <%= f.hidden_field :grassy, value: @new_taste_profile.grassy %></p>
+  <%= f.hidden_field :licorice, value: @new_taste_profile.licorice %></p>
+  <%= f.hidden_field :nutty, value: @new_taste_profile.nutty %></p>
+  <%= f.hidden_field :peppery, value: @new_taste_profile.peppery %></p>
+  <%= f.hidden_field :sour, value: @new_taste_profile.sour %></p>
+  <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %></p>
+  <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %></p>
+  <%= f.hidden_field :woody, value: @new_taste_profile.woody %></p>
+  <%= f.submit "Calculate Your Taste Profile" %>
+<% end %>
+
+<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+  <div class="row">
+    <div id='tab-1-content' class='col-md-5'></div>
+  </div>
+</div>
