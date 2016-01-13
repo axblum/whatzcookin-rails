@@ -10,8 +10,8 @@
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box') %>
 		</div>
 		<div class='row'>
-			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-sm-5 col-md-2 col-md-offset-4 btn btn-default btn-red' %>
+			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-xs-5 col-md-2 col-md-offset-4 btn btn-default btn-red' %>
 	<% end %>
-		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-sm-5 col-md-2 btn btn-default btn-orange', "data-ajax" => "false" %>
+		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-xs-5 col-md-2 btn btn-default btn-orange', "data-ajax" => "false" %>
 		</div>
 </div>
