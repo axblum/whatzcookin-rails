@@ -1,3 +1,4 @@
+include TasteProfilesHelper
 class NutritionalProfilesController < ApplicationController
 # before_action :profile_page, only: [:show, :edit, :update]
 before_action :authenticate_user!
