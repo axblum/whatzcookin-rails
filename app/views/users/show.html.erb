@@ -1,10 +1,10 @@
 <div class='container'>
 	<div class='row'>
 		<div class='col-md-1 tab active'>
-      <%= link_to "Tab 1", 'tab1' %>
+      <%= link_to "Restrictions", 'tab1' %>
     </div>
 		<div class='col-md-1 tab'>
-      <%= link_to "Tab 2", 'tab2' %>
+      <%= link_to "Taste Profile", 'tab2' %>
     </div>
 		<div class='col-md-1 tab'>
       <%= link_to "Tab 3", 'tab3' %>
@@ -17,7 +17,7 @@
   <div class="row">
 
     <div class='debugger sheet' id='tab1'>
-      TAB1
+      <%= render partial: "nutritional_profiles/show", locals: {user_rating: @user_rating} %>
     </div>
 
     <div class='hidden debugger sheet' id='tab2'>

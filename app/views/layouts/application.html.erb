@@ -19,14 +19,6 @@
           <% end %>
           <ul class='hidden-xs col-xs-offset-4 col-md-10 text-right nav-list '>
             <% if user_signed_in? %>
-            <li>
-              <% if current_user.nutritional_profile %>
-                <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
-              <% else %>
-                <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
-              <% end %>
-            </li>
-            <span class='hidden-xs'>|</span>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <span class='hidden-xs'>|</span>
             <li class='hidden-xs'>Signed in as <%= current_user.name %>. Not you?</li>

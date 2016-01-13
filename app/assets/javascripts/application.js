@@ -16,10 +16,6 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require_tree .
-$(document).on("mobileinit", function(){
-    // $.mobile.ajaxEnabled=false;
-    $.mobile.loadingMessage = false;
-});
 //= require jquery.mobile
 
 
