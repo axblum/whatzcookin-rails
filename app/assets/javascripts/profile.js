@@ -10,7 +10,8 @@ function bindProfileListeners() {
 }
 
 var display_taste_profile = function(){
-    $('#container').highcharts({
+    var chartdiv = $('#highcharts').find()
+    chartdiv.highcharts({
         chart: {
             polar: true,
             type: 'line'

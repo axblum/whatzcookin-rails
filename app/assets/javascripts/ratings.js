@@ -1,6 +1,5 @@
 $(document).ready(function() {
   bindRatingsListeners()
-  debugger
 });
 
 var bindRatingsListeners = function(){
