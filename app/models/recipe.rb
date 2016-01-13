@@ -1,6 +1,10 @@
 class Recipe < ActiveRecord::Base
   has_many :comments
   has_many :ratings
+
+  has_one :recipe_taste_profile
+  has_many :ingredients
+
   has_many :favorites
   validates_presence_of :api_id
   def self.get_recipes_by_ingredient(ingredients, limit)
@@ -51,4 +55,3 @@ def self.get_personalized_recipe(query,options={})
      return response
   end
 end
-

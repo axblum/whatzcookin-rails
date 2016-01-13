@@ -1,11 +1,12 @@
-$(document).ready(function(){
+$(document).ready(function() {
   bindRatingsListeners()
 });
 
 var bindRatingsListeners = function(){
   $('.star-rating').on('click', function(e){
     e.preventDefault();
-    var formData = {"stars": String($('.star-rating-on').length)}
+    var rating = $(this)[0].className.split(" ")[3].split("-")[1]
+    var formData = {"stars": rating}
     var recipe_id = $(this).parent().parent().attr('id').split("_")[1];
     var url = '/recipes/' + recipe_id + '/ratings'
     createRating(formData, url);

@@ -30,20 +30,32 @@ $dark-grey: #4b4b4b;
 // ====================
 // General Styles
 // ====================
+html { height: 100%; }
+
 body {
 	font-family: $font-stack;
 	color: $dark-grey;
-	text-align: center;
+	height: 100%;
 }
+
+*:focus { outline: none !important; }
 
 li { list-style: none; }
 
 a, a:hover, a:focus { text-decoration: none; }
 
+.wrapper {
+	min-height: 100%;
+	margin-bottom: 0 auto -2em;
+}
+
+.push {
+	height: 2em;
+}
+
 footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+	height: 2em;
 	font-size: 0.75em;
 	padding: 0.5em 0;
 	background-color: $primary-color;
@@ -71,7 +83,6 @@ footer {
 	}
 
 
-
 	.nav-menu {
 		color: $off-white;
 		padding: 3px;
@@ -95,6 +106,9 @@ footer {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+	body {
+		font-size: 1.6em;
+	}
 
 	.navbar {
 		background-color: $primary-color;
@@ -116,6 +130,18 @@ footer {
 			&:hover {
     		background-color: $primary-tint;
   		}
+		}
+
+		img {
+			margin-top: 10px;
+			width: 40px;
+			display: inline-block;
+		}
+
+		.home-button {
+			position: relative;
+			top: 17px;
+			font-family: $logo-font;
 		}
 	}
 }
@@ -149,7 +175,6 @@ footer {
 
 // a { text-decoration: none; }
 
-// *:focus { outline: none !important; }
 
 // 	background-color: $primary-color;
 // 	color: $off-white;
@@ -219,31 +244,33 @@ footer {
 // 	&:hover { background: $primary-color; }
 // }
 
-// .btn-red {
-// 	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
-// 	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
-// 	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
-// 	  background: linear-gradient(top, $secondary-color, $secondary-tint);
-// 	font-size: 0.75em;
-// 	color: $off-white;
-// 	border-style: none;
-// 	padding: 1em;
+.btn-red {
+	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
+	  background: linear-gradient(top, $secondary-color, $secondary-tint);
+	font: 1.3em $font-stack;
+	color: $off-white;
 
-// 	&:hover { background: $secondary-shade; }
-// }
+	&:hover {
+		background: $secondary-shade;
+		color: $off-white;
+	}
+}
 
-// .btn-orange {
-// 	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
-// 	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
-// 	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
-// 	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
-// 	font-size: 0.75em;
-// 	color: $off-white;
-// 	border-style: none;
-// 	padding: 1em;
+.btn-orange {
+	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
+	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
+	font: 1.3em $font-stack;
+	color: $off-white;
 
-// 	&:hover { background: $tertiary-shade; }
-// }
+	&:hover {
+		background: $tertiary-shade;
+		color: $off-white;
+	}
+}
 
 
 

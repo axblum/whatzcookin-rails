@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :excluded_ingredients, through: :nutritional_profile
   has_many :restrictions, through: :nutritional_profile
   has_one :nutritional_profile
+  has_one :user_taste_profile
 
   devise :omniauthable
   validates_presence_of :email, :encrypted_password
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
    end
   end
 
-  def build_personalize_hash
+  def build_personalized_hash
     result = {}
     self.restrictions = restrictions
     restrictions.each do |restriction|

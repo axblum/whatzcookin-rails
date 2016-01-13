@@ -1,5 +1,5 @@
-<% if favorited?(@recipe)  %>
-  <%= link_to 'Unfavorite', "/users/#{current_user.id}/favorites/#{find_favorite(@recipe).id}", method: :delete, class: "fav_button #{dom_id(@recipe)}" %>
+<% if favorited?(recipe) %>
+  <%= link_to 'Unfavorite', "/users/#{current_user.id}/favorites/#{find_favorite(recipe).id}", method: :delete, class: "unfav-button #{dom_id(recipe)}" %>
 <% else %>
-  <%= link_to "Favorite!", "/users/#{current_user.id}/favorites", method: :post, class: "fav_button #{dom_id(@recipe)}" -%>
+  <%= link_to "Favorite!", "/users/#{current_user.id}/favorites", method: :post, class: "fav-button #{dom_id(recipe)}" -%>
 <% end %>

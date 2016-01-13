@@ -1,6 +1,7 @@
 $(document).on("ready", function () {
-    bindMobileListeners();
+  bindMobileListeners();
 });
+
 
 function bindMobileListeners() {
 	$('.nav-menu').on('tap', function(e) {
