@@ -6,7 +6,7 @@ function bindCommentListeners() {
   $(".new-comment-form").on("submit", "#new_comment", function(e) {
     e.preventDefault();
     var data = $(this).serialize();
-    var url = $(this).attr("action")
+    var url = $(this).attr("action");
     createComment(data, url);
   });
   $("ul").on("click", ".edit-comment-button", function(e) {
@@ -36,8 +36,8 @@ function createComment(data, url) {
     data: data
   })
   .done(function(response) {
-    $('ul.comments').append(response)
-    $('.new_comment textarea').val("")
+    $('ul.comments').append(response);
+    $('.new_comment textarea').val("");
   });
 };
 
@@ -47,7 +47,7 @@ function editComment(url) {
     url: url
   })
   .done(function(response) {
-    var id = this.url.split("/")[4]
+    var id = this.url.split("/")[4];
     $("li#" + id).append(response);
   });
 };

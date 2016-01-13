@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 gem 'jquery_mobile_rails'
 gem 'jquery-star-rating-rails'
+
 # Auth related gems
 gem 'devise'
 gem 'omniauth'
