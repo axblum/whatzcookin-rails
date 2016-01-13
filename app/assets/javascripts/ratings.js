@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  bindListeners()
+  bindRatingsListeners()
 });
 
-var bindListeners = function(){
+var bindRatingsListeners = function(){
   $('.star-rating').on('click', function(e){
     e.preventDefault();
     var formData = {"stars": String($('.star-rating-on').length)}

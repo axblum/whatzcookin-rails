@@ -20,7 +20,6 @@ before_action :authenticate_user!
   end
 
   def create
-    p "-" * 50
     @nutritional_profile = NutritionalProfile.create(user_id: current_user.id)
     redirect_to user_nutritional_profile_path(current_user.id, @nutritional_profile.id)
   end

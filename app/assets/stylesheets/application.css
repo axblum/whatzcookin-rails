@@ -11,8 +11,7 @@
  * file per style scope.
  *= require_tree .
  *= require_self
- *= require jquery.mobile
  *= require jquery-star-rating
 
  */
-@import "bootstrap";
+
