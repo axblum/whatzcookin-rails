@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
    end
   end
 
-  def build_personalize_hash
+  def build_personalized_hash
     result = {}
     self.restrictions = restrictions
     restrictions.each do |restriction|
