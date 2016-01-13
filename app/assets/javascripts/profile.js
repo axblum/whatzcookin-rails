@@ -4,9 +4,9 @@ $(document).ready(function(){
 });
 
 function bindProfileListeners() {
-	$('body').on("click", function(e) {
-    console.log('hit it')
-	});
+	// $('body').on("click", function(e) {
+ //    console.log('hit it')
+	// });
   $('#taste-profile').on('click', function(e) {
     e.preventDefault();
     var formData = $('form').serializeArray();
@@ -24,7 +24,7 @@ function bindProfileListeners() {
     e.preventDefault();
     $('.tab').removeClass('active');
     $(this).addClass('active');
-    
+
     var activeSheet = $(this).children('a').attr('href');
     $('.sheet').addClass('hidden');
     $('#' + activeSheet).removeClass('hidden');
