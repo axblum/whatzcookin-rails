@@ -1,3 +1,5 @@
-<% @restrictions.each do |restriction| %>
-  <p><%= restriction.name %></p>
-<% end %>
+Nutritional Profile Info:
+<br>
+<%= render partial: "form" %>
+
+<%= link_to 'Edit Nutritional Profile', new_user_nutritional_profile_path %>

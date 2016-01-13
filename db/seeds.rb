@@ -22,11 +22,11 @@ end
 
 NutritionalProfile.create!(user_id: 10)
 # Populate restrictions
-Restriction.create!(name: "pescetarian")
-Restriction.create!(name: "lacto vegetarian")
-Restriction.create!(name: "ovo vegetarian")
-Restriction.create!(name: "vegan")
-Restriction.create!(name: "vegetarian")
+DietaryRestriction.create!(name: "pescetarian")
+DietaryRestriction.create!(name: "lacto vegetarian")
+DietaryRestriction.create!(name: "ovo vegetarian")
+DietaryRestriction.create!(name: "vegan")
+DietaryRestriction.create!(name: "vegetarian")
 
 # Populate excluded ingredients
 
@@ -57,7 +57,7 @@ CuisineStyle.create!(name: "french")
 CuisineStyle.create!(name: "italian")
 CuisineStyle.create!(name: "mexican")
 CuisineStyle.create!(name: "spanish")
-# CuisineStyle.create!(name: "middle eastern")
-# CuisineStyle.create!(name: "spanish")
+CuisineStyle.create!(name: "middle eastern")
+CuisineStyle.create!(name: "spanish")
 # CuisineStyles.create!(name: "spanish")
 # CuisineStyles.create!(name: "spanish")

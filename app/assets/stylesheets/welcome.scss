@@ -1,14 +1,26 @@
-@import 'main';
+  @import 'main';
 
-form { display: inline-block; }
+// form { display: inline-block; }
 
 .title-text {
-	font: 5em $logo-font;
-	color: $primary-color;
+	font: 2em $logo-font;
+  text-align: center;
+}
+
+input.search-box {
+  margin: right;
+  float: none;
 }
 
 .search-box {
-	font: 1.25em $font-stack;
-	padding: 0.2em;
-	text-align: center;
+  margin: 0 auto;
+  float: none;
+  color: $dark-grey;
+  padding: 0.2 em;
 }
+
+// .search-box {
+// 	font: 1.25em $font-stack;
+// 	padding: 0.2em;
+// 	text-align: center;
+// }

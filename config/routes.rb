@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :comments
-  end
-  resources :recipes do
     resources :ratings
   end
 
   resources :welcome, only: [:index]
+  resources :restrictions, only: [:create]
+
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
-  post '/random_recipe' => 'recipes#random_recipe'
+  get '/random_recipe' => 'recipes#random_recipe'
 
   # Nested nutritional profile under Devise scope
 
