@@ -43,7 +43,7 @@ module TasteProfilesHelper
   # Creates The Profile based on the 'adjusted tastes' hash
   def create_recipe_profile(recipe_object)
     taste_profile = RecipeTasteProfile.create!(taste_counts(recipe_object))
-    taste_profile.update_attributes(recipe_id: @recipe.id)
+    taste_profile.update_attributes(recipe_id: recipe_object.id)
     p "CREATED RECIPE PROFILE"
     p taste_profile
     return taste_profile
@@ -61,25 +61,22 @@ module TasteProfilesHelper
   def find_favorite_recipes(user)
     faves = []
     user.favorites.each do |favorite|
-
+      faves << favorite.recipe
     end
+    return faves
   end
 
   # find or create the recipe taste profiles
   def find_recipe_profiles(user)
-    p "Finding Recipe Profiles && " * 100
-    rated = user_rated_recipes(user)
-    p rated
-    p "HERE NOW"
-
+    # rated = user_rated_recipes(user)
     profiles = []
-    rated.each do |recipe|
-      p recipe
-      p "HERE HERE HERE HERE HERE " * 100
-      p create_recipe_profile(recipe)
+    # rated.each do |recipe|
+    #   profiles << create_recipe_profile(recipe)
+    # end
+    faves = find_favorite_recipes(user)
+    faves.each do |recipe|
       profiles << create_recipe_profile(recipe)
     end
-    p profiles
     return profiles
   end
 
