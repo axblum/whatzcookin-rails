@@ -1,4 +1,7 @@
+include TasteProfilesHelper
 class RecipesController < ApplicationController
+
+
   def show
     @recipe = Recipe.find_or_create_by(api_id: params[:id])
     @recipe_info = Recipe.get_recipe(params[:id])
@@ -10,10 +13,13 @@ class RecipesController < ApplicationController
     
     if request.xhr?
       render :show,layout:false
+      create_profile
     else
       render :show
+      create_profile
     end
   end
+
 
   def retrieve_recipes
     recipes = Recipe.get_recipes_by_ingredient(params[:ingredient], 15)

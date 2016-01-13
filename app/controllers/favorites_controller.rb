@@ -3,8 +3,6 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    p "WHAT THE FUCK IS HAPPENING????"
-    p params
     @favorite = Favorite.new(recipe_id: params[:recipe_id].to_i,
                              user_id: params[:user_id].to_i)
     p @favorite
@@ -17,6 +15,10 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-
+    if request.xhr?
+      @favorite= Favorite.find(params[:id])
+      @favorite.destroy
+      render json: @favorite
+    end
   end
 end

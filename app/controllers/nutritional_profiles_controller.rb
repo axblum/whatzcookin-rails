@@ -1,3 +1,4 @@
+include TasteProfilesHelper
 class NutritionalProfilesController < ApplicationController
 # before_action :profile_page, only: [:show, :edit, :update]
 before_action :authenticate_user!
@@ -6,6 +7,7 @@ before_action :authenticate_user!
   end
 
   def show
+    @new_taste_profile = UserTasteProfile.create!(weigh_tastes(current_user))
     @nutritional_profile = current_user.nutritional_profile
     @dietary_restrictions = DietaryRestriction.all
     @user_dietary_restrictions = @nutritional_profile.restrictions.dietary_restrictions
