@@ -30,6 +30,8 @@ $dark-grey: #4b4b4b;
 // ====================
 // General Styles
 // ====================
+html { height: 100%; }
+
 body {
 	font-family: $font-stack;
 	color: $dark-grey;
@@ -42,8 +44,13 @@ li { list-style: none; }
 
 a, a:hover, a:focus { text-decoration: none; }
 
-#content {
-	margin-bottom: 2em;
+.wrapper {
+	min-height: 100%;
+	margin-bottom: 0 auto -2em;
+}
+
+.push {
+	height: 2em;
 }
 
 footer {

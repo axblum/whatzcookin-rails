@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='debugger'>
   <div class="container-fluid">
     <header>
       <div class="row">
@@ -40,11 +40,11 @@
       </div>
     </header>
   </div>
-  <div class='container-fluid' id='content'>
+  <div class='container-fluid wrapper debugger' id='content'>
     <%= yield %>
     <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
   </div>
-
+  <div class="push"></div>
   <footer>
     <div class='row'>
       <div class='text-center col-xs-12 col-md-12'>
