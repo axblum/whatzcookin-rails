@@ -21,8 +21,14 @@
   </div>
 </div>
 
-<div class="average-rating">
+<div id="average-rating">
   <%= render partial: 'ratings/average_ratings', locals: {recipe: @recipe} %>
+</div>
+
+<div id="favorite">
+  <% if current_user %>
+    <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
+  <% end %>
 </div>
 
 <div>
@@ -45,6 +51,7 @@
     <p>Log in to rate this recipe!</p>
   <% end %>
 </div>
+
 <div class='new-comment-form'>
   <% if current_user %>
     <%= render partial: 'comments/form' %>
