@@ -2,31 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.form-group {
-  display: inline-block;
-  margin: 0 auto;
+.row {
   padding: 0.2em;
 }
 
-// #user_email {
-//   color: #4b4b4b;
-// }
-
-// #user_password {
-//   color: #4b4b4b;
-// }
-
-#remember_me {
-  margin: 0 auto;
+#user_remember_me {
+  display: inline;
 }
-
-label {
-  display: inline-block;
-  margin: 0 auto;
-  float: left;
-}
-
-
 // .field {
 //   display: inline-block;
 //   margin: 0 auto;
