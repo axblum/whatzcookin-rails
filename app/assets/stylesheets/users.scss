@@ -1,19 +1,34 @@
 .field {
   display: inline-block;
   margin: 0 auto;
+}
+.row {
   padding: 0.2em;
 }
 
-#user_email {
-  color: #4b4b4b;
+#user_remember_me {
+  display: inline;
 }
+// .field {
+//   display: inline-block;
+//   margin: 0 auto;
+//   padding: 0.2em;
+// }
 
-#user_password {
-  color: #4b4b4b;
-}
+// #user_email {
+//   color: #4b4b4b;
+// }
 
-label {
-  display: inline-block;
-  margin: 0 auto;
-  float: left;
-}
+// #user_password {
+//   color: #4b4b4b;
+// }
+
+// #remember_me {
+
+// }
+
+// label {
+//   display: inline-block;
+//   margin: 0 auto;
+//   float: left;
+// }
