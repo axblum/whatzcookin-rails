@@ -7,16 +7,17 @@
 </div>
 
 <%= form_for @user do |f| %>
-  <%= f.hidden_field :bitter, value: @new_taste_profile.bitter %></p>
-  <%= f.hidden_field :earthy, value: @new_taste_profile.earthy %></p>
-  <%= f.hidden_field :grassy, value: @new_taste_profile.grassy %></p>
-  <%= f.hidden_field :licorice, value: @new_taste_profile.licorice %></p>
-  <%= f.hidden_field :nutty, value: @new_taste_profile.nutty %></p>
-  <%= f.hidden_field :peppery, value: @new_taste_profile.peppery %></p>
-  <%= f.hidden_field :sour, value: @new_taste_profile.sour %></p>
-  <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %></p>
-  <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %></p>
-  <%= f.hidden_field :woody, value: @new_taste_profile.woody %></p>
+  <%= f.hidden_field :bitter, value: @new_taste_profile.bitter %>
+  <%= f.hidden_field :earthy, value: @new_taste_profile.earthy %>
+  <%= f.hidden_field :grassy, value: @new_taste_profile.grassy %>
+  <%= f.hidden_field :licorice, value: @new_taste_profile.licorice %>
+  <%= f.hidden_field :nutty, value: @new_taste_profile.nutty %>
+  <%= f.hidden_field :peppery, value: @new_taste_profile.peppery %>
+  <%= f.hidden_field :sour, value: @new_taste_profile.sour %>
+  <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %>
+  <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %>
+  <%= f.hidden_field :woody, value: @new_taste_profile.woody %>
+  <%= f.hidden_field :cuisine_type, value: 'Japanese' %>
   <%= f.submit "Calculate Your Taste Profile", id: "taste-profile" %>
 <% end %>
 

@@ -60,9 +60,16 @@ module TasteProfilesHelper
 
   def find_favorite_recipes(user)
     faves = []
-    user.favorites.each do |favorite|
-      faves << favorite.recipe
-    end
+    faves << user.favorites.last.recipe
+    # if user.favorites.length > 5
+    #   for i in (user.favorites.length-6)...(user.favorites.length)
+    #     faves << user.favorites[i].recipe
+    #   end
+    # else
+    #   user.favorites.each do |favorite|
+    #     faves << favorite.recipe
+    #   end
+    # end
     return faves
   end
 

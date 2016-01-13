@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get '/random_recipe' => 'recipes#random_recipe'
 
   # Nested nutritional profile under Devise scope
-
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
 
   devise_scope :user do
