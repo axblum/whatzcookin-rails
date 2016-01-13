@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   bindProfileListeners();
 });
 
@@ -13,13 +14,16 @@ function bindProfileListeners() {
     for (i=3; i<formData.length; i++){
       data.push(parseFloat(formData[i].value));
     };
-    display_taste_profile(data);
+    if ($('#highcharts').length){
+      display_taste_profile(data);
+    }
     console.log(formData);
     console.log(data);
   })
 }
+
 var display_taste_profile = function(data){
-    $('#container').highcharts({
+    $('#highcharts').highcharts({
         chart: {
             polar: true,
             type: 'line'
