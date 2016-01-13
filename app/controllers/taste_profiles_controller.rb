@@ -1,0 +1,2 @@
+class TasteProfilesController < ApplicationController
+end

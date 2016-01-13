@@ -13,12 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-star-rating
+//= require highcharts
+//= require highcharts/highcharts-more
+//= require_tree .
 $(document).on("mobileinit", function(){
     // $.mobile.ajaxEnabled=false;
     $.mobile.loadingMessage = false;
-});            
+});
 //= require jquery.mobile
-//= require_tree .
+
 
 $(document).on('pagebeforecreate', function( e ) {
   $( "input, textarea, select", e.target ).attr( "data-role", "none" );
