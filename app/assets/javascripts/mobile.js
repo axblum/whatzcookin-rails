@@ -1,6 +1,5 @@
 $(document).on("ready", function () {
     bindMobileListeners();
-    hideMenu();
 });
 
 function bindMobileListeners() {
@@ -14,8 +13,4 @@ function bindMobileListeners() {
 			$('.nav-list').slideUp(200);
 		};
 	});
-};
-
-function hideMenu() {
-	$('.nav-list').hide();
 };

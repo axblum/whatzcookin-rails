@@ -8,14 +8,14 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body data-enhance='false'>
-  <div class="container">
+<body>
+  <div class="container-fluid">
     <header>
       <div class="row">
         <nav class='navbar'>
-          <div class='visible-xs visible-sm col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
-          <%= link_to "WhatzCookin", root_path, class: 'visible-md visible-lg' %>
-          <ul class='col-xs-offset-4 text-right nav-list'>
+          <div class='visible-xs col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
+          <%= link_to "WhatzCookin", root_path, class: 'hidden-xs col-md-2 debugger', "data-ajax" => "false" %>
+          <ul class='hidden-xs col-xs-offset-4 col-md-10 text-right nav-list debugger'>
             <% if user_signed_in? %>
             <li>
               <% if current_user.nutritional_profile %>
@@ -24,15 +24,15 @@
                 <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
               <% end %>
             </li>
-            <span class='visible-md visible-lg'>|</span>
+            <span class='hidden-xs'>|</span>
             <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li class='visible-md visible-lg'>Signed in as <%= current_user.name %>. Not you?</li>
+            <li class='hidden-xs'>Signed in as <%= current_user.name %>. Not you?</li>
             <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
             <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <span class='visible-md visible-lg'>|</span>
-            <li><%= link_to "Sign in", new_user_session_path %> </li>
-            <span class='visible-md visible-lg'>|</span>
+            <li><%= link_to "Sign up", new_user_registration_path, "data-ajax" => "false" %></li>
+            <span class='hidden-xs'>|</span>
+            <li><%= link_to "Sign in", new_user_session_path, "data-ajax" => "false" %> </li>
+            <span class='hidden-xs'>|</span>
             <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
             <% end %>
           </ul>
@@ -47,8 +47,10 @@
   <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
 
   <footer>
-    <div>
-      &copy; The Dream Team
+    <div class='row'>
+      <div class='text-center col-xs-12 col-md-12'>
+        &copy; The Dream Team
+      </div>
     </div>
   </footer>
 </body>
