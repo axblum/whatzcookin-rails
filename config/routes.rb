@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :comments
-  end
-  resources :recipes do
     resources :ratings
   end
 
@@ -21,6 +19,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     resources :users do
       resources :nutritional_profiles
+      resources :favorites , only: [:index, :create, :destroy]
     end
     get '/register' => 'devise/registrations#new'
     post '/register' => 'devise/registrations#create'
@@ -29,6 +28,9 @@ Rails.application.routes.draw do
     post '/login' => 'devise/sessions#create'
     delete "/logout" => "devise/sessions#destroy"
   end
+
+  # post '/users/:user_id/:recipe_id/favorites' => 'favorites#create'
+  # delete '/users/:user_id/favorites/:id' => 'favorites#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

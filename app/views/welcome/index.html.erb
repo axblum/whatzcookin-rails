@@ -1,16 +1,17 @@
-<div class='row center-content'>
+<div class='row'>
   <h1 class='title-text'>WhatzCookin</h1>
 
 	<div>
 		<%= flash[:error] %>
 	</div>
-	<%= form_tag('/retrieve_recipes')  do %>
+	<%= form_tag('/retrieve_recipes', "data-ajax" => "false")  do %>
 		<div>
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box') %>
 		</div>
 		<div class='row'>
-			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-md-5 btn-red' %>
+			<%= submit_tag 'Find A Recipe', class: 'find-a-recipe col-sm-5 btn-red' %>
 	<% end %>
-		<%= link_to("I'm still feeling hungry", '/random_recipe', class: 'im-feeling-hungry button btn-orange',"data-ajax" => "false") %>
+		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-sm-5 btn-orange', "data-ajax" => "false" %>
 		</div>
 </div>
+
