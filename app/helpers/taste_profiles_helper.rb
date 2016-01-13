@@ -50,12 +50,19 @@ module TasteProfilesHelper
   end
 
   # Find all the recipes rated by the user return the recipe objects
-  def user_rated_recipes(user)
-    rated = []
-    user.ratings.each do |rating|
-      rated << rating.recipe
+  # def user_rated_recipes(user)
+  #   rated = []
+  #   user.ratings.each do |rating|
+  #     rated << rating.recipe
+  #   end
+  #   return rated
+  # end
+
+  def find_favorite_recipes(user)
+    faves = []
+    user.favorites.each do |favorite|
+
     end
-    return rated
   end
 
   # find or create the recipe taste profiles
