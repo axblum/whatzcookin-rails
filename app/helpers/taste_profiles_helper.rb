@@ -1,8 +1,8 @@
 module TasteProfilesHelper
   # convert ingredients list in recipe to string
-  def recipe_to_string
+  def recipe_to_string(recipe_object)
     ingredient_string = ""
-    @recipe_info = Recipe.get_recipe(params[:id])
+    @recipe_info = Recipe.get_recipe(recipe_object.api_id)
     @recipe_info['extendedIngredients'].each do |ingredient|
       ingredient_string += ingredient['name'] + " "
     end
@@ -10,9 +10,9 @@ module TasteProfilesHelper
   end
 
   # check list of ingredients against the approved Ingredient objects
-  def find_ingredients
+  def find_ingredients(recipe_object)
     ingredients = []
-    ing_array = recipe_to_string.split(" ")
+    ing_array = recipe_to_string(recipe_object).split(" ")
     ing_array.each do |ing|
       ingredients << Ingredient.find_by(name: ing.capitalize!)
     end
@@ -20,20 +20,20 @@ module TasteProfilesHelper
   end
 
   # List the Recipe's tastes based on ingredients that are there
-  def taste_list
+  def taste_list(recipe_object)
     flavors = ""
-    find_ingredients.each do |ingredient_object|
+    find_ingredients(recipe_object).each do |ingredient_object|
       flavors += ingredient_object.taste + " "
     end
     return flavors
   end
 
   # Calculate taste profile and scale it
-  def taste_counts
+  def taste_counts(recipe_object)
     taste_hash = Hash.new
     tastes = ['bitter', 'earthy', 'grassy', 'licorice', 'nutty', 'peppery', 'sour', 'spicy', 'sweet', 'woody']
     tastes.each do |taste|
-      taste_hash[taste.to_sym] = taste_list.scan(taste.capitalize!).length
+      taste_hash[taste.to_sym] = taste_list(recipe_object).scan(taste.capitalize!).length
     end
     total = taste_hash.values.inject(0) { |a,b| a + b }
     adjusted_tastes = taste_hash.each { |k, v| taste_hash[k] = v/total.to_f }
@@ -41,29 +41,42 @@ module TasteProfilesHelper
   end
 
   # Creates The Profile based on the 'adjusted tastes' hash
-  def create_profile
-    taste_profile = RecipeTasteProfile.create!(taste_counts)
-    taste_profile.update_attributes(recipe_id: @recipe.id)
+  def create_recipe_profile(recipe_object)
+    taste_profile = RecipeTasteProfile.create!(taste_counts(recipe_object))
+    taste_profile.update_attributes(recipe_id: recipe_object.id)
+    p "CREATED RECIPE PROFILE"
+    p taste_profile
+    return taste_profile
   end
 
-  # Find all the recipes rated by the user
-  def user_rated_recipes(user)
-    rated = []
-    user.ratings.each do |rating|
-      rated << rating.recipe
+  # Find all the recipes rated by the user return the recipe objects
+  # def user_rated_recipes(user)
+  #   rated = []
+  #   user.ratings.each do |rating|
+  #     rated << rating.recipe
+  #   end
+  #   return rated
+  # end
+
+  def find_favorite_recipes(user)
+    faves = []
+    user.favorites.each do |favorite|
+      faves << favorite.recipe
     end
-    p rated
-    return rated
+    return faves
   end
 
   # find or create the recipe taste profiles
   def find_recipe_profiles(user)
-    rated = user_rated_recipes(user)
+    # rated = user_rated_recipes(user)
     profiles = []
-    rated.each do |recipe|
-      profiles << RecipeTasteProfile.find_or_create_by(recipe_id: recipe.id)
+    # rated.each do |recipe|
+    #   profiles << create_recipe_profile(recipe)
+    # end
+    faves = find_favorite_recipes(user)
+    faves.each do |recipe|
+      profiles << create_recipe_profile(recipe)
     end
-    p profiles
     return profiles
   end
 

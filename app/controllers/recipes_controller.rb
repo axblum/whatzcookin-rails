@@ -10,13 +10,11 @@ class RecipesController < ApplicationController
     if user_signed_in?
       @user_rating = Rating.find_by(user_id: current_user.id, recipe_id: @recipe.id)
     end
-    
+
     if request.xhr?
       render :show,layout:false
-      create_profile
     else
       render :show
-      create_profile
     end
   end
 
