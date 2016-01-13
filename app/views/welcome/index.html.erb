@@ -1,4 +1,4 @@
-<div class='row'>
+<div class='row text-center'>
   <h1 class='title-text'>WhatzCookin</h1>
 	<div>
 		<%= flash[:error] %>
@@ -6,12 +6,12 @@
 </div>
 <div class='container-fluid'>
 	<%= form_tag('/retrieve_recipes', "data-ajax" => "false")  do %>
-		<div class='row debugger'>
+		<div class='row text-center'>
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box') %>
 		</div>
 		<div class='row'>
-			<%= submit_tag 'Find A Recipe', class: 'find-a-recipe col-sm-5 col-md-offset-1 btn btn-default' %>
+			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-sm-5 col-md-2 col-md-offset-4 btn btn-default btn-red' %>
 	<% end %>
-		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-sm-5 btn btn-default', "data-ajax" => "false" %>
+		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-sm-5 col-md-2 btn btn-default btn-orange', "data-ajax" => "false" %>
 		</div>
 </div>
