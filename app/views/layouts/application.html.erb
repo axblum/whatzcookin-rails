@@ -19,18 +19,10 @@
           <% end %>
           <ul class='visible-xs col-xs-offset-4 col-md-10 navbar-right nav-list'>
             <% if user_signed_in? %>
-            <li>
-              <% if current_user.nutritional_profile %>
-                <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
-              <% else %>
-                <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
-              <% end %>
-            </li>
-            <span class='hidden-xs'>|</span>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Profile", user_path(current_user), "data-ajax" => "false" %></li>
             <span class='hidden-xs'>|</span>
             <li class='hidden-xs'>Signed in as <%= current_user.name %>. Not you?</li>
-            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete, "data-ajax" => "false" %></li>
             <% else %>
             <li><%= link_to "Sign up", new_user_registration_path, "data-ajax" => "false" %></li>
             <span class='hidden-xs'>|</span>
@@ -43,7 +35,7 @@
       </div>
     </header>
   </div>
-  <div class='container-fluid wrapper' id='content'>
+  <div class='container-fluid' id='content'>
     <%= yield %>
     <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
   </div>

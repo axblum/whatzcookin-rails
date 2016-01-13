@@ -155,6 +155,26 @@ footer {
 			font-family: $logo-font;
 		}
 	}
+
+	.wrapper {
+		min-height: 100%;
+		margin-bottom: 0 auto -2em;
+	}
+
+	.push {
+		height: 2em;
+	}
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 2em;
+		font-size: 0.75em;
+		padding: 0.5em 0;
+		background-color: $primary-color;
+		color: $off-white;
+	}
 }
 
 /* Extra Small Devices, Phones */
@@ -283,5 +303,8 @@ footer {
 	}
 }
 
-
+.ui-loader {
+	display: none !important;
+	position: absolute;
+}
 
