@@ -17,7 +17,7 @@
           <%= link_to root_path, class: 'hidden-xs col-md-2', "data-ajax" => "false" do %>
             <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
           <% end %>
-          <ul class='hidden-xs col-xs-offset-4 col-md-10 text-right nav-list '>
+          <ul class='visible-xs col-xs-offset-4 col-md-10 text-right nav-list '>
             <% if user_signed_in? %>
             <li>
               <% if current_user.nutritional_profile %>
