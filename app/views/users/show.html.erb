@@ -17,7 +17,7 @@
   <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %></p>
   <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %></p>
   <%= f.hidden_field :woody, value: @new_taste_profile.woody %></p>
-  <%= f.submit "Calculate Your Taste Profile" %>
+  <%= f.submit "Calculate Your Taste Profile", id: "taste-profile" %>
 <% end %>
 
 <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>

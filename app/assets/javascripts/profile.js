@@ -1,17 +1,28 @@
 $(document).ready(function(){
-  if ($('#highcharts').length){
-    display_taste_profile();
-  }
+
   bindProfileListeners();
 });
 
 function bindProfileListeners() {
 	$('body').on("click", function(e) {
-
-	})
+    console.log('hit it')
+	});
+  $('#taste-profile').on('click', function(e) {
+    e.preventDefault();
+    var formData = $('form').serializeArray();
+    var data = [];
+    for (i=3; i<formData.length; i++){
+      data.push(parseFloat(formData[i].value));
+    };
+    if ($('#highcharts').length){
+      display_taste_profile(data);
+    }
+    console.log(formData);
+    console.log(data);
+  })
 }
 
-var display_taste_profile = function(){
+var display_taste_profile = function(data){
     $('#highcharts').highcharts({
         chart: {
             polar: true,
@@ -47,7 +58,7 @@ var display_taste_profile = function(){
         },
         series: [{
             name: 'Your Taste Profile',
-            data: [0.1428571429,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.2142857143,0.2142857143,0.07142857143,0],
+            data: data,
             pointPlacement: 'on'
         }, {
             name: 'African Food Taste Profile',
