@@ -1,29 +1,29 @@
-// @import 'main';
+@import 'main';
 
-// form {
-// 	position: relative;
+form {
+	position: relative;
 
-// 	textarea {
-// 		height: 4em;
-// 		width: 27em;
-// 		resize: none;
-// 		padding: 0.5em;
-// 		font: 1em $font-stack;
-// 	}
+	textarea {
+		height: 4em;
+		width: 27em;
+		resize: none;
+		padding: 0.5em;
+		font: 1em $font-stack;
+	}
 
-// 	.submit-comment-button {
-// 		position: relative;
-// 		bottom: 1em;
-// 	}
-// }
+	.submit-comment-button {
+		position: relative;
+		bottom: 1em;
+	}
+}
 
-// .comment {
-// 	background: $white-shade;
-// 	padding: 0.75em;
-// 	margin: 0.5em;
+.comment {
+	background: $white-shade;
+	padding: 0.75em;
+	margin: 0.5em;
 
-// 	.comment-info {
-// 		display: inline-block;
-// 		font-size: 0.75em;
-// 	}
-// }
+	.comment-info {
+		display: inline-block;
+		font-size: 0.75em;
+	}
+}

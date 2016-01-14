@@ -12,21 +12,30 @@
   <div class="container-fluid">
     <header>
       <div class="row">
-        <nav class='navbar'>
-           <div class='col-xs-offset-5 col-sm-offset-5 nav-menu'>☰ Menu</div>
-          <%= link_to root_path, class: 'hidden-xs col-md-2', "data-ajax" => "false" do %>
+        <nav class='navbar debugger'>
+          <div class='visible-xs col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
+          <%= link_to root_path, class: 'col-md-2' do %>
             <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
           <% end %>
-          <ul class='col-xs-offset-5 pull-right col-md-5 nav-list'>
+          <ul class='col-xs-offset-4 col-md-10 text-right nav-list'>
             <% if user_signed_in? %>
-            <li><%= link_to "Profile", user_path(current_user), "data-ajax" => "false" %></li>
+            <li>
+              <%= link_to "Profile", user_path(current_user) %>
+              <i class="fa fa-user"></i>
+            </li>
             <span class='hidden-xs'>|</span>
-            <li class='hidden-xs'>Signed in as <%= current_user.name %>. Not you?</li>
-            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete, "data-ajax" => "false" %></li>
+            <li class='hidden-xs signed-in-as'>Signed in as <%= current_user.name %>. Not you?</li>
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+              <i class="fa fa-sign-out"></i>
+            </li>
             <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path, "data-ajax" => "false" %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
             <span class='hidden-xs'>|</span>
-            <li><%= link_to "Sign in", new_user_session_path, "data-ajax" => "false" %> </li>
+            <li>
+              <%= link_to "Sign in", new_user_session_path %> 
+              <i class="fa fa-sign-in visible-xs"></i>
+            </li>
             <span class='hidden-xs'>|</span>
             <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
             <% end %>
@@ -40,7 +49,7 @@
     <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
   </div>
   <div class="push"></div>
-  <footer class="hidden-xs">
+  <footer>
     <div class='row'>
       <div class='text-center col-xs-12 col-md-12'>
         &copy; The Dream Team

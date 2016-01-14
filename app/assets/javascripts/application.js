@@ -14,12 +14,5 @@
 //= require jquery_ujs
 //= require jquery-star-rating
 //= require highcharts
-//= require jquery.mobile
 //= require highcharts/highcharts-more
 //= require_tree .
-
-// $.mobile.loading().hide();
-$.mobile.ajaxEnabled = false;
-$(document).on('pagebeforecreate', function( e ) {
-  $( "input, textarea, select", e.target ).attr( "data-role", "none" );
-});
