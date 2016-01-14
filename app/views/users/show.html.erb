@@ -22,7 +22,8 @@
 
     <div class='hidden sheet' id='tab2'>
       TAB2
-      <%= button_to render(partial: 'taste_profiles/taste_profile_show'), create_taste_profile_path %>
+
+      <%= render partial: 'taste_profiles/taste_profile_show' %>
 
       <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
     </div>
@@ -34,3 +35,4 @@
   </div>
 
 </div>
+

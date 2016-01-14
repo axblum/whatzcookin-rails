@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post '/create_taste_profile' => 'users#calculate_profile'
 
+  post '/suggestions' => 'recipes#suggestions'
   post '/retrieve_recipes' => 'recipes#retrieve_recipes'
   root 'welcome#index'
   get '/random_recipe' => 'recipes#random_recipe'
