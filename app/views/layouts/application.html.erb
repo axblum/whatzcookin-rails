@@ -13,11 +13,11 @@
     <header>
       <div class="row">
         <nav class='navbar'>
-           <div class='visible-xs col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
+           <div class='visible-xs col-xs-offset-12 col-sm-offset-10 nav-menu'>☰ Menu</div>
           <%= link_to root_path, class: 'hidden-xs col-md-2', "data-ajax" => "false" do %>
             <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
           <% end %>
-          <ul class='visible-xs col-xs-offset-4 col-md-10 navbar-right nav-list'>
+          <ul class='visible-xs col-xs-offset-12 col-md-12 navbar-right nav-list'>
             <% if user_signed_in? %>
             <li><%= link_to "Profile", user_path(current_user), "data-ajax" => "false" %></li>
             <span class='hidden-xs'>|</span>
