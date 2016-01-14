@@ -1,5 +1,15 @@
 @import 'main';
 
+#show-favorite {
+	position: fixed;
+	left: 50%;
+	top: 10em;
+	width: 4em;
+	height: 2em;
+	color: #off-white;
+	background-color: $secondary-color;
+}
+
 @media only screen and (min-width : 768px) {
 	.prep-block {
 		width: 25em;

@@ -19,15 +19,15 @@ var swipeLeft = function(){
   	// })
     window.location.href = '/random_recipe'
   });
-  };
-  var swipeRight = function() {
+};
+var swipeRight = function() {
   $( "#swipe-right" ).on( "swiperight", function (e){
   e.stopPropagation()
     var url = $(".fav-div a").attr('href');
     var recipeID = $(".fav-div a").attr('class').split("_")[1];
     var formData = {recipe_id: String(recipeID)};
     createFavorite(formData, url)
-});
+  });
 }
 
 
