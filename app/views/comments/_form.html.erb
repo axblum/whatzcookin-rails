@@ -1,6 +1,6 @@
 <div class='col-md-5 new-comment-form'>
 	<%= form_for [@recipe, @comment] do |f| %>
 	  <%= f.text_area :text, placeholder: 'Your comment', class: 'form-control', rows: '2' %>
-	  <%= f.submit "Save", class: 'btn btn-default submit-comment-button' %>
+	  <%= f.submit "Save", class: 'btn btn-default' %>
 	<% end %>
 </div>

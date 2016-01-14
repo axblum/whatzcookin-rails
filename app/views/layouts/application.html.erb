@@ -12,10 +12,10 @@
   <div class="container-fluid">
     <header>
       <div class="row">
-        <nav class='navbar debugger'>
+        <nav class='navbar'>
           <div class='visible-xs col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
           <%= link_to root_path, class: 'col-md-2' do %>
-            <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
+            <%= image_tag('small-logo-white.png') %> <span class='home-button'>WhatzCookin</span>
           <% end %>
           <ul class='col-xs-offset-4 col-md-10 text-right nav-list'>
             <% if user_signed_in? %>
@@ -46,7 +46,6 @@
   </div>
   <div class='container-fluid' id='content'>
     <%= yield %>
-    <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
   </div>
   <div class="push"></div>
   <footer>

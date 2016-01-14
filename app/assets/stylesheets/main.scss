@@ -83,6 +83,8 @@ a, a:hover, a:focus { text-decoration: none; }
       display: inline;
     }
   }
+
+  
 }
 
 /* Extra Small Devices, Phones */ 
@@ -230,28 +232,19 @@ a, a:hover, a:focus { text-decoration: none; }
 //  &:hover { cursor: pointer; }
 // }
 
-// .btn-reg {
-//  background: $off-white;
-//  border: 2px solid $dark-grey;
-//  color: $dark-grey;
-//  font-size: 0.75em;
-//  padding: 0.3em 0.5em;
+.btn-green {
+ background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+   background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+   background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+   background: linear-gradient(top, $primary-shade, $primary-tint);
+ color: $off-white;
+ padding: 0.4em;
 
-//  &:hover { background: $white-shade; }
-// }
-
-// .btn-green {
-//  background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: -o-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: linear-gradient(top, $primary-shade, $primary-tint);
-//  font-size: 0.75em;
-//  color: $off-white;
-//  border-style: none;
-//  padding: 1em;
-
-//  &:hover { background: $primary-color; }
-// }
+  &:hover {
+    background: $primary-color;
+    color: $off-white;
+  }
+}
 
 .btn-red {
   background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
