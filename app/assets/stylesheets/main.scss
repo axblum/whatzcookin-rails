@@ -115,6 +115,10 @@ a, a:hover, a:focus { text-decoration: none; }
       &:hover {
         background-color: $primary-tint;
       }
+
+    }
+    .signed-in-as:hover {
+      background-color: $primary-color;
     }
 
     img {

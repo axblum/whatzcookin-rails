@@ -17,7 +17,7 @@
   <div class="row">
 
     <div class='sheet' id='tab1'>
-      TAB1
+      <%= render partial: 'nutritional_profiles/form', locals: {nutritional_profile: @nutritional_profile, dietary_restrictions: @dietary_restrictions, user_excluded_ingredients: @user_excluded_ingredients} %>
     </div>
 
     <div class='hidden sheet' id='tab2'>

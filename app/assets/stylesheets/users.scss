@@ -1,45 +1,55 @@
+@import 'main';
 // /* Extra Small Devices, Phones */
 
-// @media only screen and (min-width : 320px) and (max-width : 768px) {
+@media only screen and (min-width : 320px) and (max-width : 768px) {
 
-// // .container-fluid {
-// // 	text-align: center;
-// // }
+.container-fluid {
+	text-align: center;
+}
 
+	.row {
+	  padding: 0.2em;
+	}
+
+	#user_remember_me {
+	  display: inline;
+	}
+}
+
+.nav-bar {
+	float: clear;
+}
+
+@media only screen and (min-width : 768px) {
 // 	.row {
 // 	  padding: 0.2em;
 // 	}
 
-// 	#user_remember_me {
-// 	  display: inline;
-// 	}
+// .field {
+//   display: inline-block;
+//   margin: 0 auto;
+//   padding: 0.2em;
 // }
 
-// .nav-bar {
-// 	float: clear;
+// #user_email {
+//   color: #4b4b4b;
 // }
 
-// @media only screen and (min-width : 768px) {
-// 	.row {
-// 	  padding: 0.2em;
-// 	}
+// #user_password {
+//   color: #4b4b4b;
 // }
+// label {
+//   display: inline-block;
+//   margin: 0 auto;
+//   float: left;
+// }
+	.tab {
+		border: 1px solid $dark-grey;
+		background-color: $white-shade;
+	}
 
-// // .field {
-// //   display: inline-block;
-// //   margin: 0 auto;
-// //   padding: 0.2em;
-// // }
-
-// // #user_email {
-// //   color: #4b4b4b;
-// // }
-
-// // #user_password {
-// //   color: #4b4b4b;
-// // }
-// // label {
-// //   display: inline-block;
-// //   margin: 0 auto;
-// //   float: left;
-// // }
+	.active {
+		border-bottom: 1px solid $off-white;
+		background-color: $off-white;
+	}
+}
