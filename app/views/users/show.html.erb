@@ -1,33 +1,33 @@
 <div class='container'>
 	<div class='row'>
-		<div class='col-md-1 tab active'>
+		<div class='col-md-2 tab active'>
       <%= link_to "Restrictions", 'tab1' %>
     </div>
-		<div class='col-md-1 tab'>
+		<div class='col-md-2 tab'>
       <%= link_to "Taste Profile", 'tab2' %>
     </div>
-		<div class='col-md-1 tab'>
+		<div class='col-md-2 tab'>
       <%= link_to "Tab 3", 'tab3' %>
     </div>
 	</div>
 </div>
 
-<div class='container-fluid debugger'>
+<div class='container-fluid'>
 
   <div class="row">
 
-    <div class='debugger sheet' id='tab1'>
-      
+    <div class='sheet' id='tab1'>
+      TAB1
     </div>
 
-    <div class='hidden debugger sheet' id='tab2'>
+    <div class='hidden sheet' id='tab2'>
       TAB2
       <%= button_to render(partial: 'taste_profiles/taste_profile_show'), create_taste_profile_path %>
 
       <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
     </div>
 
-    <div class='hidden debugger sheet' id='tab3'>
+    <div class='hidden sheet' id='tab3'>
       TAB3
     </div>
 

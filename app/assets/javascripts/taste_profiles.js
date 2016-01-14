@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-  bindProfileListeners();
+  bindTasteProfileListeners();
 });
 
-function bindProfileListeners() {
+function bindTasteProfileListeners() {
   $('body').on("click", function(e) {
     console.log('hit it')
   });
