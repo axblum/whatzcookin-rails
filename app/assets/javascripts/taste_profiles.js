@@ -4,9 +4,6 @@ $(document).ready(function(){
 });
 
 function bindTasteProfileListeners() {
-  $('body').on("click", function(e) {
-    console.log('hit it')
-  });
   $('#taste-profile').on('click', function(e) {
     e.preventDefault();
     var data = []

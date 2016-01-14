@@ -1,11 +1,12 @@
 $(document).ready(function(){
   swipeLeft();
+  swipeRight();
 });
 
 var swipeLeft = function(){
 
   // Bind the swipeleftHandler callback function to the swipe event on div.box
-  $( "body" ).on( "swipeleft", function (e){
+  $( "#swipe-left" ).on( "swipeleft", function (e){
   	// $.ajax({
    //    method: "GET",
    //    url: "/random_recipe",
@@ -18,4 +19,16 @@ var swipeLeft = function(){
   	// })
     window.location.href = '/random_recipe'
   });
-};
+  };
+  var swipeRight = function() {
+  $( "#swipe-right" ).on( "swiperight", function (e){
+  e.stopPropagation()
+    var url = $(".fav-div a").attr('href');
+    var recipeID = $(".fav-div a").attr('class').split("_")[1];
+    var formData = {recipe_id: String(recipeID)};
+    createFavorite(formData, url)
+});
+}
+
+
+
