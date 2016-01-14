@@ -16,8 +16,13 @@ function bindTasteProfileListeners() {
         data.push(parseFloat(formData[i].value));
       };
     };
+    console.log("IM AFTER THE FOR LOOP")
     userData = data.slice(0,9)
     cuisineData = data.slice(9,19)
+    console.log('USER DATA')
+    console.log(userData)
+    console.log('Cuisine Data')
+    console.log(cuisineData)
     name = formData[23].value
     if ($('#highcharts').length){
       display_taste_profile(userData, cuisineData, formData[23].value);
@@ -69,13 +74,6 @@ var display_taste_profile = function(userData, cuisineData, name){
         }]
     });
 }
-
-
-// {
-//             name: 'African Food Taste Profile',
-//             data: [0.1034482759, 0.1034482759, 0.1034482759, 0, 0.06896551724,0.1379310345,0.1034482759,0.1379310345,0.2068965517,0.03448275862],
-//             pointPlacement: 'on'
-//         }
 
 
 // var cuisineData = {
