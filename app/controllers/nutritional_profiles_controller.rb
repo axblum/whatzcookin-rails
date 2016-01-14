@@ -26,20 +26,18 @@ before_action :authenticate_user!
   end
 
   def update
-    nutritional_profile = current_user.nutritional_profile
-    user_restrictions = []
-    nutritional_profile.restrictions.delete_all
+    @nutritional_profile = current_user.nutritional_profile
+    @dietary_restrictions = DietaryRestriction.all
+    @user_dietary_restrictions = @nutritional_profile.restrictions.dietary_restrictions
+    @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
+    
+    p "*" * 100
+    p params
+    dietary_restriction = DietaryRestriction.find(params[:dietary_restriction])    
+    @nutritional_profile.restrictions.delete_all
+    @nutritional_profile.restrictions << dietary_restriction
 
-    if params["dietary_restrictions"]
-      params["dietary_restrictions"].each do |id|
-        user_restrictions << DietaryRestriction.find(id)
-      end
-      user_restrictions.each do |restriction|
-        nutritional_profile.restrictions << restriction
-      end
-    end
-
-    redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
+    render partial: 'nutritional_profiles/form'
   end
 
   def edit
@@ -53,7 +51,7 @@ before_action :authenticate_user!
   end
 
   def destroy
-     @nutritional_profile = current_user.nutritional_profile
+    @nutritional_profile = current_user.nutritional_profile
     @dietary_restrictions = DietaryRestriction.all
     @user_dietary_restrictions = @nutritional_profile.restrictions.dietary_restrictions
     @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
