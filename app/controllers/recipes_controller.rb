@@ -31,22 +31,23 @@ class RecipesController < ApplicationController
   def retrieve_recipes
     if user_signed_in?
       restrictions_hash = current_user.build_personalized_hash
-      p restrictions_hash
-      recipes = Recipe.get_personalized_recipe(params[:ingredient],restrictions_hash)
-      p "RETRIEVE " * 100
-      p recipes
-      unless recipes.parsed_response.empty?
-        recipes = recipes.parsed_response["results"]
-        id = recipes.sample['id']
-        redirect_to recipe_path(id)
-      else
-        flash[:error] = "We can't seem to find that ingredient"
+      if params[:ingredient].empty?
+        flash[:error] = "You must enter an Ingredient"
         redirect_to root_path
+      else
+        recipes = Recipe.get_personalized_recipe(params[:ingredient],restrictions_hash)
+        unless recipes.parsed_response["results"].empty?
+          recipes = recipes.parsed_response["results"]
+          id = recipes.sample['id']
+          redirect_to recipe_path(id)
+        else
+          flash[:error] = "We can't seem to find that ingredient"
+          redirect_to root_path
+        end
       end
     else
       recipes = Recipe.get_recipes_by_ingredient(params[:ingredient], 15)
       unless recipes.parsed_response.empty?
-
         id = recipes.sample['id']
         redirect_to recipe_path(id)
       else
@@ -54,7 +55,6 @@ class RecipesController < ApplicationController
         redirect_to root_path
       end
     end
-
   end
 
   def random_recipe
