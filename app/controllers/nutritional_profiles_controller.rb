@@ -53,8 +53,13 @@ before_action :authenticate_user!
   end
 
   def destroy
+     @nutritional_profile = current_user.nutritional_profile
+    @dietary_restrictions = DietaryRestriction.all
+    @user_dietary_restrictions = @nutritional_profile.restrictions.dietary_restrictions
+    @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
     ingredient = ExcludedIngredient.find(params[:ingredient_id])
     current_user.nutritional_profile.restrictions.delete(ingredient)
-    redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
+    # redirect_to user_nutritional_profile_path(current_user, current_user.nutritional_profile)
+    render partial: 'nutritional_profiles/form'
   end
 end

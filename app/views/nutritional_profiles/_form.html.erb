@@ -1,33 +1,34 @@
 <h2>Restrictions</h2>
 <div>
 	<h3>Dietary Restrictions</h3>
-	<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :put) do %>
-		<% dietary_restrictions.each do |dietary_restriction| %>
-			<%= label_tag(:dietary_restriction, dietary_restriction.name) %>
-			<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id, nutritional_profile.include_restriction?(dietary_restriction)) %>
-		<% end %>
-		<%= submit_tag %>
+	<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :put, id: 'update-dietary-restrictions') do %>
+		<ul>
+			<% @dietary_restrictions.each do |dietary_restriction| %>
+				<li><%= label_tag(:dietary_restriction, dietary_restriction.name) %>
+				<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id, @nutritional_profile.include_restriction?(dietary_restriction)) %></li>
+			<% end %>
+		</ul>
+		<%= submit_tag "Save changes", class: 'btn btn-default' %>
 	<% end %>
 </div>
 <div>
 	<h3>Excluded Ingredients</h3>
 		<ul>
-			<% user_excluded_ingredients.each do |excluded_ingredient| %>
+			<% @user_excluded_ingredients.each do |excluded_ingredient| %>
 				<li>
-					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete) do %>
+					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete, id: 'delete-excluded-ingredient') do %>
 					<%= hidden_field_tag("ingredient_id", excluded_ingredient.id) %>
 						<%= label_tag(:excluded_ingredient, excluded_ingredient.name) %>
-						<%= submit_tag "X" %>
+						<%= submit_tag '&times;' %>
 					<% end %>
 				</li>
 			<% end %>
 		</ul>
-	<%= form_tag(restrictions_path(current_user,current_user.nutritional_profile)) do %>
+	<%= form_tag(restrictions_path(current_user,current_user.nutritional_profile), id: 'create-excluded-ingredient') do %>
 		<%= text_field_tag("name") %>
 		<%= submit_tag %>
 	<% end %>
 </div>
-<h2>Preferences</h2>
 
 
 
