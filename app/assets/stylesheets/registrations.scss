@@ -1,3 +1,91 @@
 // Place all the styles related to the Registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.2em;
+}
+
+#user_name {
+  color: #4b4b4b;
+}
+
+#user_email {
+  color: #4b4b4b;
+}
+
+#user_password {
+  color: #4b4b4b;
+}
+
+#user_password_confirmation {
+  color: #4b4b4b;
+}
+
+.last-box {
+  padding: 1em;
+}
+
+em {
+  font-size: 50%;
+}
+
+// ----use this if other edit is busted -----
+
+// .field {
+//   display: inline-block;
+//   margin: 0 auto;
+//   padding: 0.2em;
+// }
+
+// label{
+//   display: inline-block;
+//   margin: 0 auto;
+//   float: left;
+//   width: 2em;
+// }
+
+
+// #user_name {
+//   color: #4b4b4b;
+// }
+
+// #user_email {
+//   color: #4b4b4b;
+// }
+
+// #user_password {
+//   color: #4b4b4b;
+// }
+
+// #user_password_confirmation {
+//   color: #4b4b4b;
+// }
+
+// label{
+//   display: inline-block;
+//   margin: 0 auto;
+//   float: left;
+//   width: 2em;
+// }
+
+// .actions {
+//   padding: 1em;
+// }
+
+// em {
+//   font-size: 50%;
+// }
+
+// ----use above if other edit is busted -----
+
+// input {
+//   display: inline-block;
+//   float: right;
+// }
+
+// Sign Up page:
+// - get labels to properly align w text boxes
+// - everything centered

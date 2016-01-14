@@ -1,5 +1,53 @@
-.ingredients {
-	text-align: left;
-	width: 18em;
-	margin: 0 auto;
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'main';
+
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+	#swipe-left {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		right: 0;
+	}
+	#swipe-right {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 50%;
+	}
+
+	.show-favorite {
+		position: fixed;
+		left: 40%;
+		top: 3.8em;
+		color: red;
+		font-size: 6em;
+		display: none;
+	}
+}
+@media only screen and (min-width : 768px) {
+
+
+	.prep-block {
+		width: 25em;
+	}
+
+	.comment {
+		background: $white-shade;
+		padding: 0.75em;
+		margin: 0.5em;
+
+		.comment-info {
+			display: inline-block;
+			font-size: 0.75em;
+		}
+	}
+
+	.form-control {
+		resize: none;
+		padding: 0.5em;
+		font: 1em $font-stack;
+	}
 }

@@ -11,6 +11,18 @@ module RecipesHelper
     return html_element_array
   end
 
+  def find_favorite(recipe_object)
+    return current_user.favorites.find_by(recipe_id: recipe_object.id)
+  end
+
+  def favorited?(recipe_object)
+    if find_favorite(recipe_object)
+      return true
+    else
+      return false
+    end
+  end
+
   def average_rating(recipe_object)
     return recipe_object.ratings.average(:stars).to_i
   end

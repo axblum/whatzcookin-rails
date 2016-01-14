@@ -1,6 +1,38 @@
-<div class="container">
-	<div id="tab1">Tab1</div>
-	<div id="tab2">Tab2</div>
-	<div id="tab3">Tab3</div>
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-2 tab active'>
+      <%= link_to "Restrictions", 'tab1' %>
+    </div>
+		<div class='col-md-2 tab'>
+      <%= link_to "Taste Profile", 'tab2' %>
+    </div>
+		<div class='col-md-2 tab'>
+      <%= link_to "Tab 3", 'tab3' %>
+    </div>
+	</div>
+</div>
+
+<div class='container-fluid'>
+
+  <div class="row">
+
+    <div class='sheet' id='tab1'>
+      TAB1
+    </div>
+
+    <div class='hidden sheet' id='tab2'>
+      TAB2
+
+      <%= render partial: 'taste_profiles/taste_profile_show' %>
+
+      <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+
+    <div class='hidden sheet' id='tab3'>
+      TAB3
+    </div>
+
+  </div>
 
 </div>
+

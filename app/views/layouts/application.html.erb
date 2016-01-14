@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WhatzcookinRails</title>
-  <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>WhatzCookin</title>
+  <%= favicon_link_tag 'favicon-g.ico' %>
+  <meta name="viewport" content="width=device-width" />
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <nav class='navbar'>
-      <%= link_to "WhatzCookin", root_path, class: 'logo-text' %>
-      <ul>
-        <% if user_signed_in? %>
-        <li>
-          <% if current_user.nutritional_profile %>
-            <%= link_to "NutritionProfile", user_nutritional_profile_path(current_user,current_user.nutritional_profile) %>
-          <% else %>
-            <%= link_to "NutritionProfile", user_nutritional_profiles_path(current_user), :method => :post %>
+  <div class="container-fluid">
+    <header>
+      <div class="row">
+        <nav class='navbar'>
+           <div class='col-xs-offset-5 col-sm-offset-5 nav-menu'>☰ Menu</div>
+          <%= link_to root_path, class: 'hidden-xs col-md-2', "data-ajax" => "false" do %>
+            <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
           <% end %>
-        </li>|
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li>Signed in as <%= current_user.name %>. Not you?</li>
-        <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
-        <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>|
-        <li><%= link_to "Sign in", new_user_session_path %> </li>|
-        <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
-  <div class='container' id="content">
-    <%= yield %>
+          <ul class='col-xs-offset-5 pull-right col-md-5 nav-list'>
+            <% if user_signed_in? %>
+            <li><%= link_to "Profile", user_path(current_user), "data-ajax" => "false" %></li>
+            <span class='hidden-xs'>|</span>
+            <li class='hidden-xs'>Signed in as <%= current_user.name %>. Not you?</li>
+            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete, "data-ajax" => "false" %></li>
+            <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path, "data-ajax" => "false" %></li>
+            <span class='hidden-xs'>|</span>
+            <li><%= link_to "Sign in", new_user_session_path, "data-ajax" => "false" %> </li>
+            <span class='hidden-xs'>|</span>
+            <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
   </div>
-
-  <footer class='center-content'>
-    <div>
-      &copy; The Dream Team
+  <div class='container-fluid' id='content'>
+    <%= yield %>
+    <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
+  </div>
+  <div class="push"></div>
+  <footer class="hidden-xs">
+    <div class='row'>
+      <div class='text-center col-xs-12 col-md-12'>
+        &copy; The Dream Team
+      </div>
     </div>
   </footer>
 </body>
