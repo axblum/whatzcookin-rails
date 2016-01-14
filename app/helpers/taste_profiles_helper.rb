@@ -59,8 +59,8 @@ module TasteProfilesHelper
   def find_favorite_recipes(user)
     faves = []
     # faves << user.favorites.last.recipe
-    if user.favorites.length > 5
-      for i in (user.favorites.length-6)...(user.favorites.length)
+    if user.favorites.length > 3
+      for i in (user.favorites.length-4)...(user.favorites.length)
         faves << user.favorites[i].recipe
       end
     else
