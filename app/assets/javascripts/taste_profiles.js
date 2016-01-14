@@ -8,19 +8,23 @@ function bindTasteProfileListeners() {
     e.preventDefault();
     var data = []
     var formData = $('form').serializeArray();
-    for (i=3; i<(formData.length); i++){
+    console.log(formData)
+    for (i=3; i<(formData.length-1); i++){
       if (formData[i].value === 'NaN'){
         data.push(0)
       } else {
         data.push(parseFloat(formData[i].value));
       };
     };
+    userData = data.slice(0,9)
+    cuisineData = data.slice(9,19)
+    name = formData[23].value
     if ($('#highcharts').length){
-      display_taste_profile(data);
+      display_taste_profile(userData, cuisineData, formData[23].value);
     }
   });
 }
-var display_taste_profile = function(data){
+var display_taste_profile = function(userData, cuisineData, name){
     $('#highcharts').highcharts({
         chart: {
             polar: true,
@@ -56,61 +60,15 @@ var display_taste_profile = function(data){
         },
         series: [{
             name: 'Your Taste Profile',
-            data: data,
+            data: userData,
             pointPlacement: 'on'
         },{
-            name: 'Most Similar Cuisine Type: Jewish',
-            data: [0.08,0.24,0.04,0,0,0.2,0.08,0.12,0.2,0.04],
+            name: name,
+            data: cuisineData,
             pointPlacement: 'on'
         }]
     });
 }
-
-// var compareProfile = function(data, name, cusineData){
-//   $('#highcharts').highcharts({
-//       chart: {
-//           polar: true,
-//           type: 'line'
-//       },
-//       title: {
-//           text: 'Your Taste Profile',
-//           x: -80
-//       },
-//       pane: {
-//           size: '80%'
-//       },
-//       xAxis: {
-//           categories: ['Bitter', 'Earthy', 'Grassy', 'Licorice',
-//                   'Nutty', 'Peppery', 'Sour', 'Spicy', 'Sweet', 'Woody'],
-//           tickmarkPlacement: 'on',
-//           lineWidth: 0
-//       },
-//       yAxis: {
-//           gridLineInterpolation: 'polygon',
-//           lineWidth: 0,
-//           min: 0
-//       },
-//       tooltip: {
-//           shared: true,
-//           pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
-//       },
-//       legend: {
-//           align: 'right',
-//           verticalAlign: 'top',
-//           y: 70,
-//           layout: 'vertical'
-//       },
-//       series: [{
-//           name: 'Your Taste Profile',
-//           data: data,
-//           pointPlacement: 'on'
-//       }, {
-//           name: name,
-//           data: cuisineData,
-//           pointPlacement: 'on'
-//       }]
-//   });
-// }
 
 
 // {
