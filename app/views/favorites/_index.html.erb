@@ -1,0 +1,4 @@
+	<% @favorites.each do |favorite| %>
+		<% recipe = Recipe.find(favorite.recipe_id) %>
+		<li><%= link_to "#{Recipe.get_recipe(recipe.api_id)['title']}", recipe_path(Recipe.find(recipe)) %></li>
+	<% end %>

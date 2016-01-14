@@ -1,40 +1,34 @@
-	<div>
-		<div class='tab active'>
-      <%= link_to "Restrictions", 'tab1' %>
-    </div>
-		<div class='tab'>
-      <%= link_to "Taste Profile", 'tab2' %>
-    </div>
-		<div class='tab'>
-      <%= link_to "Tab 3", 'tab3' %>
-    </div>
-	</div>
+<div class='profile'>
+	<div class='tab active'>
+    <%= link_to "Restrictions", 'restrictions' %>
+  </div>
+	<div class='tab'>
+    <%= link_to "Taste Profile", 'taste_profile' %>
+  </div>
+	<div class='tab'>
+    <%= link_to "Favorites", 'favorites' %>
+  </div>
 
-<div class='container-fluid'>
+  <div class='container-fluid'>
 
-  <div class="row">
+    <div class="row">
 
-    <div class='sheet' id='tab1'>
-      <%= render partial: 'nutritional_profiles/form', locals: {nutritional_profile: @nutritional_profile, dietary_restrictions: @dietary_restrictions, user_excluded_ingredients: @user_excluded_ingredients} %>
-    </div>
+      <div class='sheet' id='restrictions'>
+        <%= render partial: 'nutritional_profiles/form' %>
+      </div>
 
-    <div class='hidden sheet' id='tab2'>
+      <div class='hidden sheet' id='taste_profile'>
+        <%= render partial: 'taste_profiles/taste_profile_show' %>
+      </div>
 
+      <div class='hidden sheet' id='favorites'>
+        <ul>
+          <%= render partial: 'favorites/index' %>
+        </ul>
+      </div>
 
-
-      <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-    </div>
-
-    <div class='hidden sheet' id='tab3'>
-      <ul>
-        <% @favorites.each do |favorite| %>
-          <%= favorite.name %>
-        <% end %>
-      </ul>
     </div>
 
   </div>
 
 </div>
- <%= render partial: 'taste_profiles/taste_profile_show' %>
-

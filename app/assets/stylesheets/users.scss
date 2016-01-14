@@ -43,18 +43,42 @@
 //   margin: 0 auto;
 //   float: left;
 // }
+
+	.profile {
+		width: 44em;
+		margin: 0 auto;
+
+		.container-fluid {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		#favorites {
+			margin-left: -15px;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
 	.tab {
 		border: 1px solid $dark-grey;
+		border-bottom: 0;
 		padding: 0.5em;
 		display: inline-block;
 	}
 
 	.active {
-		border-bottom: 1px solid $off-white;
+		border-bottom: 1px solid white;
 	}
 
 	.sheet {
-		border: 1 px solid
 		padding: 1em;
+		border-top: 1px solid $dark-grey;
+		margin: 0;
+		margin-top: -1px;
 	}
+
 }

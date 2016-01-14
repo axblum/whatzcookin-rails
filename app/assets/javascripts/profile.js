@@ -16,6 +16,7 @@ function bindProfileListeners() {
     console.log(formData);
     console.log(data);
   });
+
   $('.tab').on('click', function(e) {
     e.preventDefault();
     $('.tab').removeClass('active');
@@ -25,5 +26,32 @@ function bindProfileListeners() {
     $('.sheet').addClass('hidden');
     $('#' + activeSheet).removeClass('hidden');
   });
+
+  $('#update-dietary-restriction').on('submit', function(e) {
+    e.preventDefault()
+    debugger
+  });
+
+  $('#delete-excluded-ingredient').on('submit', function(e) {
+    e.preventDefault()
+    debugger
+  });
+
+  $('#create-excluded-ingredient').on('submit', function(e) {
+    e.preventDefault()
+    var data = $(this).serialize();
+    createExcludedIngredient(data);
+  });
 }
 
+function createExcludedIngredient(data) {
+  $.ajax({
+    method: 'POST',
+    url: '/restrictions',
+    data: data
+  })
+  .done(function(response) {
+    $('#restrictions').children().remove()
+    $('#restrictions').append(response)
+  })
+}
