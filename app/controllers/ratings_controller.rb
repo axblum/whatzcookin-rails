@@ -8,7 +8,6 @@ class RatingsController < ApplicationController
     else
       @rating = Rating.new(user_id: current_user.id, recipe_id: @recipe.id, stars: params[:stars])
     end
-
     if @rating.save
       if request.xhr?
         render partial: "ratings/user_rating", locals: {user_rating: user_rating(@recipe)}
