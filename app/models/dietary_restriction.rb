@@ -1,0 +1,2 @@
+class DietaryRestriction < Restriction
+end

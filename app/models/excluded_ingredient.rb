@@ -1,0 +1,2 @@
+class ExcludedIngredient < Restriction
+end
