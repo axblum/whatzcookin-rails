@@ -44,11 +44,24 @@ li { list-style: none; }
 
 a, a:hover, a:focus { text-decoration: none; }
 
+footer {
+	width: 100%;
+	height: 2em;
+	font-size: 0.75em;
+	padding: 0.5em 0;
+	background-color: $primary-color;
+	color: $off-white;
+}
+
 // ====================
 // Media Queries
 // ====================
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) and (max-width : 768px) {
+
+.container-fluid {
+	text-align: center;
+}
 
 	#user_email {
 		color: $dark-grey;
@@ -64,9 +77,17 @@ a, a:hover, a:focus { text-decoration: none; }
 	  color: $dark-grey;
 	}
 
+	em {
+		font-size: 50%;
+	}
+
+// body {
+// 	height: auto;
+// 	text-align: center;
+// }
 
 	.nav-menu {
-		color: $off-white;
+		color: $primary-color;
 		padding: 3px;
 		padding-left: 14px;
 	}
@@ -82,7 +103,7 @@ a, a:hover, a:focus { text-decoration: none; }
 	}
 }
 
-/* Extra Small Devices, Phones */ 
+/* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
 }
 
@@ -92,9 +113,17 @@ a, a:hover, a:focus { text-decoration: none; }
 		font-size: 1.6em;
 	}
 
+	.wrapper {
+		min-height: 100%;
+		margin-bottom: 0 auto -2em;
+	}
+
+	.push {
+		height: 2em;
+	}
 	.navbar {
 		background-color: $primary-color;
-		color: $off-white;
+		color: $primary-color;
 		border-radius: 0;
 		font-size: 1.3em;
 
