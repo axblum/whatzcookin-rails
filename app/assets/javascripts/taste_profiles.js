@@ -1,12 +1,9 @@
 $(document).ready(function(){
 
-  bindProfileListeners();
+  bindTasteProfileListeners();
 });
 
-function bindProfileListeners() {
-  $('body').on("click", function(e) {
-    console.log('hit it')
-  });
+function bindTasteProfileListeners() {
   $('#taste-profile').on('click', function(e) {
     e.preventDefault();
     var data = []

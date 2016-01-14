@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
-gem 'jquery_mobile_rails'
 gem 'jquery-star-rating-rails'
 
 # Auth related gems
@@ -32,6 +31,8 @@ gem 'omniauth-google-oauth2'
 gem 'rails_12factor', group: :production
 
 gem "highcharts-rails", "~> 3.0.0"
+
+gem 'font-awesome-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

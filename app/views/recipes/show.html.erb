@@ -1,74 +1,81 @@
-<div class="container">
+<i class="fa fa-gratipay fa-5x show-favorite"></i>
+<div class id="swipe-left"></div>
+<div class id="swipe-right"></div>
+  <div class ="container-fluid">
 
-  <div class='row text-center' id="<%=@recipe.api_id%>">
-    <h2><%= @recipe_info['title'] %></h2>
-    <%= image_tag("http://webknox.com/recipeImages/#{@recipe_info['id']}-556x370.jpg", class: 'img-responsive center-block') %>
-  </div>
+  <div class="container">
 
-  <div class='row'>
-    <div class='center-block col-md-12 prep-block'>
-      <div class='col-md-5 col-md-offset-2'>
-        <h2>Ingredients</h2>
-        <% @recipe_info['extendedIngredients'].each do |ingredient| %>
+    <div class='row text-center' id="<%=@recipe.api_id%>">
+      <h2><%= @recipe_info['title'] %></h2>
+      <%= image_tag("http://webknox.com/recipeImages/#{@recipe_info['id']}-556x370.jpg", class: 'img-responsive center-block') %>
+    </div>
+
+    <div class='row'>
+      <div class='center-block col-md-12 prep-block'>
+        <div class='col-md-5 col-md-offset-2'>
+          <h2>Ingredients</h2>
+          <% @recipe_info['extendedIngredients'].each do |ingredient| %>
           <div>
             <% if ingredient['originalString'] %>
-              <%= ingredient['originalString'] %>
+            <%= ingredient['originalString'] %>
             <% else %>
-              <%= "#{ingredient['amount']} #{ingredient['unit']} #{ingredient['name']}" %>
+            <%= "#{ingredient['amount']} #{ingredient['unit']} #{ingredient['name']}" %>
             <% end %>
           </div>
-        <% end %>
-      </div>
-      <div class='col-md-4'>
-        <h2>Instructions</h2>
-        <%= link_to("Click Here for instructions", @recipe_info['sourceUrl'], class: 'button btn-green') %>
-        <h2>Cooking Time</h2>
-        <%= @recipe_info['readyInMinutes'] %> minutes
-        <h2>Serves</h2>
-        <%= @recipe_info['servings'] %> people
-
-        <div id="average-rating">
-          <%= render partial: 'ratings/average_ratings', locals: {recipe: @recipe} %>
+          <% end %>
         </div>
-        
+        <div class='col-md-4'>
+          <h2>Instructions</h2>
+          <%= link_to("Click Here for instructions", @recipe_info['sourceUrl'], class: 'button btn-green') %>
+          <h2>Cooking Time</h2>
+          <%= @recipe_info['readyInMinutes'] %> minutes
+          <h2>Serves</h2>
+          <%= @recipe_info['servings'] %> people
+
+          <div id="average-rating">
+            <%= render partial: 'ratings/average_ratings', locals: {recipe: @recipe} %>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class='col-md-3 col-md-offset-1' id="favorite">
-      <div id="new-user-rating <%= dom_id(@recipe) %>">
-        <% if current_user %>
+    <div class="row">
+      <div class='col-md-3 col-md-offset-1' id="favorite">
+        <div id="new-user-rating <%= dom_id(@recipe) %>">
+          <% if current_user %>
           <%= render partial: "ratings/user_rating", locals: {user_rating: @user_rating} %>
-        <% else %>
+          <% else %>
           <p>Log in to rate this recipe!</p>
+          <% end %>
+        </div>
+      </div>
+      <div class='cold-md-2 fav-div'>
+        <% if current_user %>
+        <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
         <% end %>
       </div>
     </div>
-    <div class='cold-md-2 fav-div'>
+
+    <div class='row'>
+      <h2>Comments:</h2>
+      <% if @comments %>
+      <ul class='comments'>
+        <% @comments.each do |comment| %>
+        <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
+        <% end %>
+      </ul>
+      <% else %>
+      <p>There don't seem to be any comments! Login and leave yours!</p>
+      <% end %>
+    </div>
+
+
+    <div class='row'>
       <% if current_user %>
-        <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
+      <%= render partial: 'comments/form' %>
       <% end %>
     </div>
   </div>
-
-  <div class='row'>
-    <h2>Comments:</h2>
-    <% if @comments %>
-    <ul class='comments'>
-      <% @comments.each do |comment| %>
-        <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
-      <% end %>
-    </ul>
-    <% else %>
-      <p>There don't seem to be any comments! Login and leave yours!</p>
-    <% end %>
-  </div>
-
-
-  <div class='row'>
-    <% if current_user %>
-      <%= render partial: 'comments/form' %>
-    <% end %>
   </div>
 </div>

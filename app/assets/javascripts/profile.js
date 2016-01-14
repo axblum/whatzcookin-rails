@@ -3,7 +3,6 @@ $(document).ready(function(){
 });
 
 function bindProfileListeners() {
-
   $('#taste-profile').on('click', function(e) {
     e.preventDefault();
     var formData = $('form').serializeArray();

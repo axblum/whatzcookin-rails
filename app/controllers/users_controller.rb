@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 	def show
     calculate_profile
     @user = current_user
-    @new_taste_profile = UserTasteProfile.create!(weigh_tastes(current_user))
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
     # calculate_profile
     @cuisine_array = ["African","Chinese","Japanese","Korean","Vietnamese","Thai","Indian","British","Irish","French","Italian","Mexican","Spanish","Middle Eastern","Jewish","American","Cajun","Southern","Greek","German","Nordic","Eastern European","Caribbean","Latin American"]
