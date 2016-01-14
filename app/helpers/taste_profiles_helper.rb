@@ -134,7 +134,6 @@ module TasteProfilesHelper
     else
       total = user.ratings.count
     end
-
     weighted_taste_hash = taste_hash.each { |k, v| taste_hash[k] = v/total }
     weighted_taste_hash[:user_id] = user.id
     return weighted_taste_hash
@@ -143,14 +142,46 @@ module TasteProfilesHelper
   # using the user taste profile to find appropriate recipes
   # calculate the differences between the user and the country
   def taste_array(user)
-
+    tastes = user.user_taste_profile
+    return [tastes.bitter, tastes.earthy, tastes.grassy, tastes.licorice, tastes.nutty, tastes.peppery, tastes.sour, tastes.spicy, tastes.sweet, tastes.woody]
   end
 
+  def compare_profiles(profile_1, profile_2)
+    aggregate_difference = 0
+    aggregate_difference += (profile_1.bitter - profile_2.bitter)
+    aggregate_difference += (profile_1.earthy - profile_2.earthy)
+    aggregate_difference += (profile_1.grassy - profile_2.grassy)
+    aggregate_difference += (profile_1.licorice - profile_2.licorice)
+    aggregate_difference += (profile_1.nutty - profile_2.nutty)
+    aggregate_difference += (profile_1.peppery - profile_2.peppery)
+    aggregate_difference += (profile_1.sour - profile_2.sour)
+    aggregate_difference += (profile_1.spicy - profile_2.spicy)
+    aggregate_difference += (profile_1.sweet - profile_2.sweet)
+    aggregate_difference += (profile_1.woody - profile_2.woody)
+    return aggregate_difference.abs
+  end
+
+  def all_cuisine_styles(user)
+    differences = []
+    exists = CuisineTasteProfile.where.not(cuisine_style_id: nil)
+    exists.each do |cuisine_profile|
+      differences << compare_profiles(cuisine_profile, user.user_taste_profile)
+    end
+    return differences
+  end
+
+  def most_similar(array)
+    index = array.rindex(array.min)
+    return CuisineTasteProfile.find(index+1)
+  end
 end
 
-# Chinese Taste Profile = [0.1428571429,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.2142857143,0.2142857143,0.07142857143,0]
+
+
 
 # African Taste Profile = [0.1034482759, 0.1034482759, 0.1034482759, 0, 0.06896551724,0.1379310345,0.1034482759,0.1379310345,0.2068965517,0.03448275862]
+
+# Chinese Taste Profile = [0.1428571429,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.2142857143,0.2142857143,0.07142857143,0]
 
 # Japanese Taste Profile = [0.06666666667,0.1333333333,0,0,0.2,0.06666666667,0.2,0.2666666667,0.06666666667,0]
 
@@ -169,7 +200,6 @@ end
 
 # French = [0.2083333333,0.08333333333,0.125,0.04166666667,0,0.2083333333,0.125,0.04166666667,0.125,0.04166666667]
 
-
 # Italian = [0.125,0.04166666667,0.08333333333,0,0,0.2083333333,0.08333333333,0.125,0.2083333333,0.125]
 
 # Mexican = [0.06451612903,0.1290322581,0.06451612903,0,0.06451612903,0.1612903226,0.1612903226,0.03225806452,0.2580645161,0.06451612903]
@@ -179,7 +209,6 @@ end
 # Middle Eastern = [0.06896551724,0.275862069,0.1034482759,0,0,0.2068965517,0.03448275862,0.06896551724,0.2068965517,0.03448275862]
 
 # Jewish = [0.08,0.24,0.04,0,0,0.2,0.08,0.12,0.2,0.04]
-
 
 # American = [0.05263157895,0.2631578947,0,0,0,0.2105263158,0.05263157895,0.1578947368,0.1578947368,0.05263157895]
 
@@ -193,10 +222,8 @@ end
 
 # Nordic = [0.03225806452,0.1612903226,0.1935483871,0.06451612903,0,0.2903225806,0.06451612903,0,0.1290322581,0.06451612903]
 
-
 # Eastern European = [0.12,0.2,0.08,0,0,0.12,0.08,0.08,0.24,0.08]
 
 # Caribbean = [0.1111111111,0.1666666667,0,0,0,0.1111111111,0.05555555556,0.1666666667,0.2777777778,0.1111111111]
-
 
 # Latin American = [0.1111111111,0.05555555556,0.1666666667,0,0.05555555556,0.2222222222,0.05555555556,0.1111111111,0.2222222222,0]
