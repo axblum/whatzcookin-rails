@@ -86,10 +86,12 @@ footer {
 // 	text-align: center;
 // }
 
+
 	.nav-menu {
 		color: $primary-color;
 		padding: 3px;
 		padding-left: 14px;
+		float: right;
 	}
 
 	.nav-list {
@@ -99,6 +101,8 @@ footer {
 			border-bottom: 1px solid $primary-color;
 			color: $off-white;
 			padding: 4px 15px;
+			float: right;
+			display: inline;
 		}
 	}
 }
