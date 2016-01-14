@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 	def show
     @user = current_user
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
+    @dietary_restrictions = DietaryRestriction.all
+    @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
     # calculate_profile
     calculate_profile
     similar_taste_profile

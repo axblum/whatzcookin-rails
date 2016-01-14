@@ -2,9 +2,9 @@
 <div>
 	<h3>Dietary Restrictions</h3>
 	<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :put) do %>
-		<% @dietary_restrictions.each do |dietary_restriction| %>
+		<% dietary_restrictions.each do |dietary_restriction| %>
 			<%= label_tag(:dietary_restriction, dietary_restriction.name) %>
-			<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id, @nutritional_profile.include_restriction?(dietary_restriction)) %>
+			<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id, nutritional_profile.include_restriction?(dietary_restriction)) %>
 		<% end %>
 		<%= submit_tag %>
 	<% end %>
@@ -12,7 +12,7 @@
 <div>
 	<h3>Excluded Ingredients</h3>
 		<ul>
-			<% @user_excluded_ingredients.each do |excluded_ingredient| %>
+			<% user_excluded_ingredients.each do |excluded_ingredient| %>
 				<li>
 					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete) do %>
 					<%= hidden_field_tag("ingredient_id", excluded_ingredient.id) %>
