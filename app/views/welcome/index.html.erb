@@ -7,7 +7,7 @@
 <div class='container-fluid'>
 	<%= form_tag('/retrieve_recipes', "data-ajax" => "false")  do %>
 		<div class='row text-center'>
-			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box') %>
+			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box', placeholder: 'Enter your ingredient here...') %>
 		</div>
 		<div class='row'>
 			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-sm-5 col-md-3 col-md-offset-3 btn btn-default btn-red' %>

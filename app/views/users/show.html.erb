@@ -18,7 +18,11 @@
       </div>
 
       <div class='hidden sheet' id='taste_profile'>
-        <%= render partial: 'taste_profiles/taste_profile_show' %>
+        <% if @new_taste_profile %>
+          <%= render partial: 'taste_profiles/taste_profile_show' %>
+        <% else %>
+          <%= render partial: 'no_profile' %>
+        <% end %>
       </div>
 
       <div class='hidden sheet' id='favorites'>

@@ -38,9 +38,6 @@ class Recipe < ActiveRecord::Base
   end
 
   def self.suggested_recipe(cuisine_style)
-    query_array = ['pork', 'beef', 'fish', 'shrimp', 'chicken', 'duck']
-    food = query_array.sample
-    p food
     response = HTTParty.get "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?cuisine=#{cuisine_style}&query=potato",
      headers:{
          "X-Mashape-Key" => ENV['SPOONACULAR_API'],

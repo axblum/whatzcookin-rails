@@ -55,3 +55,4 @@ function createExcludedIngredient(data) {
     $('#restrictions').append(response)
   })
 }
+
