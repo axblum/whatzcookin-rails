@@ -44,8 +44,6 @@ module TasteProfilesHelper
   def create_recipe_profile(recipe_object)
     taste_profile = RecipeTasteProfile.create!(taste_counts(recipe_object))
     taste_profile.update_attributes(recipe_id: recipe_object.id)
-    p "CREATED RECIPE PROFILE"
-    p taste_profile
     return taste_profile
   end
 
@@ -60,16 +58,16 @@ module TasteProfilesHelper
 
   def find_favorite_recipes(user)
     faves = []
-    faves << user.favorites.last.recipe
-    # if user.favorites.length > 5
-    #   for i in (user.favorites.length-6)...(user.favorites.length)
-    #     faves << user.favorites[i].recipe
-    #   end
-    # else
-    #   user.favorites.each do |favorite|
-    #     faves << favorite.recipe
-    #   end
-    # end
+    # faves << user.favorites.last.recipe
+    if user.favorites.length > 5
+      for i in (user.favorites.length-6)...(user.favorites.length)
+        faves << user.favorites[i].recipe
+      end
+    else
+      user.favorites.each do |favorite|
+        faves << favorite.recipe
+      end
+    end
     return faves
   end
 
@@ -173,6 +171,10 @@ module TasteProfilesHelper
   def most_similar(array)
     index = array.rindex(array.min)
     return CuisineTasteProfile.find(index+1)
+  end
+
+  def similar_cuisine_style(taste_profile)
+    return CuisineStyle.find(taste_profile.cuisine_style_id)
   end
 end
 

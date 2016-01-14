@@ -2,13 +2,6 @@ include TasteProfilesHelper
 class UsersController < ApplicationController
 	def show
     calculate_profile
-    p taste_array(current_user)
-    p 'DIFFERENT STROKES FOR DIFFERENT FOLKS'
-    p compare_profiles(CuisineTasteProfile.find(1), current_user.user_taste_profile)
-    p "ALL OUR DIFFERENCES SHALL BE RESOLVED"
-    p all_cuisine_styles(current_user)
-    p "MOAR MOAR MOAR MOAR MOAR MOAR MOAR MOAR"
-    p most_similar(all_cuisine_styles(current_user))
     @user = current_user
     # calculate_profile
     @cuisine_array = ["African","Chinese","Japanese","Korean","Vietnamese","Thai","Indian","British","Irish","French","Italian","Mexican","Spanish","Middle Eastern","Jewish","American","Cajun","Southern","Greek","German","Nordic","Eastern European","Caribbean","Latin American"]
