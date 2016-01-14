@@ -11,37 +11,16 @@
 <body>
   <div class="container-fluid">
     <header>
-
       <div class="row">
-        <nav class='navbar debugger'>
-          <div class='col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
-          <%= link_to root_path, class: 'hidden-xs col-xs-2 col-md-2' do %>
-            <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
-          <% end %>
-          <ul class='col-xs-offset-4 col-md-10 text-right nav-list'>
-            <% if user_signed_in? %>
-            <li>
-              <%= link_to "Profile", user_path(current_user) %>
-              <i class="fa fa-user"></i>
-            </li>
-            <span class='hidden-xs'>|</span>
-            <li class='hidden-xs signed-in-as'>Signed in as <%= current_user.name %>. Not you?</li>
-            <li>
-              <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
-              <i class="fa fa-sign-out"></i>
-            </li>
-            <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %><i class="fa fa-user-plus visible-xs"></i></li>
-            <span class='hidden-xs'>|</span>
-            <li>
-              <%= link_to "Sign in", new_user_session_path %>
-              <i class="fa fa-sign-in visible-xs"></i>
-            </li>
-            <span class='hidden-xs'>|</span>
-            <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %><i class="fa fa-google-plus visible-xs"></i></li>
-            <% end %>
-          </ul>
-        </nav>
+        <nav class='navbar'>
+        <div class="btn-group btn-breadcrumb visible-xs">
+
+            <a href="/" class="btn btn-success"><i class="fa fa-home"></i></a>
+            <a href="/users/sign_in" class="btn btn-success">Sign In </a>
+            <a href="/users/sign_up" class="btn btn-success">Sign Up  <i class="fa fa-user-plus"></i></a>
+            <a href="/users/auth/google_oauth2" class="btn btn-success"><i class="fa fa-google"></i>oogle Sign In</i>
+          </a>
+        </div>
       </div>
     </header>
   </div>
