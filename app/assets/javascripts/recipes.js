@@ -6,7 +6,7 @@ $(document).ready(function(){
 var swipeLeft = function(){
 
   // Bind the swipeleftHandler callback function to the swipe event on div.box
-  $( "body" ).on( "swipeleft", function (e){
+  $( "#swipe-left" ).on( "swipeleft", function (e){
   	// $.ajax({
    //    method: "GET",
    //    url: "/random_recipe",
@@ -21,13 +21,12 @@ var swipeLeft = function(){
   });
   };
   var swipeRight = function() {
-  $( "body" ).on( "swiperight", function (e){
+  $( "#swipe-right" ).on( "swiperight", function (e){
   e.stopPropagation()
     var url = $(".fav-div a").attr('href');
-    var recipeID = $(.fav-div a).attr('class').split("_")[1];
-    console.log(recipeID)
+    var recipeID = $(".fav-div a").attr('class').split("_")[1];
     var formData = {recipe_id: String(recipeID)};
-    createFavorite(formData, url);
+    createFavorite(formData, url)
 });
 }
 

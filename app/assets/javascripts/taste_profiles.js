@@ -4,9 +4,9 @@ $(document).ready(function(){
 });
 
 function bindProfileListeners() {
-  $('body').on("click", function(e) {
-    console.log('hit it')
-  });
+  // $('body').on("click", function(e) {
+    // console.log('hit it')
+  // });
   $('#taste-profile').on('click', function(e) {
     e.preventDefault();
     var data = []
