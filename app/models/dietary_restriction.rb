@@ -1,2 +1,0 @@
-class DietaryRestriction < Restriction
-end

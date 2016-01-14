@@ -4,13 +4,11 @@ class RatingsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @rating = Rating.find_by(user_id: current_user.id, recipe_id: @recipe.id)
     if @rating
-    p "-" * 50
-    p params[:stars]
       @rating.update_attributes(stars: params[:stars])
     else
       @rating = Rating.new(user_id: current_user.id, recipe_id: @recipe.id, stars: params[:stars])
     end
-    
+
     if @rating.save
       if request.xhr?
         render partial: "ratings/user_rating", locals: {user_rating: user_rating(@recipe)}
