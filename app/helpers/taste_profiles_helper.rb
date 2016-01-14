@@ -16,6 +16,8 @@ module TasteProfilesHelper
     ing_array.each do |ing|
       ingredients << Ingredient.find_by(name: ing.capitalize!)
     end
+    p "FOUND ME" * 100
+    p (ingredients - [nil])
     return (ingredients - [nil])
   end
 
@@ -37,6 +39,8 @@ module TasteProfilesHelper
     end
     total = taste_hash.values.inject(0) { |a,b| a + b }
     adjusted_tastes = taste_hash.each { |k, v| taste_hash[k] = v/total.to_f }
+    p "ADJUSTING " * 100
+    p adjusted_tastes
     return adjusted_tastes
   end
 

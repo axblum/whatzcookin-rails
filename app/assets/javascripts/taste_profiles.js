@@ -9,18 +9,29 @@ function bindTasteProfileListeners() {
     var data = []
     var formData = $('form').serializeArray();
     console.log(formData)
-    for (i=3; i<(formData.length-1); i++){
-      if (formData[i].value === 'NaN'){
+    for (i=9; i<(formData.length-1); i++){
+        console.log(formData[i])
+        console.log(formData[i].value)
+        console.log(typeof formData[i].value)
+      if (formData[i].value === 'NaN' || isNaN(formData[i].value)){
         data.push(0)
       } else {
         data.push(parseFloat(formData[i].value));
       };
     };
+    console.log("IM AFTER THE FOR LOOP")
     userData = data.slice(0,9)
     cuisineData = data.slice(9,19)
-    name = formData[23].value
+    console.log('USER DATA')
+    console.log(userData)
+    console.log(typeof userData[0])
+    console.log('Cuisine Data')
+    console.log(cuisineData)
+    name = formData[29].value
+    console.log('NAME;')
+    console.log(name)
     if ($('#highcharts').length){
-      display_taste_profile(userData, cuisineData, formData[23].value);
+      display_taste_profile(userData, cuisineData, name);
     }
   });
 }
@@ -69,13 +80,6 @@ var display_taste_profile = function(userData, cuisineData, name){
         }]
     });
 }
-
-
-// {
-//             name: 'African Food Taste Profile',
-//             data: [0.1034482759, 0.1034482759, 0.1034482759, 0, 0.06896551724,0.1379310345,0.1034482759,0.1379310345,0.2068965517,0.03448275862],
-//             pointPlacement: 'on'
-//         }
 
 
 // var cuisineData = {
