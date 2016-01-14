@@ -1,8 +1,8 @@
-10.times do
-  User.create!(name: Faker::Name.name,
-               email: Faker::Internet.email,
-               password: '12345678')
-end
+# 10.times do
+#   User.create!(name: Faker::Name.name,
+#                email: Faker::Internet.email,
+#                password: '12345678')
+# end
 
 
 # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each do |num|
@@ -11,14 +11,14 @@ end
 #                  recipe_id: 1)
 # end
 
-Recipe.create!(api_id: 640010)
+# Recipe.create!(api_id: 640010)
 
 
-200.times do
-  Comment.create!(text: Faker::Lorem.paragraph,
-                  user_id: rand(1..10),
-                  recipe_id: rand(1..10))
-end
+# 200.times do
+#   Comment.create!(text: Faker::Lorem.paragraph,
+#                   user_id: rand(1..10),
+#                   recipe_id: rand(1..10))
+# end
 
 
 # Create Ingredients List

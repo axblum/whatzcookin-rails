@@ -18,9 +18,6 @@ class RecipesController < ApplicationController
   def suggestions
     cuisine_profile = most_similar(all_cuisine_styles(current_user))
     recipes = Recipe.suggested_recipe(similar_cuisine_style(cuisine_profile).name)
-    # recipes = Recipe.suggested_recipe('chinese')
-    p recipes
-    p "I GOT HERE && " * 100
     unless recipes.parsed_response.empty?
       recipes = recipes.parsed_response["results"]
       id = recipes.sample['id']
