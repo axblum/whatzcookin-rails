@@ -5,10 +5,10 @@
 		<ul>
 			<% @dietary_restrictions.each do |dietary_restriction| %>
 				<li><%= label_tag(:dietary_restriction, dietary_restriction.name) %>
-				<%= check_box_tag("[dietary_restrictions][]", dietary_restriction.id, @nutritional_profile.include_restriction?(dietary_restriction)) %></li>
+				<%= radio_button_tag("dietary_restriction", dietary_restriction.id, @nutritional_profile.include_restriction?(dietary_restriction)) %></li>
 			<% end %>
 		</ul>
-		<%= submit_tag "Save changes", class: 'btn btn-default' %>
+		<%= submit_tag "Save changes", class: 'btn btn-default btn-green' %>
 	<% end %>
 </div>
 <div>
@@ -16,22 +16,21 @@
 		<ul>
 			<% @user_excluded_ingredients.each do |excluded_ingredient| %>
 				<li>
-					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete, id: 'delete-excluded-ingredient') do %>
+					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete, controller: :nutritional_profiles, ingredient_id: excluded_ingredient.id ) do %>
 					<%= hidden_field_tag("ingredient_id", excluded_ingredient.id) %>
 						<%= label_tag(:excluded_ingredient, excluded_ingredient.name) %>
-						<%= submit_tag "remove", class: 'btn btn-default' %>
+						<button type='submit' id='delete-excluded-ingredient'>
+							<i class="fa fa-times-circle"></i>
+						</button>
 					<% end %>
 				</li>
 			<% end %>
 		</ul>
 	<%= form_tag(restrictions_path(current_user,current_user.nutritional_profile), id: 'create-excluded-ingredient') do %>
 		<%= text_field_tag("name") %>
-		<%= submit_tag %>
+		<%= submit_tag "Add", class: 'btn btn-default btn-green' %>
 	<% end %>
 </div>
-
-
-
 
 
 
