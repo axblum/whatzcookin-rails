@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
     @dietary_restrictions = DietaryRestriction.all
     @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
-    # calculate_profile
     if @user.favorites.any?
       calculate_profile
       similar_taste_profile
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
       @new_taste_profile.update_attributes(weigh_tastes(current_user))
       @new_taste_profile.save
     end
-    # render partial: 'taste_profiles/taste_profile_show'
   end
 
   def similar_taste_profile
