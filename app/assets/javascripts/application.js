@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery-star-rating
 //= require highcharts
-//= require jquery.mobile
+
 //= require highcharts/highcharts-more
 //= require_tree .
 
