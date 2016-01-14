@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
     @dietary_restrictions = DietaryRestriction.all
     @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
-    # calculate_profile
+    @favorites = @user.favorites
     @cuisine_array = ["African","Chinese","Japanese","Korean","Vietnamese","Thai","Indian","British","Irish","French","Italian","Mexican","Spanish","Middle Eastern","Jewish","American","Cajun","Southern","Greek","German","Nordic","Eastern European","Caribbean","Latin American"]
 	end
 

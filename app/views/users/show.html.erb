@@ -1,16 +1,14 @@
-<div class='container'>
-	<div class='row'>
-		<div class='col-md-2 tab active'>
+	<div>
+		<div class='tab active'>
       <%= link_to "Restrictions", 'tab1' %>
     </div>
-		<div class='col-md-2 tab'>
+		<div class='tab'>
       <%= link_to "Taste Profile", 'tab2' %>
     </div>
-		<div class='col-md-2 tab'>
+		<div class='tab'>
       <%= link_to "Tab 3", 'tab3' %>
     </div>
 	</div>
-</div>
 
 <div class='container-fluid'>
 
@@ -21,7 +19,6 @@
     </div>
 
     <div class='hidden sheet' id='tab2'>
-      TAB2
 
       <%= render partial: 'taste_profiles/taste_profile_show' %>
 
@@ -29,7 +26,11 @@
     </div>
 
     <div class='hidden sheet' id='tab3'>
-      TAB3
+      <ul>
+        <% @favorites.each do |favorite| %>
+          <%= favorite.name %>
+        <% end %>
+      </ul>
     </div>
 
   </div>

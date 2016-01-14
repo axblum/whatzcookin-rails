@@ -45,11 +45,16 @@
 // }
 	.tab {
 		border: 1px solid $dark-grey;
-		background-color: $white-shade;
+		padding: 0.5em;
+		display: inline-block;
 	}
 
 	.active {
 		border-bottom: 1px solid $off-white;
-		background-color: $off-white;
+	}
+
+	.sheet {
+		border: 1 px solid
+		padding: 1em;
 	}
 }
