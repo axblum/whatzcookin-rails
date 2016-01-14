@@ -1,9 +1,12 @@
+@import 'main';
+// /* Extra Small Devices, Phones */
 
 @media only screen and (min-width : 320px) and (max-width : 768px) {
-	.field {
-	  display: inline-block;
-	  margin: 0 auto;
-	}
+
+.container-fluid {
+	text-align: center;
+}
+
 	.row {
 	  padding: 0.2em;
 	}
@@ -13,9 +16,15 @@
 	}
 }
 
-@media only screen and (min-width : 768px) {
-	
+.nav-bar {
+	float: clear;
 }
+
+@media only screen and (min-width : 768px) {
+// 	.row {
+// 	  padding: 0.2em;
+// 	}
+
 // .field {
 //   display: inline-block;
 //   margin: 0 auto;
@@ -29,13 +38,18 @@
 // #user_password {
 //   color: #4b4b4b;
 // }
-
-// #remember_me {
-
-// }
-
 // label {
 //   display: inline-block;
 //   margin: 0 auto;
 //   float: left;
 // }
+	.tab {
+		border: 1px solid $dark-grey;
+		background-color: $white-shade;
+	}
+
+	.active {
+		border-bottom: 1px solid $off-white;
+		background-color: $off-white;
+	}
+}

@@ -33,9 +33,9 @@ $dark-grey: #4b4b4b;
 html { height: 100%; }
 
 body {
-	font-family: $font-stack;
-	color: $dark-grey;
-	height: 100%;
+  font-family: $font-stack;
+  color: $dark-grey;
+  height: 100%;
 }
 
 *:focus { outline: none !important; }
@@ -44,60 +44,45 @@ li { list-style: none; }
 
 a, a:hover, a:focus { text-decoration: none; }
 
-.wrapper {
-	min-height: 100%;
-	margin-bottom: 0 auto -2em;
-}
-
-.push {
-	height: 2em;
-}
-
-footer {
-	width: 100%;
-	height: 2em;
-	font-size: 0.75em;
-	padding: 0.5em 0;
-	background-color: $primary-color;
-	color: $off-white;
-}
-
 // ====================
 // Media Queries
 // ====================
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) and (max-width : 768px) {
 
-	#user_email {
-		color: $dark-grey;
-	}
+  #user_email {
+    color: $dark-grey;
+  }
 
-	#user_password {
-		color: $dark-grey;
-	}
+  #user_password {
+    color: $dark-grey;
+  }
 
-	.search-box {
-	  margin: 0 auto;
-	  float: none;
-	  color: $dark-grey;
-	}
+  .search-box {
+    margin: 0 auto;
+    float: none;
+    color: $dark-grey;
+  }
 
 
-	.nav-menu {
-		color: $off-white;
-		padding: 3px;
-		padding-left: 14px;
-	}
+  .nav-menu {
+    color: $off-white;
+    padding: 3px;
+    padding-left: 14px;
+    float: right;
+  }
 
-	.nav-list {
-		li {
-			background-color: $primary-shade;
-			border-top: 1px solid $primary-color;
-			border-bottom: 1px solid $primary-color;
-			color: $off-white;
-			padding: 4px 15px;
-		}
-	}
+  .nav-list {
+    li {
+      background-color: $primary-shade;
+      border-top: 1px solid $primary-color;
+      border-bottom: 1px solid $primary-color;
+      color: $off-white;
+      padding: 4px 15px;
+      float: right;
+      display: inline;
+    }
+  }
 }
 
 /* Extra Small Devices, Phones */ 
@@ -106,44 +91,68 @@ footer {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	body {
-		font-size: 1.6em;
-	}
+  body {
+    font-size: 1.6em;
+  }
 
-	.navbar {
-		background-color: $primary-color;
-		color: $off-white;
-		border-radius: 0;
-		font-size: 1.3em;
+  .navbar {
+    background-color: $primary-color;
+    color: $off-white;
+    border-radius: 0;
+    font-size: 1.3em;
 
-		a { color: $off-white; }
+    a { color: $off-white; }
 
-		ul {
-			margin: 0;
-			padding: 0;
-		}
+    ul {
+      margin: 0;
+      padding: 0;
+    }
 
-		li {
-			display: inline-block;
-			padding: 1em 0.45em;
+    li {
+      display: inline-block;
+      padding: 1em 0.45em;
 
-			&:hover {
-    		background-color: $primary-tint;
-  		}
-		}
+      &:hover {
+        background-color: $primary-tint;
+      }
 
-		img {
-			margin-top: 10px;
-			width: 40px;
-			display: inline-block;
-		}
+    }
+    .signed-in-as:hover {
+      background-color: $primary-color;
+    }
 
-		.home-button {
-			position: relative;
-			top: 17px;
-			font-family: $logo-font;
-		}
-	}
+    img {
+      margin-top: 10px;
+      width: 40px;
+      display: inline-block;
+    }
+
+    .home-button {
+      position: relative;
+      top: 17px;
+      font-family: $logo-font;
+    }
+  }
+
+  .wrapper {
+    min-height: 100%;
+    margin-bottom: 0 auto -2em;
+  }
+
+  .push {
+    height: 2em;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+    font-size: 0.75em;
+    padding: 0.5em 0;
+    background-color: $primary-color;
+    color: $off-white;
+  }
 }
 
 /* Extra Small Devices, Phones */
@@ -159,118 +168,121 @@ footer {
 }
 
 .debugger {
-	border: 1px solid red;
+  border: 1px solid red;
 }
 
 // html {
-// 	position: relative;
-// 	min-height: 100%;
+//  position: relative;
+//  min-height: 100%;
 // }
 
 // body {
-// 	background-color: $off-white;
-// 	margin: 0 0 1em;
-// 	font: 1.2em $font-stack;
+//  background-color: $off-white;
+//  margin: 0 0 1em;
+//  font: 1.2em $font-stack;
 // }
 
 // a { text-decoration: none; }
 
 
-// 	background-color: $primary-color;
-// 	color: $off-white;
-// 	display: block;
-// 	text-align: right;
-// 	padding-right: 1.5em;
+//  background-color: $primary-color;
+//  color: $off-white;
+//  display: block;
+//  text-align: right;
+//  padding-right: 1.5em;
 
-// 	ul {
-// 		margin: 0;
-// 		padding: 0;
-// 	}
+//  ul {
+//    margin: 0;
+//    padding: 0;
+//  }
 
-// 	li {
-// 		display: inline-block;
-// 		padding: 1em 0.45em;
+//  li {
+//    display: inline-block;
+//    padding: 1em 0.45em;
 
-// 		&:hover {
-//     	background-color: $primary-tint;
-//   	}
-// 	}
+//    &:hover {
+//      background-color: $primary-tint;
+//    }
+//  }
 
-// 	a { color: $off-white; }
+//  a { color: $off-white; }
 
-// 	.logo-text {
-// 		font: 1.25em $logo-font;
-// 		float: left;
-// 		padding: 0.45em;
-// 	}
+//  .logo-text {
+//    font: 1.25em $logo-font;
+//    float: left;
+//    padding: 0.45em;
+//  }
 // }
 
 // .center-content {
-// 	text-align: center;
+//  text-align: center;
 // }
 
 // .container {
-// 	margin: 2em;
+//  margin: 2em;
 // }
 
 // input[type='submit'], button, .button {
-// 	margin: 4px;
-// 	border-radius: 10px;
-// 	font-family: $font-stack;
+//  margin: 4px;
+//  border-radius: 10px;
+//  font-family: $font-stack;
 
-// 	&:hover { cursor: pointer; }
+//  &:hover { cursor: pointer; }
 // }
 
 // .btn-reg {
-// 	background: $off-white;
-// 	border: 2px solid $dark-grey;
-// 	color: $dark-grey;
-// 	font-size: 0.75em;
-// 	padding: 0.3em 0.5em;
+//  background: $off-white;
+//  border: 2px solid $dark-grey;
+//  color: $dark-grey;
+//  font-size: 0.75em;
+//  padding: 0.3em 0.5em;
 
-// 	&:hover { background: $white-shade; }
+//  &:hover { background: $white-shade; }
 // }
 
 // .btn-green {
-// 	background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
-// 	  background: -o-linear-gradient(top, $primary-shade, $primary-tint);
-// 	  background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
-// 	  background: linear-gradient(top, $primary-shade, $primary-tint);
-// 	font-size: 0.75em;
-// 	color: $off-white;
-// 	border-style: none;
-// 	padding: 1em;
+//  background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+//    background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+//    background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+//    background: linear-gradient(top, $primary-shade, $primary-tint);
+//  font-size: 0.75em;
+//  color: $off-white;
+//  border-style: none;
+//  padding: 1em;
 
-// 	&:hover { background: $primary-color; }
+//  &:hover { background: $primary-color; }
 // }
 
 .btn-red {
-	background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
-	  background: linear-gradient(top, $secondary-color, $secondary-tint);
-	font: 1.3em $font-stack;
-	color: $off-white;
+  background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
+    background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
+    background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
+    background: linear-gradient(top, $secondary-color, $secondary-tint);
+  font: 1.3em $font-stack;
+  color: $off-white;
 
-	&:hover {
-		background: $secondary-shade;
-		color: $off-white;
-	}
+  &:hover {
+    background: $secondary-shade;
+    color: $off-white;
+  }
 }
 
 .btn-orange {
-	background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
-	  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
-	font: 1.3em $font-stack;
-	color: $off-white;
+  background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
+    background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
+    background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
+    background: linear-gradient(top, $tertiary-color, $tertiary-tint);
+  font: 1.3em $font-stack;
+  color: $off-white;
 
-	&:hover {
-		background: $tertiary-shade;
-		color: $off-white;
-	}
+  &:hover {
+    background: $tertiary-shade;
+    color: $off-white;
+  }
 }
 
-
+.ui-loader {
+  display: none !important;
+  position: absolute;
+}
 

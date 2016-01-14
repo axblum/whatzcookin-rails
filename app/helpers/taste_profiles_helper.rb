@@ -44,51 +44,32 @@ module TasteProfilesHelper
   def create_recipe_profile(recipe_object)
     taste_profile = RecipeTasteProfile.create!(taste_counts(recipe_object))
     taste_profile.update_attributes(recipe_id: recipe_object.id)
-    p "CREATED RECIPE PROFILE"
-    p taste_profile
     return taste_profile
   end
 
-  # Find all the recipes rated by the user return the recipe objects
-  # def user_rated_recipes(user)
-  #   rated = []
-  #   user.ratings.each do |rating|
-  #     rated << rating.recipe
-  #   end
-  #   return rated
-  # end
-
   def find_favorite_recipes(user)
     faves = []
-    user.favorites.each do |favorite|
-      faves << favorite.recipe
+    if user.favorites.length > 3
+      for i in (user.favorites.length-4)...(user.favorites.length)
+        faves << user.favorites[i].recipe
+      end
+    else
+      user.favorites.each do |favorite|
+        faves << favorite.recipe
+      end
     end
     return faves
   end
 
   # find or create the recipe taste profiles
   def find_recipe_profiles(user)
-    # rated = user_rated_recipes(user)
     profiles = []
-    # rated.each do |recipe|
-    #   profiles << create_recipe_profile(recipe)
-    # end
     faves = find_favorite_recipes(user)
     faves.each do |recipe|
       profiles << create_recipe_profile(recipe)
     end
     return profiles
   end
-
-  # Find the total number of stars
-  # def total_stars(user)
-  #   rated = user.ratings
-  #   total = 0
-  #   rated.each do |rating|
-  #     total += rating.stars
-  #   end
-  #   return total
-  # end
 
   # adjust the weight of the taste profiles
   def adjust_weight(user)
@@ -122,19 +103,53 @@ module TasteProfilesHelper
 
   def weigh_tastes(user)
     taste_hash = adjust_weight(user)
-    if user.ratings.count == 0
+    if user.favorites.count == 0
       total = 1
     else
-      total = user.ratings.count
+      total = user.favorites.count
     end
-
     weighted_taste_hash = taste_hash.each { |k, v| taste_hash[k] = v/total }
     weighted_taste_hash[:user_id] = user.id
     return weighted_taste_hash
   end
 
+  # using the user taste profile to find appropriate recipes
+  # calculate the differences between the user and the country
+  def taste_array(user)
+    tastes = user.user_taste_profile
+    return [tastes.bitter, tastes.earthy, tastes.grassy, tastes.licorice, tastes.nutty, tastes.peppery, tastes.sour, tastes.spicy, tastes.sweet, tastes.woody]
+  end
+
+  def compare_profiles(profile_1, profile_2)
+    aggregate_difference = 0
+    aggregate_difference += (profile_1.bitter - profile_2.bitter)
+    aggregate_difference += (profile_1.earthy - profile_2.earthy)
+    aggregate_difference += (profile_1.grassy - profile_2.grassy)
+    aggregate_difference += (profile_1.licorice - profile_2.licorice)
+    aggregate_difference += (profile_1.nutty - profile_2.nutty)
+    aggregate_difference += (profile_1.peppery - profile_2.peppery)
+    aggregate_difference += (profile_1.sour - profile_2.sour)
+    aggregate_difference += (profile_1.spicy - profile_2.spicy)
+    aggregate_difference += (profile_1.sweet - profile_2.sweet)
+    aggregate_difference += (profile_1.woody - profile_2.woody)
+    return aggregate_difference.abs
+  end
+
+  def all_cuisine_styles(user)
+    differences = []
+    exists = CuisineTasteProfile.where.not(cuisine_style_id: nil)
+    exists.each do |cuisine_profile|
+      differences << compare_profiles(cuisine_profile, user.user_taste_profile)
+    end
+    return differences
+  end
+
+  def most_similar(array)
+    index = array.rindex(array.min)
+    return CuisineTasteProfile.find(index+1)
+  end
+
+  def similar_cuisine_style(taste_profile)
+    return CuisineStyle.find(taste_profile.cuisine_style_id)
+  end
 end
-
-# Chinese Taste Profile = [0.1428571429,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.07142857143,0.2142857143,0.2142857143,0.07142857143,0]
-
-# African Taste Profile = [0.1034482759, 0.1034482759, 0.1034482759, 0, 0.06896551724,0.1379310345,0.1034482759,0.1379310345,0.2068965517,0.03448275862]
