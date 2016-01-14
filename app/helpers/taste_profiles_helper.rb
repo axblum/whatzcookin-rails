@@ -127,10 +127,10 @@ module TasteProfilesHelper
 
   def weigh_tastes(user)
     taste_hash = adjust_weight(user)
-    if user.ratings.count == 0
+    if user.favorites.count == 0
       total = 1
     else
-      total = user.ratings.count
+      total = user.favorites.count
     end
     weighted_taste_hash = taste_hash.each { |k, v| taste_hash[k] = v/total }
     weighted_taste_hash[:user_id] = user.id
