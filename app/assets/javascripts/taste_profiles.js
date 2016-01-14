@@ -61,7 +61,11 @@ var display_taste_profile = function(data){
             name: 'Your Taste Profile',
             data: data,
             pointPlacement: 'on'
-        },]
+        },{
+            name: 'Most Similar Cuisine Type: Jewish',
+            data: [0.08,0.24,0.04,0,0,0.2,0.08,0.12,0.2,0.04],
+            pointPlacement: 'on'
+        }]
     });
 }
 

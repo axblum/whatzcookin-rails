@@ -1,7 +1,5 @@
 include TasteProfilesHelper
 class RecipesController < ApplicationController
-
-
   def show
     @recipe = Recipe.find_or_create_by(api_id: params[:id])
     @recipe_info = Recipe.get_recipe(params[:id])
@@ -17,11 +15,26 @@ class RecipesController < ApplicationController
     end
   end
 
+  def suggestions
+    cuisine_profile = most_similar(all_cuisine_styles(current_user))
+    recipes = Recipe.suggested_recipe(similar_cuisine_style(cuisine_profile).name)
+    unless recipes.parsed_response.empty?
+      recipes = recipes.parsed_response["results"]
+      id = recipes.sample['id']
+      redirect_to recipe_path(id)
+    else
+      flash[:error] = "We can't seem to find that ingredient"
+      redirect_to root_path
+    end
+  end
 
   def retrieve_recipes
     if user_signed_in?
       restrictions_hash = current_user.build_personalized_hash
+      p restrictions_hash
       recipes = Recipe.get_personalized_recipe(params[:ingredient],restrictions_hash)
+      p "RETRIEVE " * 100
+      p recipes
       unless recipes.parsed_response.empty?
         recipes = recipes.parsed_response["results"]
         id = recipes.sample['id']
