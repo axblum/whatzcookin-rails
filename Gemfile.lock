@@ -112,8 +112,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-star-rating-rails (4.0.4)
       rails (>= 3.1.0)
-    jquery_mobile_rails (1.4.5)
-      railties (>= 3.1.0)
     json (1.8.3)
     jwt (1.5.2)
     launchy (2.4.3)
@@ -281,7 +279,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-star-rating-rails
-  jquery_mobile_rails
   launchy
   omniauth
   omniauth-google-oauth2
