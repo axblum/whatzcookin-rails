@@ -19,7 +19,7 @@
 					<%= form_tag(user_nutritional_profile_path(current_user,current_user.nutritional_profile), method: :delete, id: 'delete-excluded-ingredient') do %>
 					<%= hidden_field_tag("ingredient_id", excluded_ingredient.id) %>
 						<%= label_tag(:excluded_ingredient, excluded_ingredient.name) %>
-						<%= submit_tag '&times;' %>
+						<%= submit_tag "remove", class: 'btn btn-default' %>
 					<% end %>
 				</li>
 			<% end %>
