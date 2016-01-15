@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+
   def google_oauth2
 
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)

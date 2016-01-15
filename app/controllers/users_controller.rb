@@ -1,5 +1,8 @@
-include TasteProfilesHelper
 class UsersController < ApplicationController
+  include TasteProfilesHelper
+
+prepend_before_filter :require_no_authentication, only: [:cancel ]
+
 	def show
     @user = current_user
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
