@@ -39,7 +39,7 @@
     </div>
 
     <div class="row">
-      <div class='col-md-3 col-md-offset-1' id="favorite">
+      <div class='col-md-3 col-md-offset-2' id="favorite">
         <div id="new-user-rating <%= dom_id(@recipe) %>">
           <% if current_user %>
           <%= render partial: "ratings/user_rating", locals: {user_rating: @user_rating} %>
@@ -48,7 +48,7 @@
           <% end %>
         </div>
       </div>
-      <div class='col-md-2 fav-div'>
+      <div class='col-md-3 fav-div'>
         <% if current_user %>
         <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
         <% end %>
@@ -56,7 +56,7 @@
     </div>
 
     <div class='row'>
-      <div class='col-md-offset-1'>
+      <div class='col-md-offset-2'>
         <h2>Comments:</h2>
         <% if @comments %>
         <ul class='comments'>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div class='col-md-offset-1'>
+    <div class='col-md-offset-2'>
       <div class='row'>
         <% if current_user %>
         <%= render partial: 'comments/form' %>

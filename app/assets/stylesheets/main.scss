@@ -47,7 +47,8 @@ a, a:hover, a:focus { text-decoration: none; }
 // ====================
 // Media Queries
 // ====================
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
+
 @media only screen and (min-width : 320px) and (max-width : 768px) {
 
   #user_email {
@@ -64,13 +65,66 @@ a, a:hover, a:focus { text-decoration: none; }
     color: $dark-grey;
   }
 
-
-  .nav-menu {
-    color: $off-white;
-    padding: 3px;
-    padding-left: 14px;
-    float: right;
+  .navbar {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
   }
+
+/** New green menu buttons **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: "  ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: "  ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+/** The buttons **/
+.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+  border-left: 10px solid #5cb85c;
+}
+.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+  border-left: 10px solid #4cae4c;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+  border-left: 10px solid #47a447;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+  border-left: 10px solid #398439;
 
   .nav-list {
     li {
@@ -84,11 +138,22 @@ a, a:hover, a:focus { text-decoration: none; }
     }
   }
 
-  
 }
 
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
+// .list-group {
+//   display: inline-block;
+//   float: center;
+// }
+
+.nav-list {
+  li {
+    background-color: $primary-shade;
+    border-top: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+    color: $off-white;
+    padding: 4px 15px;
+  }
+}
 }
 
 /* Small Devices, Tablets */
@@ -193,9 +258,9 @@ a, a:hover, a:focus { text-decoration: none; }
 
 .btn-red {
   background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
-    background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
-    background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
-    background: linear-gradient(top, $secondary-color, $secondary-tint);
+  background: -o-linear-gradient(top, $secondary-color, $secondary-tint);
+  background: -moz-linear-gradient(top, $secondary-color, $secondary-tint);
+  background: linear-gradient(top, $secondary-color, $secondary-tint);
   font: 1.3em $font-stack;
   color: $off-white;
 
@@ -210,9 +275,9 @@ a, a:hover, a:focus { text-decoration: none; }
 
 .btn-orange {
   background: -webkit-linear-gradient(top, $tertiary-color, $tertiary-tint);
-    background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
-    background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
-    background: linear-gradient(top, $tertiary-color, $tertiary-tint);
+  background: -o-linear-gradient(top, $tertiary-color, $tertiary-tint);
+  background: -moz-linear-gradient(top, $tertiary-color, $tertiary-tint);
+  background: linear-gradient(top, $tertiary-color, $tertiary-tint);
   font: 1.3em $font-stack;
   color: $off-white;
 
@@ -224,5 +289,4 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $tertiary-shade;
   }
 }
-
 

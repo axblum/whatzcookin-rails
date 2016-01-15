@@ -1,5 +1,5 @@
 $(function() {
-  $("#swipe").swipe( {
+  $("body").swipe( {
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
       if(direction === 'left') {
         swipeLeft();
