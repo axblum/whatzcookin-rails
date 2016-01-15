@@ -7,23 +7,16 @@ function bindTasteProfileListeners() {
     e.preventDefault();
     var data = []
     var formData = $('form').serializeArray();
-    console.log(formData)
-    for (i=9; i<(formData.length-1); i++){
+    for (i=(formData.length-3); i>(formData.length-23); i--){
       if (formData[i].value === 'NaN' || isNaN(formData[i].value)){
         data.push(0)
       } else {
         data.push(parseFloat(formData[i].value));
       };
     };
-    console.log('data')
-    console.log(data)
-    console.log('User Data')
-    userData = data.slice(0,9)
-    console.log(userData)
-    cuisineData = data.slice(9,19)
-    console.log('cuisine data')
-    console.log(cuisineData)
-    name = formData[29].value
+    userData = data.slice(0,10)
+    cuisineData = data.slice(10,20)
+    name = formData[(formData.length-2)].value
     if ($('#highcharts').length){
       display_taste_profile(userData, cuisineData, name);
     }
