@@ -13,9 +13,8 @@ function bindProfileListeners() {
     if ($('#highcharts').length){
       display_taste_profile(data);
     }
-    console.log(formData);
-    console.log(data);
   });
+
   $('.tab').on('click', function(e) {
     e.preventDefault();
     $('.tab').removeClass('active');
@@ -25,4 +24,60 @@ function bindProfileListeners() {
     $('.sheet').addClass('hidden');
     $('#' + activeSheet).removeClass('hidden');
   });
+
+  $('.profile').on('click', '#update-dietary-restrictions', function(e) {
+    e.preventDefault()
+    var data = $(this).serialize();
+    var url = $(this).attr('action')
+    updateDietaryRestriction(data, url);
+  });
+
+  $('.profile').on('click', '#delete-excluded-ingredient', function(e) {
+    e.preventDefault()
+    var action = $(this).parent().attr('action');
+    var query = $(this).parent().attr('ingredient_id');
+    var url = action + "?ingredient_id=" + query
+    deleteExcludedIngredient(url);
+  });
+
+  $('.profile').on('submit', '#create-excluded-ingredient', function(e) {
+    e.preventDefault()
+    var data = $(this).serialize();
+    createExcludedIngredient(data);
+  });
 }
+
+function createExcludedIngredient(data) {
+  $.ajax({
+    method: 'POST',
+    url: '/restrictions',
+    data: data
+  })
+  .done(function(response) {
+    $('#restrictions').children().remove()
+    $('#restrictions').append(response)
+  });
+};
+
+function deleteExcludedIngredient(url) {
+  $.ajax({
+    method: 'DELETE',
+    url: url
+  })
+  .done(function(response) {
+    $('#restrictions').children().remove()
+    $('#restrictions').append(response)
+  });
+};
+
+function updateDietaryRestriction(data, url) {
+  $.ajax({
+    method: 'PUT',
+    url: url,
+    data: data
+  })
+  .done(function(response) {
+    $('#restrictions').children().remove()
+    $('#restrictions').append(response)
+  });
+};

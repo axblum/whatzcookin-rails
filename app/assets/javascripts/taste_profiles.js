@@ -7,16 +7,16 @@ function bindTasteProfileListeners() {
     e.preventDefault();
     var data = []
     var formData = $('form').serializeArray();
-    for (i=9; i<(formData.length-1); i++){
+    for (i=(formData.length-3); i>(formData.length-23); i--){
       if (formData[i].value === 'NaN' || isNaN(formData[i].value)){
         data.push(0)
       } else {
         data.push(parseFloat(formData[i].value));
       };
     };
-    userData = data.slice(0,9)
-    cuisineData = data.slice(9,19)
-    name = formData[29].value
+    userData = data.slice(0,10)
+    cuisineData = data.slice(10,20)
+    name = formData[(formData.length-2)].value
     if ($('#highcharts').length){
       display_taste_profile(userData, cuisineData, name);
     }

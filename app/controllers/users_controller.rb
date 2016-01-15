@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
     @dietary_restrictions = DietaryRestriction.all
     @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
+    @favorites = current_user.favorites
+
     if @user.favorites.any?
       calculate_profile
       similar_taste_profile
