@@ -33,6 +33,7 @@
             </li>
             <span class='hidden-xs'>|</span>
             <li class='hidden-xs signed-in-as'>Signed in as <%= current_user.name %>. Not you?</li>
+            <span class='hidden-xs'>|</span>
             <li>
               <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
               <i class="fa fa-sign-out"></i>

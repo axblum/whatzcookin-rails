@@ -12,5 +12,9 @@ class RestrictionsController < ApplicationController
 		render partial: 'nutritional_profiles/form'
   end
 
+  def destroy
+    current_user.nutritional_profile.restrictions.delete_all
+  end
+
 end
 
