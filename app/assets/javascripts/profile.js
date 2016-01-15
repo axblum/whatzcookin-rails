@@ -13,8 +13,6 @@ function bindProfileListeners() {
     if ($('#highcharts').length){
       display_taste_profile(data);
     }
-    console.log(formData);
-    console.log(data);
   });
 
   $('.tab').on('click', function(e) {
