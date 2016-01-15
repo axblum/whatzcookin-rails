@@ -50,4 +50,22 @@
 		padding: 0.5em;
 		font: 1em $font-stack;
 	}
+
+	.fav-div {
+		font-size: 1.4em;
+		margin-top: 1.5em;
+
+		a {
+			color: $dark-grey;
+
+			&:hover {
+				color: $dark-grey;
+			}
+		}
+
+		.fa-gratipay:hover {
+			color: $secondary-color;
+		}
+
+	}
 }
