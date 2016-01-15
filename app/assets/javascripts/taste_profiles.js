@@ -7,6 +7,7 @@ function bindTasteProfileListeners() {
     e.preventDefault();
     var data = []
     var formData = $('form').serializeArray();
+    console.log(formData)
     for (i=9; i<(formData.length-1); i++){
       if (formData[i].value === 'NaN' || isNaN(formData[i].value)){
         data.push(0)
@@ -14,8 +15,14 @@ function bindTasteProfileListeners() {
         data.push(parseFloat(formData[i].value));
       };
     };
+    console.log('data')
+    console.log(data)
+    console.log('User Data')
     userData = data.slice(0,9)
+    console.log(userData)
     cuisineData = data.slice(9,19)
+    console.log('cuisine data')
+    console.log(cuisineData)
     name = formData[29].value
     if ($('#highcharts').length){
       display_taste_profile(userData, cuisineData, name);

@@ -16,6 +16,4 @@
 		</div>
 </div>
 
-<% if current_user && current_user.user_taste_profile && current_user.favorites.any? %>
-	<%= button_to 'Suggest Me Something', suggestions_path, method: :post %>
-<% end %>
+
