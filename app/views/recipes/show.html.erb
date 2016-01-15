@@ -1,4 +1,3 @@
-<i class="fa fa-gratipay fa-5x show-favorite"></i>
 <div class id="swipe"></div>
   <div class ="container-fluid">
 
@@ -49,7 +48,7 @@
           <% end %>
         </div>
       </div>
-      <div class='cold-md-2 fav-div'>
+      <div class='col-md-2 fav-div'>
         <% if current_user %>
         <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
         <% end %>
@@ -57,23 +56,26 @@
     </div>
 
     <div class='row'>
-      <h2>Comments:</h2>
-      <% if @comments %>
-      <ul class='comments'>
-        <% @comments.each do |comment| %>
-        <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
+      <div class='col-md-offset-1'>
+        <h2>Comments:</h2>
+        <% if @comments %>
+        <ul class='comments'>
+          <% @comments.each do |comment| %>
+          <%= render partial: 'comments/comment', locals: {comment: comment, recipe: @recipe} %>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>There don't seem to be any comments! Login and leave yours!</p>
         <% end %>
-      </ul>
-      <% else %>
-      <p>There don't seem to be any comments! Login and leave yours!</p>
-      <% end %>
+      </div>
     </div>
 
-
-    <div class='row'>
-      <% if current_user %>
-      <%= render partial: 'comments/form' %>
-      <% end %>
+    <div class='col-md-offset-1'>
+      <div class='row'>
+        <% if current_user %>
+        <%= render partial: 'comments/form' %>
+        <% end %>
+      </div>
     </div>
   </div>
   </div>

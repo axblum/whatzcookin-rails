@@ -1,19 +1,41 @@
-<%= form_for @user do |f| %>
-  <%= f.hidden_field :bitter, value: @new_taste_profile.bitter %>
-  <%= f.hidden_field :earthy, value: @new_taste_profile.earthy %>
-  <%= f.hidden_field :grassy, value: @new_taste_profile.grassy %>
-  <%= f.hidden_field :licorice, value: @new_taste_profile.licorice %>
-  <%= f.hidden_field :nutty, value: @new_taste_profile.nutty %>
-  <%= f.hidden_field :peppery, value: @new_taste_profile.peppery %>
-  <%= f.hidden_field :sour, value: @new_taste_profile.sour %>
-  <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %>
-  <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %>
-  <%= f.hidden_field :woody, value: @new_taste_profile.woody %>
-  <%= f.submit "Calculate Your Taste Profile", id: "taste-profile" %>
-<% end %>
+<div>
+  <%= form_for @user do |f| %>
+    <%= f.hidden_field :bitter, value: @new_taste_profile.bitter %>
+    <%= f.hidden_field :earthy, value: @new_taste_profile.earthy %>
+    <%= f.hidden_field :grassy, value: @new_taste_profile.grassy %>
+    <%= f.hidden_field :licorice, value: @new_taste_profile.licorice %>
+    <%= f.hidden_field :nutty, value: @new_taste_profile.nutty %>
+    <%= f.hidden_field :peppery, value: @new_taste_profile.peppery %>
+    <%= f.hidden_field :sour, value: @new_taste_profile.sour %>
+    <%= f.hidden_field :spicy, value: @new_taste_profile.spicy %>
+    <%= f.hidden_field :sweet, value: @new_taste_profile.sweet %>
+    <%= f.hidden_field :woody, value: @new_taste_profile.woody %>
 
-<div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-  <div class="row">
-    <div id='tab-1-content' class='col-md-5'></div>
+    <%= f.hidden_field :pbitter, value: @similar_profile.bitter %>
+    <%= f.hidden_field :pearthy, value: @similar_profile.earthy %>
+    <%= f.hidden_field :pgrassy, value: @similar_profile.grassy %>
+    <%= f.hidden_field :plicorice, value: @similar_profile.licorice %>
+    <%= f.hidden_field :pnutty, value: @similar_profile.nutty %>
+    <%= f.hidden_field :ppeppery, value: @similar_profile.peppery %>
+    <%= f.hidden_field :psour, value: @similar_profile.sour %>
+    <%= f.hidden_field :pspicy, value: @similar_profile.spicy %>
+    <%= f.hidden_field :psweet, value: @similar_profile.sweet %>
+    <%= f.hidden_field :pwoody, value: @similar_profile.woody %>
+    <%= f.hidden_field :cname, value: @cuisine.name %>
+    <%= f.submit "Calculate Your Taste Profile", id: "taste-profile", class: 'btn btn-default' %>
+  <% end %>
+
+
+
+  <div id="highcharts" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+    <div class="row">
+      <div id='tab-1-content' class='col-md-5'></div>
+    </div>
+  </div>
+
+  <div>
+    <% if current_user && current_user.user_taste_profile && current_user.favorites.any? %>
+      <%= button_to 'Suggest Me Something', suggestions_path, method: :post, class: 'btn btn-default btn-orange' %>
+    <% end %>
   </div>
 </div>

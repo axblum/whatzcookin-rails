@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
   def index
+    @favorites = current_user.favorites
+    render partial: 'favorites/index', locals: { favorites: @favorites }
   end
 
   def create

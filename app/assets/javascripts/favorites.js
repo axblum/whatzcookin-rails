@@ -3,32 +3,6 @@ $(document).ready(function(){
 });
 
 var bindFavoriteListeners = function(){
-  // if ($('.fav_button').text() === "Unfavorite"){
-  //   $('.fav_button').on('click', function(e){
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     var url = $(this).attr('href');
-  //     var recipeID = $(this).attr('class').split("_")[2];
-  //     var formData = {recipe_id: String(recipeID)}
-  //     console.log(recipeID);
-  //     console.log(formData);
-  //     deleteFavorite(formData, url);
-  //   });
-
-  // }
-  // else {
-  //   $('.fav_button').on('click', function(e){
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     var url = $(this).attr('href');
-  //     var recipeID = $(this).attr('class').split("_")[2];
-  //     var formData = {recipe_id: String(recipeID)}
-  //     console.log(recipeID);
-  //     console.log(formData);
-
-  //     createFavorite(formData, url);
-  //   });
-  // }
   $('.fav-div').on('click', '.fav-button', function(e) {
     e.preventDefault();
     e.stopPropagation();

@@ -125,8 +125,20 @@ a, a:hover, a:focus { text-decoration: none; }
 }
 .btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
   border-left: 10px solid #398439;
-}
 
+  .nav-list {
+    li {
+      background-color: $primary-shade;
+      border-top: 1px solid $primary-color;
+      border-bottom: 1px solid $primary-color;
+      color: $off-white;
+      padding: 4px 15px;
+      float: right;
+      display: inline;
+    }
+  }
+
+}
 
 // .list-group {
 //   display: inline-block;
@@ -226,87 +238,23 @@ a, a:hover, a:focus { text-decoration: none; }
   border: 1px solid red;
 }
 
-// html {
-//  position: relative;
-//  min-height: 100%;
-// }
 
-// body {
-//  background-color: $off-white;
-//  margin: 0 0 1em;
-//  font: 1.2em $font-stack;
-// }
+.btn-green {
+ background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
+   background: -o-linear-gradient(top, $primary-shade, $primary-tint);
+   background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
+   background: linear-gradient(top, $primary-shade, $primary-tint);
+ color: $off-white;
+ padding: 0.4em;
 
-// a { text-decoration: none; }
-
-
-//  background-color: $primary-color;
-//  color: $off-white;
-//  display: block;
-//  text-align: right;
-//  padding-right: 1.5em;
-
-//  ul {
-//    margin: 0;
-//    padding: 0;
-//  }
-
-//  li {
-//    display: inline-block;
-//    padding: 1em 0.45em;
-
-//    &:hover {
-//      background-color: $primary-tint;
-//    }
-//  }
-
-//  a { color: $off-white; }
-
-//  .logo-text {
-//    font: 1.25em $logo-font;
-//    float: left;
-//    padding: 0.45em;
-//  }
-// }
-
-// .center-content {
-//  text-align: center;
-// }
-
-// .container {
-//  margin: 2em;
-// }
-
-// input[type='submit'], button, .button {
-//  margin: 4px;
-//  border-radius: 10px;
-//  font-family: $font-stack;
-
-//  &:hover { cursor: pointer; }
-// }
-
-// .btn-reg {
-//  background: $off-white;
-//  border: 2px solid $dark-grey;
-//  color: $dark-grey;
-//  font-size: 0.75em;
-//  padding: 0.3em 0.5em;
-
-//  &:hover { background: $white-shade; }
-// }
-
-// .btn-green {
-//  background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: -o-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: -moz-linear-gradient(top, $primary-shade, $primary-tint);
-//    background: linear-gradient(top, $primary-shade, $primary-tint);
-//  font-size: 0.75em;
-//  color: $off-white;
-//  border-style: none;
-//  padding: 1em;
-
-//  &:hover { background: $primary-color; }
-// }
+  &:hover {
+    background: $primary-color;
+    color: $off-white;
+  }
+  &:active, &:focus {
+    background: $primary-color;
+  }
+}
 
 .btn-red {
   background: -webkit-linear-gradient(top, $secondary-color, $secondary-tint);
@@ -319,6 +267,9 @@ a, a:hover, a:focus { text-decoration: none; }
   &:hover {
     background: $secondary-shade;
     color: $off-white;
+  }
+  &:active, &:focus {
+    background: $secondary-shade;
   }
 }
 
@@ -334,10 +285,9 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $tertiary-shade;
     color: $off-white;
   }
+  &:active, &:focus {
+    background: $tertiary-shade;
+  }
 }
 
-.ui-loader {
-  display: none !important;
-  position: absolute;
-}
 

@@ -14,7 +14,6 @@
       <div class="row">
         <nav class='navbar hidden-md hidden-lg'>
           <div class="btn-group btn-breadcrumb visible-xs">
-
             <a href="/" class="btn btn-success"><i class="fa fa-home"></i></a>
             <a href="/users/sign_in" class="btn btn-success">Sign In </a>
             <a href="/users/sign_up" class="btn btn-success">Sign Up  <i class="fa fa-user-plus"></i></a>
@@ -25,6 +24,11 @@
         <nav class='navbar hidden-xs hidden-sm'>
           <%= link_to root_path, class: 'hidden-xs col-xs-2 col-md-2' do %>
           <%= image_tag('small-logo-white.png') %> <span class='home-button'>Home</span>
+          <% end %>
+        <nav class='navbar'>
+          <div class='visible-xs col-xs-offset-8 col-sm-offset-8 nav-menu'>☰ Menu</div>
+          <%= link_to root_path, class: 'col-md-2' do %>
+            <%= image_tag('small-logo-white.png') %> <span class='home-button'>WhatzCookin</span>
           <% end %>
           <ul class='col-xs-offset-4 col-md-10 text-right nav-list'>
             <% if user_signed_in? %>
@@ -55,7 +59,6 @@
   </div>
   <div class='container-fluid' id='content'>
     <%= yield %>
-    <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
   </div>
   <div class="push"></div>
   <footer>

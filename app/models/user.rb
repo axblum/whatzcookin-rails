@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
     result = {}
     self.restrictions = restrictions
     restrictions.each do |restriction|
+      restriction.name.gsub!(" ", "%20")
       if !result.has_key?(restriction.type)
         result[restriction.type] = [restriction.name]
       else
