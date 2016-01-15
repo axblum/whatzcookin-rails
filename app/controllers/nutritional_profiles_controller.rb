@@ -32,8 +32,10 @@ before_action :authenticate_user!
     @user_excluded_ingredients = @nutritional_profile.restrictions.excluded_ingredients
     
     dietary_restriction = DietaryRestriction.find(params[:dietary_restriction])
-    current_dietary_restriction = @nutritional_profile.restrictions.find_by(type: "DietaryRestriction")    
-    @nutritional_profile.restrictions.delete(current_dietary_restriction)
+    current_dietary_restriction = @nutritional_profile.restrictions.find_by(type: "DietaryRestriction")
+    if current_dietary_restriction
+      @nutritional_profile.restrictions.delete(current_dietary_restriction)
+    end
     @nutritional_profile.restrictions << dietary_restriction
 
     render partial: 'nutritional_profiles/form'
