@@ -1,6 +1,8 @@
 include TasteProfilesHelper
 class UsersController < ApplicationController
-	def show
+  before_action :authenticate_user!
+	
+  def show
     @user = current_user
     @nutritional_profile = NutritionalProfile.find_or_create_by(user_id: current_user.id)
     @dietary_restrictions = DietaryRestriction.all

@@ -27,7 +27,7 @@ function bindProfileListeners() {
     $('#' + activeSheet).removeClass('hidden');
   });
 
-  $('.profile').on('click', '#update-dietary-restrictions', function(e) {
+  $('.profile').on('submit', '#update-dietary-restrictions', function(e) {
     e.preventDefault()
     var data = $(this).serialize();
     var url = $(this).attr('action')
