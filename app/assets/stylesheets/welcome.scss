@@ -1,5 +1,12 @@
 @import 'main';
 
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+
+	img {
+	width: 15%;
+	}
+}
+
 @media only screen and (min-width : 768px) {
 	.title-text {
 		font: 6em $logo-font;
@@ -13,4 +20,6 @@
 	  color: $dark-grey;
 	  margin-bottom: 0.6em;
 	}
+
+
 }

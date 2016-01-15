@@ -2,10 +2,10 @@ $(document).on("ready", function () {
   bindMobileListeners();
 });
 
-$("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-});
+// $("#menu-toggle").click(function(e) {
+//         e.preventDefault();
+//         $("#wrapper").toggleClass("active");
+// });
 
 function bindMobileListeners() {
 	$('.nav-menu').on('tap', function(e) {

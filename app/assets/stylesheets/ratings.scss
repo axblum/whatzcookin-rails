@@ -1,3 +1,18 @@
-// Place all the styles related to the ratings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+
+.row {
+  float: center;
+
+}
+.star-rating {
+  float: right;
+  width: 100%
+}
+
+a {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
+
+}
