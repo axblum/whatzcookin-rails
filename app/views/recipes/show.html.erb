@@ -30,7 +30,7 @@
           <h2>Serves</h2>
           <%= @recipe_info['servings'] %> people
 
-          <div id="average-rating">
+          <div id="average-rating" class='text-center'>
             <%= render partial: 'ratings/average_ratings', locals: {recipe: @recipe} %>
           </div>
 
@@ -42,15 +42,15 @@
       <div class='col-md-3 col-md-offset-2' id="favorite">
         <div id="new-user-rating <%= dom_id(@recipe) %>">
           <% if current_user %>
-          <%= render partial: "ratings/user_rating", locals: {user_rating: @user_rating} %>
+            <%= render partial: "ratings/user_rating", locals: {user_rating: @user_rating} %>
           <% else %>
-          <p>Log in to rate this recipe!</p>
+            <p>Log in to rate this recipe!</p>
           <% end %>
         </div>
       </div>
       <div class='col-md-3 fav-div'>
         <% if current_user %>
-        <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
+          <%= render partial: 'favorites/favorite_button', locals: {recipe: @recipe} %>
         <% end %>
       </div>
     </div>
@@ -65,7 +65,7 @@
           <% end %>
         </ul>
         <% else %>
-        <p>There don't seem to be any comments! Login and leave yours!</p>
+          <p>There don't seem to be any comments! Login and leave yours!</p>
         <% end %>
       </div>
     </div>
