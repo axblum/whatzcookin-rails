@@ -22,10 +22,10 @@
           </div>
         </nav>
         <nav class='navbar hidden-xs hidden-sm'>
-          <%= link_to root_path, class: 'col-md-2' do %>
+          <%= link_to root_path, class: 'col-md-3' do %>
             <%= image_tag('small-logo-white.png') %> <span class='home-button'>WhatzCookin</span>
           <% end %>
-          <ul class='col-xs-offset-4 col-md-10 text-right nav-list'>
+          <ul class='col-xs-offset-4 col-md-9 text-right nav-list'>
             <% if user_signed_in? %>
             <li>
               <%= link_to "Profile", user_path(current_user) %>

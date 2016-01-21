@@ -4,7 +4,8 @@ $(function() {
       if(direction === 'left') {
         swipeLeft();
       }
-    }
+    },
+    allowPageScroll:"vertical"
   });
 });
 
