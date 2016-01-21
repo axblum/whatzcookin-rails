@@ -5,12 +5,12 @@
 	</div>
 </div>
 <div class='container-fluid'>
-	<%= form_tag('/retrieve_recipes', "data-ajax" => "false")  do %>
+	<%= form_tag('/retrieve_recipes')  do %>
 		<div class='row text-center'>
 			<%= text_field_tag('ingredient', "", size: 40, autofocus: true, autocomplete: :off, class: 'search-box', placeholder: 'Enter your ingredient here...') %>
 		</div>
 		<div class='row'>
-			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-sm-5 col-md-3 col-md-offset-3 btn btn-default btn-red' %>
+			<%= submit_tag 'Find a recipe', class: 'find-a-recipe col-sm-5 col-md-3 col-sm-offset-1 col-md-offset-3 btn btn-default btn-red' %>
 	<% end %>
 		<%= button_to "I'm Feeling Hungry", random_recipe_path, method: :get, class: 'im-feeling-hungry col-sm-5 col-md-3 btn btn-default btn-orange' %>
 		</div>

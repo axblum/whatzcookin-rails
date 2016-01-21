@@ -71,60 +71,74 @@ a, a:hover, a:focus { text-decoration: none; }
     vertical-align: top;
   }
 
-/** New green menu buttons **/
-.btn-breadcrumb .btn:not(:last-child):after {
-  content: "  ";
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
-  border-left: 10px solid white;
-  position: absolute;
-  top: 50%;
-  margin-top: -17px;
-  left: 100%;
-  z-index: 3;
-}
-.btn-breadcrumb .btn:not(:last-child):before {
-  content: "  ";
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
-  border-left: 10px solid rgb(173, 173, 173);
-  position: absolute;
-  top: 50%;
-  margin-top: -17px;
-  margin-left: 1px;
-  left: 100%;
-  z-index: 3;
-}
+  /** New green menu buttons **/
+  .btn-breadcrumb .btn:not(:last-child):after {
+    content: "  ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    left: 100%;
+    z-index: 3;
+  }
+  .btn-breadcrumb .btn:not(:last-child):before {
+    content: "  ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid rgb(173, 173, 173);
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 3;
+  }
 
-/** The Spacing **/
-.btn-breadcrumb .btn {
-  padding:6px 12px 6px 24px;
-}
-.btn-breadcrumb .btn:first-child {
-  padding:6px 6px 6px 10px;
-}
-.btn-breadcrumb .btn:last-child {
-  padding:6px 18px 6px 24px;
-}
+  /** The Spacing **/
+  .btn-breadcrumb .btn {
+    padding:6px 12px 6px 24px;
+  }
+  .btn-breadcrumb .btn:first-child {
+    padding:6px 6px 6px 10px;
+  }
+  .btn-breadcrumb .btn:last-child {
+    padding:6px 18px 6px 24px;
+  }
 
-/** The buttons **/
-.btn-breadcrumb .btn.btn-success:not(:last-child):after {
-  border-left: 10px solid #5cb85c;
-}
-.btn-breadcrumb .btn.btn-success:not(:last-child):before {
-  border-left: 10px solid #4cae4c;
-}
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
-  border-left: 10px solid #47a447;
-}
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
-  border-left: 10px solid #398439;
+  /** The buttons **/
+  .btn-breadcrumb .btn.btn-success:not(:last-child):after {
+    border-left: 10px solid #5cb85c;
+  }
+  .btn-breadcrumb .btn.btn-success:not(:last-child):before {
+    border-left: 10px solid #4cae4c;
+  }
+  .btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+    border-left: 10px solid #47a447;
+  }
+  .btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+    border-left: 10px solid #398439;
+
+    .nav-list {
+      li {
+        background-color: $primary-shade;
+        border-top: 1px solid $primary-color;
+        border-bottom: 1px solid $primary-color;
+        color: $off-white;
+        padding: 4px 15px;
+        float: right;
+        display: inline;
+      }
+    }
+
+  }
 
   .nav-list {
     li {
@@ -133,27 +147,19 @@ a, a:hover, a:focus { text-decoration: none; }
       border-bottom: 1px solid $primary-color;
       color: $off-white;
       padding: 4px 15px;
-      float: right;
-      display: inline;
     }
   }
 
-}
-
-// .list-group {
-//   display: inline-block;
-//   float: center;
-// }
-
-.nav-list {
-  li {
-    background-color: $primary-shade;
-    border-top: 1px solid $primary-color;
-    border-bottom: 1px solid $primary-color;
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+    font-size: 0.75em;
+    padding: 0.5em 0;
+    background-color: $primary-color;
     color: $off-white;
-    padding: 4px 15px;
   }
-}
 }
 
 /* Small Devices, Tablets */
@@ -201,11 +207,6 @@ a, a:hover, a:focus { text-decoration: none; }
     }
   }
 
-  .wrapper {
-    min-height: 100%;
-    margin-bottom: 0 auto -2em;
-  }
-
   .push {
     height: 2em;
   }
@@ -238,7 +239,9 @@ a, a:hover, a:focus { text-decoration: none; }
   border: 1px solid red;
 }
 
-
+// ====================
+// Buttons
+// ====================
 .btn-green {
  background: -webkit-linear-gradient(top, $primary-shade, $primary-tint);
    background: -o-linear-gradient(top, $primary-shade, $primary-tint);
@@ -251,8 +254,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $primary-color;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $primary-color;
+  &:active {
+    background-color: $primary-color !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
@@ -268,8 +275,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $secondary-shade;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $secondary-shade;
+  &:active {
+    background-color: $secondary-shade !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
@@ -285,8 +296,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $tertiary-shade;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $tertiary-shade;
+  &:active {
+    background-color: $tertiary-shade !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
