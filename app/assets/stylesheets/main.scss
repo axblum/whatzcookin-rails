@@ -253,8 +253,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $primary-color;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $primary-color;
+  &:active {
+    background-color: $primary-color !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
@@ -270,8 +274,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $secondary-shade;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $secondary-shade;
+  &:active {
+    background-color: $secondary-shade !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
@@ -287,8 +295,12 @@ a, a:hover, a:focus { text-decoration: none; }
     background: $tertiary-shade;
     color: $off-white;
   }
-  &:active, &:focus {
-    background: $tertiary-shade;
+  &:active {
+    background-color: $tertiary-shade !important;
+    color: $off-white !important;
+  }
+  &:focus {
+    color: $off-white !important;
   }
 }
 
